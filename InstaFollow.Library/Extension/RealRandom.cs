@@ -2,7 +2,7 @@
 
 namespace InstaFollow.Library.Extension
 {
-	public class RealRandom : IRandomizer
+	public class RealRandom : Random, IRandomizer
 	{
 		private static IRandomizer instance;
 
@@ -15,12 +15,12 @@ namespace InstaFollow.Library.Extension
 
 		public int Generate(int max)
 		{
-			return new Random().Next(0, max);
+			return this.Next(max);
 		}
 
 		public int Generate(int min, int max)
 		{
-			return new Random().Next(min, max);
+			return this.Next(min, max);
 		}
 	}
 }
