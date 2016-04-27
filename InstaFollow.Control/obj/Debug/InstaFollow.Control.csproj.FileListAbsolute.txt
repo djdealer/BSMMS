@@ -1,7 +1,0 @@
-D:\Projects\InstaFollow\InstaFollow.Control\bin\Debug\InstaFollow.Control.dll
-D:\Projects\InstaFollow\InstaFollow.Control\bin\Debug\InstaFollow.Control.pdb
-D:\Projects\InstaFollow\InstaFollow.Control\obj\Debug\InstaFollow.Control.dll
-D:\Projects\InstaFollow\InstaFollow.Control\obj\Debug\InstaFollow.Control.pdb
-D:\Projects\InstaFollow\InstaFollow.Control\bin\Debug\log4net.dll
-D:\Projects\InstaFollow\InstaFollow.Control\bin\Debug\log4net.xml
-D:\Projects\InstaFollow\InstaFollow.Control\obj\Debug\InstaFollow.Control.csprojResolveAssemblyReference.cache

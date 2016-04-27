@@ -1,6 +1,0 @@
-D:\Projects\InstaFollow\InstaFollow.Library\bin\Debug\InstaFollow.Library.dll
-D:\Projects\InstaFollow\InstaFollow.Library\bin\Debug\InstaFollow.Library.pdb
-D:\Projects\InstaFollow\InstaFollow.Library\obj\Debug\InstaFollow.Library.dll
-D:\Projects\InstaFollow\InstaFollow.Library\obj\Debug\InstaFollow.Library.pdb
-D:\Projects\InstaFollow\InstaFollow.Library\bin\Debug\log4net.dll
-D:\Projects\InstaFollow\InstaFollow.Library\bin\Debug\log4net.xml
