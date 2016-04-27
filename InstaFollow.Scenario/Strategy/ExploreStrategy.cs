@@ -74,6 +74,10 @@ namespace InstaFollow.Scenario.Strategy
 				}
 
 				var exploreResponse = InstagramInstagramHttpContainer.Instance.InstagramGet(string.Format(ExploreUri, keyword));
+				if (exploreResponse == string.Empty)
+				{
+					continue;
+				}
 
 				var mediaJson =
 					Regex.Matches(exploreResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1]
@@ -154,44 +158,57 @@ namespace InstaFollow.Scenario.Strategy
 		/// </summary>
 		private void GetDetails()
 		{
-			var detailResponse = InstagramInstagramHttpContainer.Instance.InstagramGet(string.Format(DetailUri, this.ImageCode));
-			var mediaJson = Regex.Matches(detailResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1].Value;
-			this.CsrfToken = Regex.Match(detailResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
-
-			dynamic dyn = JsonConvert.DeserializeObject(mediaJson);
-			dynamic dynMedia = JsonConvert.DeserializeObject(dyn.entry_data.PostPage[0].ToString());
-
-			this.ImageId = dynMedia.media.id.ToString();
-			this.AuthorId = dynMedia.media.owner.id.ToString();
-			this.Referrer = string.Format(DetailUri, this.ImageCode);
-			var followed = Convert.ToBoolean(dynMedia.media.owner.followed_by_viewer);
-			var requested = Convert.ToBoolean(dynMedia.media.owner.requested_by_viewer);
-			var liked = Convert.ToBoolean(dynMedia.media.likes.viewer_has_liked);
-			var commented = this.CheckAlreadyCommented(dynMedia.media.comments);
-
-			var random = this.rnd.Generate(0, 1000);
-
-			if (this.CurrentContext.Follow && random > 0 && random < 333 && !followed && !requested)
+			try
 			{
-				this.log.Info("Following user id: " + this.AuthorId);
-				this.FollowItemAuthor();
-				Thread.Sleep(this.GetRandomTimeout());
+				var detailResponse = InstagramInstagramHttpContainer.Instance.InstagramGet(string.Format(DetailUri, this.ImageCode));
+				if (detailResponse == string.Empty)
+				{
+					return;
+				}
+
+				var mediaJson = Regex.Matches(detailResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1].Value;
+				this.CsrfToken = Regex.Match(detailResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
+
+				dynamic dyn = JsonConvert.DeserializeObject(mediaJson);
+				dynamic dynMedia = JsonConvert.DeserializeObject(dyn.entry_data.PostPage[0].ToString());
+
+				this.ImageId = dynMedia.media.id.ToString();
+				this.AuthorId = dynMedia.media.owner.id.ToString();
+				this.Referrer = string.Format(DetailUri, this.ImageCode);
+				var followed = Convert.ToBoolean(dynMedia.media.owner.followed_by_viewer);
+				var requested = Convert.ToBoolean(dynMedia.media.owner.requested_by_viewer);
+				var liked = Convert.ToBoolean(dynMedia.media.likes.viewer_has_liked);
+				var commented = this.CheckAlreadyCommented(dynMedia.media.comments);
+
+				var random = this.rnd.Generate(0, 1000);
+
+				if (this.CurrentContext.Follow && random > 0 && random < 333 && !followed && !requested)
+				{
+					this.log.Info("Following user id: " + this.AuthorId);
+					this.FollowItemAuthor();
+					Thread.Sleep(this.GetRandomTimeout());
+				}
+
+				if (this.CurrentContext.Like && !liked)
+				{
+					this.log.Info("Liking image id: " + this.ImageId);
+					this.LikeItem();
+					Thread.Sleep(this.GetRandomTimeout());
+				}
+
+				if (this.CurrentContext.Comment && random > 333 && random < 666 && !commented)
+				{
+					this.Comment = this.CurrentContext.CommentString.Spin();
+
+					this.log.Info("Commenting image id: " + this.ImageId + " with text: '" + this.Comment + "'");
+					this.CommentItem();
+					Thread.Sleep(this.GetRandomTimeout());
+				}	
 			}
-
-			if (this.CurrentContext.Like && !liked)
+			catch (FormatException fex)
 			{
-				this.log.Info("Liking image id: " + this.ImageId);
-				this.LikeItem();
-				Thread.Sleep(this.GetRandomTimeout());
-			}
-
-			if (this.CurrentContext.Comment && random > 333 && random < 666 && !commented)
-			{
-				this.Comment = this.CurrentContext.CommentString.Spin();
-
-				this.log.Info("Commenting image id: " + this.ImageId);
-				this.CommentItem();
-				Thread.Sleep(this.GetRandomTimeout());
+				this.log.Error(fex.Message);
+				throw;
 			}
 		}
 
@@ -226,11 +243,6 @@ namespace InstaFollow.Scenario.Strategy
 			{
 				this.CurrentContext.Comment = false;
 				this.log.Error(ex.Message);
-			}
-			catch (FormatException fex)
-			{
-				this.log.Error(fex.Message);
-				throw;
 			}
 		}
 

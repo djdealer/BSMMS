@@ -16,16 +16,31 @@ namespace InstaFollow.Library.Container
 
 		private readonly CookieContainer cookies;
 
+		/// <summary>
+		/// Prevents a default instance of the <see cref="InstagramInstagramHttpContainer"/> class from being created.
+		/// </summary>
 		private InstagramInstagramHttpContainer()
 		{
 			this.cookies = new CookieContainer();
 		}
 
+		/// <summary>
+		/// Gets the instance.
+		/// </summary>
+		/// <value>
+		/// The instance.
+		/// </value>
 		public static IInstagramHttpContainer Instance
 		{
 			get { return instance ?? (instance = new InstagramInstagramHttpContainer()); }
 		}
 
+		/// <summary>
+		/// Sends a GET request to instagram
+		/// </summary>
+		/// <param name="page">The page.</param>
+		/// <param name="referrer">The referrer.</param>
+		/// <returns>The response string.</returns>
 		public string InstagramGet(string page, string referrer = null)
 		{
 			try
@@ -49,10 +64,25 @@ namespace InstaFollow.Library.Container
 			catch (Exception ex)
 			{
 				this.log.Error(ex.Message);
-				throw;
+				if (!ex.Message.Contains("404"))
+				{
+					throw;
+				}
+				
+				return string.Empty;
 			}
 		}
 
+		/// <summary>
+		/// Sends a POST request to instagram
+		/// </summary>
+		/// <param name="page">The page.</param>
+		/// <param name="csrfToken">The CSRF token.</param>
+		/// <param name="referrer">The referrer.</param>
+		/// <param name="postData">The post data.</param>
+		/// <param name="isCommentRequest">if set to <c>true</c> is comment request.</param>
+		/// <returns>The response string.</returns>
+		/// <exception cref="InstagramCommentException">Error commenting! Will turn off this feature.</exception>
 		public string InstagramPost(string page, string csrfToken, string referrer = null, string postData = "", bool isCommentRequest = false)
 		{
 			try
@@ -102,6 +132,12 @@ namespace InstaFollow.Library.Container
 			}
 		}
 
+		/// <summary>
+		/// Sends a login request to instagram
+		/// </summary>
+		/// <param name="userName">Name of the user.</param>
+		/// <param name="password">The password.</param>
+		/// <returns>True on success, false otherwise.</returns>
 		public bool InstagramLogin(string userName, string password)
 		{
 			try
@@ -112,6 +148,12 @@ namespace InstaFollow.Library.Container
 				const string loginPostUrl = loginUrl + "ajax/";
 
 				var loginPage = this.InstagramGet(loginUrl);
+
+				if (loginPage == string.Empty)
+				{
+					throw new Exception("Something went wrong with login page!");
+				}
+
 				var csrfToken = Regex.Match(loginPage, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
 
 				userName = WebUtility.UrlEncode(userName);
