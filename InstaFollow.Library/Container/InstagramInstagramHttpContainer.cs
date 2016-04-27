@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
 using InstaFollow.Library.Exceptions;
 using log4net;
 
@@ -87,7 +88,8 @@ namespace InstaFollow.Library.Container
 		{
 			try
 			{
-				var bytes = Encoding.UTF8.GetBytes(postData);
+				var postDataEncoded = HttpUtility.UrlEncode(postData);
+				var bytes = Encoding.UTF8.GetBytes(postDataEncoded ?? string.Empty);
 
 				var request = (HttpWebRequest) WebRequest.Create(page);
 				request.Method = "POST";
