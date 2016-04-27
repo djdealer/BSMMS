@@ -1,0 +1,8 @@
+﻿<Window x:Class="InstaFollow.Form.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:InstaFollow.Form.View"
+        Title="InstaFollow" Height="600" Width="500" 
+        ResizeMode="CanMinimize">
+    <view:MainView />
+</Window>

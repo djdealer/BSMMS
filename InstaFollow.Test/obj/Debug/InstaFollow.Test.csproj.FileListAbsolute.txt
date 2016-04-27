@@ -1,0 +1,16 @@
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\InstaFollow.Test.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\InstaFollow.Test.pdb
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\Moq.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\Moq.xml
+D:\Projects\InstaFollow\InstaFollow.Test\obj\Debug\InstaFollow.Test.dll
+D:\Projects\InstaFollow\InstaFollow.Test\obj\Debug\InstaFollow.Test.pdb
+D:\Projects\InstaFollow\InstaFollow.Test\obj\Debug\InstaFollow.Test.csprojResolveAssemblyReference.cache
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\InstaFollow.Library.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\InstaFollow.Scenario.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\log4net.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\MvvmFoundation.Wpf.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\InstaFollow.Library.pdb
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\InstaFollow.Scenario.pdb
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\log4net.xml
+D:\Projects\InstaFollow\InstaFollow.Test\bin\Debug\Newtonsoft.Json.xml

@@ -1,0 +1,12 @@
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\InstaFollow.Scenario.dll
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\InstaFollow.Scenario.pdb
+D:\Projects\InstaFollow\InstaFollow.Scenario\obj\Debug\InstaFollow.Scenario.dll
+D:\Projects\InstaFollow\InstaFollow.Scenario\obj\Debug\InstaFollow.Scenario.pdb
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\log4net.dll
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\MvvmFoundation.Wpf.dll
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\log4net.xml
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\InstaFollow.Library.dll
+D:\Projects\InstaFollow\InstaFollow.Scenario\bin\Debug\InstaFollow.Library.pdb
+D:\Projects\InstaFollow\InstaFollow.Scenario\obj\Debug\InstaFollow.Scenario.csprojResolveAssemblyReference.cache
