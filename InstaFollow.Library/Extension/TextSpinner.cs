@@ -1,4 +1,5 @@
 ﻿using System;
+using log4net;
 
 namespace InstaFollow.Library.Extension
 {
@@ -8,15 +9,16 @@ namespace InstaFollow.Library.Extension
 	/// <example>
 	/// TextSpinner.Spin("{The {quick|fast|speedy} brown fox {jumped|leaped|hopped} {over|right over|over the top of} the {lazy|sluggish|care-free|relaxing} dog.|{While|Although} just {taking|having} a{| little| quick} {siesta|nap} the dog was {startled|shocked|surprised} by a {quick|fast|speedy} {brown|dark brown|brownish} fox that {leaped|jumped} right {over|over the top of} him.}");
 	/// </example>
-	public static class TextSpinner
+	public class TextSpinner
 	{
-		public static IRandomizer randomizer = new RealRandom();
-		public static long permutations = 1;
+		private readonly ILog log = LogManager.GetLogger(typeof(TextSpinner));
+		public IRandomizer randomizer = RealRandom.Instance;
+		public long permutations = 1;
 		private const char OpenBrace = '{';
 		private const char CloseBrace = '}';
 		private const char Delimiter = '|';
 
-		public static string Spin(this string content)
+		public string Spin(string content)
 		{
 			// quick data sanity check
 			if (content == null)
@@ -41,7 +43,7 @@ namespace InstaFollow.Library.Extension
 			var substring = content.Substring(start + 1, content.Length - (start + 1));
 
 			// recursion
-			var rest = Spin(substring);
+			var rest = this.Spin(substring);
 			end = rest.IndexOf(CloseBrace);
 
 			// check for issues
@@ -54,13 +56,13 @@ namespace InstaFollow.Library.Extension
 			var options = rest.Substring(0, end).Split(Delimiter);
 
 			// update permutations count
-			permutations *= options.Length;
+			this.permutations *= options.Length;
 
 			// get random item
-			var item = options[randomizer.Generate(options.Length)];
+			var item = options[this.randomizer.Generate(options.Length)];
 
 			// substitute content and recurse the rest
-			return content.Substring(0, start) + item + Spin(rest.Substring(end + 1, rest.Length - (end + 1)));
+			return content.Substring(0, start) + item + this.Spin(rest.Substring(end + 1, rest.Length - (end + 1)));
 		}
 
 		/// <summary>
@@ -68,13 +70,13 @@ namespace InstaFollow.Library.Extension
 		/// </summary>
 		/// <param name="content">The text to spin.</param>
 		/// <returns>Integer containing the permutation count.</returns>
-		public static long Permutations(string content)
+		public long Permutations(string content)
 		{
-			permutations = 1;
+			this.permutations = 1;
 
-			Spin(content);
+			this.Spin(content);
 
-			return permutations;
+			return this.permutations;
 		}
 	}
 }

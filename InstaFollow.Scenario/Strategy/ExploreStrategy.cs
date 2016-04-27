@@ -42,7 +42,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// <param name="context">The context.</param>
 		public ExploreStrategy(IExploreContext context) : base(context)
 		{
-			this.rnd = new RealRandom();
+			this.rnd = RealRandom.Instance;
 		}
 
 		/// <summary>
@@ -198,7 +198,7 @@ namespace InstaFollow.Scenario.Strategy
 
 				if (this.CurrentContext.Comment && random > 333 && random < 666 && !commented)
 				{
-					this.Comment = this.CurrentContext.CommentString.Spin();
+					this.Comment = new TextSpinner().Spin(this.CurrentContext.CommentString);
 
 					this.log.Info("Commenting image id: " + this.ImageId + " with text: '" + this.Comment + "'");
 					this.CommentItem();
