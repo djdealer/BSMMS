@@ -12,7 +12,7 @@ namespace InstaFollow.Library.Extension
 	public class TextSpinner
 	{
 		private readonly ILog log = LogManager.GetLogger(typeof(TextSpinner));
-		public IRandomizer randomizer = RealRandom.Instance;
+		public IRandomizer randomizer = Randomizer.Instance;
 		public long permutations = 1;
 		private const char OpenBrace = '{';
 		private const char CloseBrace = '}';

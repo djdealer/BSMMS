@@ -50,7 +50,7 @@
     <Compile Include="Container\IInstagramHttpContainer.cs" />
     <Compile Include="Container\InstagramInstagramHttpContainer.cs" />
     <Compile Include="Extension\IRandomizer.cs" />
-    <Compile Include="Extension\RealRandom.cs" />
+    <Compile Include="Extension\Randomizer.cs" />
     <Compile Include="Extension\ThreadDispatcher.cs" />
     <Compile Include="Extension\TextSpinner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

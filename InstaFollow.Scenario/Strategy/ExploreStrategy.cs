@@ -42,7 +42,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// <param name="context">The context.</param>
 		public ExploreStrategy(IExploreContext context) : base(context)
 		{
-			this.rnd = RealRandom.Instance;
+			this.rnd = Randomizer.Instance;
 		}
 
 		/// <summary>

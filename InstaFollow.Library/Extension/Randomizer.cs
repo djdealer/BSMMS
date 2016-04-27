@@ -2,15 +2,15 @@
 
 namespace InstaFollow.Library.Extension
 {
-	public class RealRandom : Random, IRandomizer
+	public class Randomizer : Random, IRandomizer
 	{
 		private static IRandomizer instance;
 
-		private RealRandom() { }
+		private Randomizer() { }
 
 		public static IRandomizer Instance
 		{
-			get { return instance ?? (instance = new RealRandom()); }
+			get { return instance ?? (instance = new Randomizer()); }
 		}
 
 		public int Generate(int max)
