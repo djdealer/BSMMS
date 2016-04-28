@@ -53,6 +53,13 @@ namespace InstaFollow.Scenario.Strategy
 		{
 			try
 			{
+				ThreadDispatcher.Invoke(() => this.CurrentContext.ProcessState = ProcessState.Running);
+
+				if (!InstagramInstagramHttpContainer.Instance.InstagramLogin(this.CurrentContext.UserName, this.CurrentContext.Password))
+				{
+					throw new InstagramException("An error occured during login!");
+				}
+
 				this.ExploreKeywords();
 			}
 			catch (Exception ex)
@@ -63,7 +70,6 @@ namespace InstaFollow.Scenario.Strategy
 
 		private void ExploreKeywords()
 		{
-			ThreadDispatcher.Invoke(() => this.CurrentContext.ProcessState = ProcessState.Running);
 			foreach (var keyword in this.CurrentContext.Keywords.Split('|'))
 			{
 				this.log.Info("Working on keyword: " + keyword);

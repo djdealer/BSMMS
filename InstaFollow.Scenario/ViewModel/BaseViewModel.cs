@@ -1,4 +1,3 @@
-using InstaFollow.Core.Container;
 using InstaFollow.Core.Factory;
 using InstaFollow.Core.UI;
 using InstaFollow.Core.UI.ViewModel;

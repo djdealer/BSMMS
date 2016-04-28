@@ -98,13 +98,25 @@ namespace InstaFollow.Scenario.Command
 			}
 		}
 
+		/// <summary>
+		/// Evaluates if the command can be executed.
+		/// </summary>
+		/// <returns>True if command can be executed, otherwise false.</returns>
 		protected internal abstract bool EvaluateCanExecute();
 
+		/// <summary>
+		/// Updates this instance.
+		/// </summary>
 		protected virtual void Update()
 		{
 			this.UpdateCanExecute();
 		}
 
+		/// <summary>
+		/// Contexts the property changed.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="propertyChangedEventArgs">The <see cref="PropertyChangedEventArgs"/> instance containing the event data.</param>
 		private void ContextPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
 		{
 			this.Update();

@@ -37,13 +37,7 @@ namespace InstaFollow.Scenario.Command
 		{
 			try
 			{
-				if (!InstagramInstagramHttpContainer.Instance.InstagramLogin(this.CurrentContext.UserName, this.CurrentContext.Password))
-				{
-					throw new InstagramException("An error occured during login!");
-				}
-
 				var strategy = new ExploreStrategy(this.CurrentContext);
-
 				new Thread(() => strategy.Explore()).Start();
 			}
 			catch (InstagramException iex)
