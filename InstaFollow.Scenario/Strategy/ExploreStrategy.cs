@@ -110,17 +110,17 @@ namespace InstaFollow.Scenario.Strategy
 					Thread.Sleep(this.GetRandomTimeout());
 				}
 
-				var postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
-					.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
-
-				var json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf,
-					string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
-				dyn = JsonConvert.DeserializeObject(json);
-
 				if (this.CurrentContext.Paging)
 				{
 					while (Convert.ToBoolean(dyn.media.page_info.has_next_page) == true)
 					{
+						var postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
+							.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
+
+						var json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf,
+							string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
+						dyn = JsonConvert.DeserializeObject(json);
+
 						foreach (var node in dyn.media.nodes)
 						{
 							this.log.Info("Working on image: " + node.code.ToString());
