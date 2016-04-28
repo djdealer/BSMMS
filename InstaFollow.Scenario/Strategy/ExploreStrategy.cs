@@ -28,12 +28,7 @@ namespace InstaFollow.Scenario.Strategy
 		private readonly IRandomizer rnd;
 		private readonly IInstagramHttpContainer httpContainer;
 
-		private string ImageCode { get; set; }
-		private string Comment { get; set; }
-		private string AuthorId { get; set; }
-		private string ImageId { get; set; }
-		private string CsrfToken { get; set; }
-		private string Referrer { get; set; }
+		private string imageCode, comment, authorId, imageId, csrfToken, referrer;
 
 		#endregion
 
@@ -71,6 +66,9 @@ namespace InstaFollow.Scenario.Strategy
 			}
 		}
 
+		/// <summary>
+		/// Explores the keywords.
+		/// </summary>
 		private void ExploreKeywords()
 		{
 			foreach (var keyword in this.CurrentContext.Keywords.Split('|'))
@@ -91,7 +89,7 @@ namespace InstaFollow.Scenario.Strategy
 				var mediaJson =
 					Regex.Matches(exploreResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1]
 						.Value;
-				var csrfToken = Regex.Match(exploreResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
+				var keywordCsrf = Regex.Match(exploreResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
 
 				dynamic dyn = JsonConvert.DeserializeObject(mediaJson);
 
@@ -107,7 +105,7 @@ namespace InstaFollow.Scenario.Strategy
 
 					this.SetNewImage(node);
 
-					this.ImageCode = node.code.ToString();
+					this.imageCode = node.code.ToString();
 					this.GetDetails();
 					Thread.Sleep(this.GetRandomTimeout());
 				}
@@ -115,7 +113,7 @@ namespace InstaFollow.Scenario.Strategy
 				var postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
 					.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
 
-				var json = this.httpContainer.InstagramPost(PageQueryString, csrfToken,
+				var json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf,
 					string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
 				dyn = JsonConvert.DeserializeObject(json);
 
@@ -135,7 +133,7 @@ namespace InstaFollow.Scenario.Strategy
 
 							this.SetNewImage(node);
 
-							this.ImageCode = node.code.ToString();
+							this.imageCode = node.code.ToString();
 							this.GetDetails();
 							Thread.Sleep(this.GetRandomTimeout());
 						}
@@ -151,7 +149,7 @@ namespace InstaFollow.Scenario.Strategy
 						postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
 							.Replace("%1%", dyn.media.page_info.end_cursor.ToString());
 
-						json = this.httpContainer.InstagramPost(PageQueryString, csrfToken,
+						json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf,
 							string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
 						dyn = JsonConvert.DeserializeObject(json);
 					}
@@ -169,21 +167,21 @@ namespace InstaFollow.Scenario.Strategy
 		{
 			try
 			{
-				var detailResponse = this.httpContainer.InstagramGet(string.Format(DetailUri, this.ImageCode));
+				var detailResponse = this.httpContainer.InstagramGet(string.Format(DetailUri, this.imageCode));
 				if (detailResponse == string.Empty)
 				{
 					return;
 				}
 
 				var mediaJson = Regex.Matches(detailResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1].Value;
-				this.CsrfToken = Regex.Match(detailResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
+				this.csrfToken = Regex.Match(detailResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
 
 				dynamic dyn = JsonConvert.DeserializeObject(mediaJson);
 				dynamic dynMedia = JsonConvert.DeserializeObject(dyn.entry_data.PostPage[0].ToString());
 
-				this.ImageId = dynMedia.media.id.ToString();
-				this.AuthorId = dynMedia.media.owner.id.ToString();
-				this.Referrer = string.Format(DetailUri, this.ImageCode);
+				this.imageId = dynMedia.media.id.ToString();
+				this.authorId = dynMedia.media.owner.id.ToString();
+				this.referrer = string.Format(DetailUri, this.imageCode);
 				var followed = Convert.ToBoolean(dynMedia.media.owner.followed_by_viewer);
 				var requested = Convert.ToBoolean(dynMedia.media.owner.requested_by_viewer);
 				var liked = Convert.ToBoolean(dynMedia.media.likes.viewer_has_liked);
@@ -193,23 +191,23 @@ namespace InstaFollow.Scenario.Strategy
 
 				if (this.CurrentContext.Follow && ((random > 0 && random < 333) || (random > 666)) && !followed && !requested)
 				{
-					this.log.Info("Following user id: " + this.AuthorId);
+					this.log.Info("Following user id: " + this.authorId);
 					this.FollowItemAuthor();
 					Thread.Sleep(this.GetRandomTimeout());
 				}
 
 				if (this.CurrentContext.Like && !liked)
 				{
-					this.log.Info("Liking image id: " + this.ImageId);
+					this.log.Info("Liking image id: " + this.imageId);
 					this.LikeItem();
 					Thread.Sleep(this.GetRandomTimeout());
 				}
 
 				if (this.CurrentContext.Comment && random > 333 && random < 666 && !commented)
 				{
-					this.Comment = new TextSpinner().Spin(this.CurrentContext.CommentString);
+					this.comment = new TextSpinner().Spin(this.CurrentContext.CommentString);
 
-					this.log.Info("Commenting image id: " + this.ImageId + " with text: '" + this.Comment + "'");
+					this.log.Info("Commenting image id: " + this.imageId + " with text: '" + this.comment + "'");
 					this.CommentItem();
 					Thread.Sleep(this.GetRandomTimeout());
 				}	
@@ -226,7 +224,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// </summary>
 		private void FollowItemAuthor()
 		{
-			this.httpContainer.InstagramPost(string.Format(FollowUri, this.AuthorId), this.CsrfToken, this.Referrer);
+			this.httpContainer.InstagramPost(string.Format(FollowUri, this.authorId), this.csrfToken, this.referrer);
 		}
 
 		/// <summary>
@@ -234,7 +232,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// </summary>
 		private void LikeItem()
 		{
-			this.httpContainer.InstagramPost(string.Format(LikeUri, this.ImageId), this.CsrfToken, this.Referrer);
+			this.httpContainer.InstagramPost(string.Format(LikeUri, this.imageId), this.csrfToken, this.referrer);
 		}
 
 		/// <summary>
@@ -244,9 +242,9 @@ namespace InstaFollow.Scenario.Strategy
 		{
 			try
 			{
-				var postData = "comment_text=" + this.Comment;
-				this.httpContainer.InstagramPost(string.Format(CommentUri, this.ImageId), this.CsrfToken,
-					this.Referrer, postData, true);
+				var postData = "comment_text=" + this.comment;
+				this.httpContainer.InstagramPost(string.Format(CommentUri, this.imageId), this.csrfToken,
+					this.referrer, postData, true);
 			}
 			catch (InstagramCommentException ex)
 			{

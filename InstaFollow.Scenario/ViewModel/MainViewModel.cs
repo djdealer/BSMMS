@@ -12,8 +12,7 @@ namespace InstaFollow.Scenario.ViewModel
 	{
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
-		private bool like, follow, comment;
-		private bool paging;
+		private bool like, follow, comment, paging;
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="MainViewModel"/> class from being created.
