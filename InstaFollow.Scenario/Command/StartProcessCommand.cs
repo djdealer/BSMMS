@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Exceptions;
@@ -10,8 +11,6 @@ namespace InstaFollow.Scenario.Command
 {
 	public class StartProcessCommand : BaseContextCommand<IExploreContext>
 	{
-		private readonly ILog log = LogManager.GetLogger(typeof(StartProcessCommand));
-
 		/// <summary>
 		/// Prevents a default instance of the <see cref="StartProcessCommand"/> class from being created.
 		/// </summary>
@@ -25,7 +24,7 @@ namespace InstaFollow.Scenario.Command
 		/// <exception cref="InstagramException">An error occured during login!</exception>
 		public override void Execute(object obj)
 		{
-			var strategy = new ExploreStrategy(this.CurrentContext);
+			var strategy = new ExploreStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
 			new Thread(() => strategy.Explore()).Start();
 		}
 

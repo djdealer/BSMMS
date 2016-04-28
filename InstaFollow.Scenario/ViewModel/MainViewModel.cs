@@ -281,6 +281,17 @@ namespace InstaFollow.Scenario.ViewModel
 		}
 
 		/// <summary>
+		/// Gets the progress header bulb.
+		/// </summary>
+		/// <value>
+		/// The progress header bulb.
+		/// </value>
+		public string ProgressHeaderBulb
+		{
+			get { return this.ProcessRunning ? @"..\Images\green_light.png" : @"..\Images\red_light.png"; }
+		}
+
+		/// <summary>
 		/// Gets or sets the state of the process.
 		/// </summary>
 		/// <value>
@@ -294,7 +305,7 @@ namespace InstaFollow.Scenario.ViewModel
 				this.processState = value;
 				this.RaisePropertyChanged("ProcessState");
 				this.RaisePropertyChanged("ProcessStateText");
-				this.RaisePropertyChanged("DoMarquee");
+				this.RaisePropertyChanged("ProcessRunning");
 				this.RaisePropertyChanged("StartCommandEnabled");
 				this.RaisePropertyChanged("StopCommandEndabled");
 				this.RaisePropertyChanged("StartButtonImage");
@@ -316,7 +327,7 @@ namespace InstaFollow.Scenario.ViewModel
 		/// <value>
 		///   <c>true</c> if it should marquee; otherwise, <c>false</c>.
 		/// </value>
-		public bool DoMarquee { get { return this.ProcessState == ProcessState.Running; } }
+		public bool ProcessRunning { get { return this.ProcessState == ProcessState.Running; } }
 
 		/// <summary>
 		/// Updates the current image (thread safe).

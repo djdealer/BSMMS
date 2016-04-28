@@ -26,6 +26,7 @@ namespace InstaFollow.Scenario.Strategy
 		private const string PageQueryPostString = @"q=ig_hashtag(%0%){media.after(%1%,12){count,nodes{caption,code,comments{count},date,dimensions{height,width},display_src,id,is_video,likes{count},owner{id},thumbnail_src},page_info}}&ref=tags::show";
 
 		private readonly IRandomizer rnd;
+		private readonly IInstagramHttpContainer httpContainer;
 
 		private string ImageCode { get; set; }
 		private string Comment { get; set; }
@@ -37,12 +38,14 @@ namespace InstaFollow.Scenario.Strategy
 		#endregion
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExploreStrategy"/> class.
+		/// Initializes a new instance of the <see cref="ExploreStrategy" /> class.
 		/// </summary>
 		/// <param name="context">The context.</param>
-		public ExploreStrategy(IExploreContext context) : base(context)
+		/// <param name="httpContainer">The HTTP container.</param>
+		public ExploreStrategy(IExploreContext context, IInstagramHttpContainer httpContainer) : base(context)
 		{
 			this.rnd = Randomizer.Instance;
+			this.httpContainer = httpContainer;
 		}
 
 		/// <summary>
@@ -55,7 +58,7 @@ namespace InstaFollow.Scenario.Strategy
 			{
 				ThreadDispatcher.Invoke(() => this.CurrentContext.ProcessState = ProcessState.Running);
 
-				if (!InstagramInstagramHttpContainer.Instance.InstagramLogin(this.CurrentContext.UserName, this.CurrentContext.Password))
+				if (!this.httpContainer.InstagramLogin(this.CurrentContext.UserName, this.CurrentContext.Password))
 				{
 					throw new InstagramException("An error occured during login!");
 				}
@@ -79,7 +82,7 @@ namespace InstaFollow.Scenario.Strategy
 					return;
 				}
 
-				var exploreResponse = InstagramInstagramHttpContainer.Instance.InstagramGet(string.Format(ExploreUri, keyword));
+				var exploreResponse = this.httpContainer.InstagramGet(string.Format(ExploreUri, keyword));
 				if (exploreResponse == string.Empty)
 				{
 					continue;
@@ -112,7 +115,7 @@ namespace InstaFollow.Scenario.Strategy
 				var postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
 					.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
 
-				var json = InstagramInstagramHttpContainer.Instance.InstagramPost(PageQueryString, csrfToken,
+				var json = this.httpContainer.InstagramPost(PageQueryString, csrfToken,
 					string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
 				dyn = JsonConvert.DeserializeObject(json);
 
@@ -148,7 +151,7 @@ namespace InstaFollow.Scenario.Strategy
 						postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
 							.Replace("%1%", dyn.media.page_info.end_cursor.ToString());
 
-						json = InstagramInstagramHttpContainer.Instance.InstagramPost(PageQueryString, csrfToken,
+						json = this.httpContainer.InstagramPost(PageQueryString, csrfToken,
 							string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
 						dyn = JsonConvert.DeserializeObject(json);
 					}
@@ -166,7 +169,7 @@ namespace InstaFollow.Scenario.Strategy
 		{
 			try
 			{
-				var detailResponse = InstagramInstagramHttpContainer.Instance.InstagramGet(string.Format(DetailUri, this.ImageCode));
+				var detailResponse = this.httpContainer.InstagramGet(string.Format(DetailUri, this.ImageCode));
 				if (detailResponse == string.Empty)
 				{
 					return;
@@ -223,7 +226,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// </summary>
 		private void FollowItemAuthor()
 		{
-			InstagramInstagramHttpContainer.Instance.InstagramPost(string.Format(FollowUri, this.AuthorId), this.CsrfToken, this.Referrer);
+			this.httpContainer.InstagramPost(string.Format(FollowUri, this.AuthorId), this.CsrfToken, this.Referrer);
 		}
 
 		/// <summary>
@@ -231,7 +234,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// </summary>
 		private void LikeItem()
 		{
-			InstagramInstagramHttpContainer.Instance.InstagramPost(string.Format(LikeUri, this.ImageId), this.CsrfToken, this.Referrer);
+			this.httpContainer.InstagramPost(string.Format(LikeUri, this.ImageId), this.CsrfToken, this.Referrer);
 		}
 
 		/// <summary>
@@ -242,7 +245,7 @@ namespace InstaFollow.Scenario.Strategy
 			try
 			{
 				var postData = "comment_text=" + this.Comment;
-				InstagramInstagramHttpContainer.Instance.InstagramPost(string.Format(CommentUri, this.ImageId), this.CsrfToken,
+				this.httpContainer.InstagramPost(string.Format(CommentUri, this.ImageId), this.CsrfToken,
 					this.Referrer, postData, true);
 			}
 			catch (InstagramCommentException ex)

@@ -9,18 +9,18 @@ using log4net;
 
 namespace InstaFollow.Core.Container
 {
-	public class InstagramInstagramHttpContainer : IInstagramHttpContainer
+	public class InstagramHttpContainer : IInstagramHttpContainer
 	{
-		private readonly ILog log = LogManager.GetLogger(typeof(InstagramInstagramHttpContainer));
+		private readonly ILog log = LogManager.GetLogger(typeof(InstagramHttpContainer));
 
 		private static IInstagramHttpContainer instance;
 
 		private readonly CookieContainer cookies;
 
 		/// <summary>
-		/// Prevents a default instance of the <see cref="InstagramInstagramHttpContainer"/> class from being created.
+		/// Prevents a default instance of the <see cref="InstagramHttpContainer"/> class from being created.
 		/// </summary>
-		private InstagramInstagramHttpContainer()
+		private InstagramHttpContainer()
 		{
 			this.cookies = new CookieContainer();
 		}
@@ -33,7 +33,7 @@ namespace InstaFollow.Core.Container
 		/// </value>
 		public static IInstagramHttpContainer Instance
 		{
-			get { return instance ?? (instance = new InstagramInstagramHttpContainer()); }
+			get { return instance ?? (instance = new InstagramHttpContainer()); }
 		}
 
 		/// <summary>

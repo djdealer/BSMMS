@@ -61,7 +61,7 @@
     <Compile Include="Exceptions\InstagramCommentException.cs" />
     <Compile Include="Exceptions\InstagramException.cs" />
     <Compile Include="Container\IInstagramHttpContainer.cs" />
-    <Compile Include="Container\InstagramInstagramHttpContainer.cs" />
+    <Compile Include="Container\InstagramHttpContainer.cs" />
     <Compile Include="Extension\IRandomizer.cs" />
     <Compile Include="Extension\Randomizer.cs" />
     <Compile Include="Extension\ThreadDispatcher.cs" />
