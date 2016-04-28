@@ -4,6 +4,7 @@
         xmlns:view="clr-namespace:InstaFollow.Form.View"
         Title="InstaFollow" Height="500" Width="450" 
         ResizeMode="CanMinimize"
-        Background="WhiteSmoke">
+        Background="WhiteSmoke"
+        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
     <view:MainView />
 </Window>
