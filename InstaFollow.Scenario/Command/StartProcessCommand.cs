@@ -1,12 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Diagnostics.Eventing.Reader;
 using System.Threading;
-using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Exceptions;
-using InstaFollow.Core.Extension;
 using InstaFollow.Scenario.Strategy;
 using log4net;
 
@@ -20,12 +16,6 @@ namespace InstaFollow.Scenario.Command
 		/// Prevents a default instance of the <see cref="StartProcessCommand"/> class from being created.
 		/// </summary>
 		private StartProcessCommand() { }
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="StartProcessCommand"/> class.
-		/// </summary>
-		/// <param name="context">The context.</param>
-		public StartProcessCommand(IExploreContext context) : base(context) { }
 
 		/// <summary>
 		/// Executes the command scenario.

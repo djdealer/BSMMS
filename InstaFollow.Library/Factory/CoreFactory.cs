@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Input;
-using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.UI;
 using InstaFollow.Core.UI.Command;

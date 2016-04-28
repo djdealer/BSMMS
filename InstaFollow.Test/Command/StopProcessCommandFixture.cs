@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InstaFollow.Core.Context;
+﻿using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
-using InstaFollow.Core.Extension;
+using InstaFollow.Core.Factory;
 using InstaFollow.Scenario.Command;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -21,7 +16,7 @@ namespace InstaFollow.Test.Command
 			var contextMoq = new Mock<IProcessStateContext>();
 			contextMoq.SetupAllProperties();
 
-			var unit = new StopProcessCommand(contextMoq.Object);
+			var unit = CoreFactory.Instance.CreateContextCommand<StopProcessCommand, IProcessStateContext>(contextMoq.Object);
 			unit.Execute(null);
 
 			Assert.AreEqual(contextMoq.Object.ProcessState, ProcessState.Stopped);
@@ -33,17 +28,17 @@ namespace InstaFollow.Test.Command
 			var contextMoq = new Mock<IProcessStateContext>();
 			contextMoq.SetupAllProperties();
 
-			var unit = new StopProcessCommand(contextMoq.Object);
+			var unit = CoreFactory.Instance.CreateContextCommand<StopProcessCommand, IProcessStateContext>(contextMoq.Object);
 
 			Assert.AreEqual(unit.CanExecute(null), false);
 
 			contextMoq.Setup(x => x.ProcessState).Returns(ProcessState.Running);
-			unit = new StopProcessCommand(contextMoq.Object);
+			unit = CoreFactory.Instance.CreateContextCommand<StopProcessCommand, IProcessStateContext>(contextMoq.Object);
 
 			Assert.AreEqual(unit.CanExecute(null), true);
 
 			contextMoq.Setup(x => x.ProcessState).Returns(ProcessState.Stopped);
-			unit = new StopProcessCommand(contextMoq.Object);
+			unit = CoreFactory.Instance.CreateContextCommand<StopProcessCommand, IProcessStateContext>(contextMoq.Object);
 
 			Assert.AreEqual(unit.CanExecute(null), false);
 		}

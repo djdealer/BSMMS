@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Input;
 using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Extension;
-using InstaFollow.Core.Factory;
 using InstaFollow.Scenario.Command;
 
 namespace InstaFollow.Scenario.ViewModel

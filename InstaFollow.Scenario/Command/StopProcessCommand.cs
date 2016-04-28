@@ -12,12 +12,6 @@ namespace InstaFollow.Scenario.Command
 		private StopProcessCommand() { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="StopProcessCommand"/> class.
-		/// </summary>
-		/// <param name="context">The context.</param>
-		public StopProcessCommand(IProcessStateContext context) : base(context) { }
-
-		/// <summary>
 		/// Executes the command.
 		/// Called by UI.
 		/// </summary>
