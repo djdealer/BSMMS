@@ -191,25 +191,26 @@ namespace InstaFollow.Scenario.Strategy
 
 				if (this.CurrentContext.Follow && ((random > 0 && random < 333) || (random > 666)) && !followed && !requested)
 				{
+					Thread.Sleep(this.GetRandomTimeout());
 					this.log.Info("Following user id: " + this.authorId);
 					this.FollowItemAuthor();
-					Thread.Sleep(this.GetRandomTimeout());
 				}
 
 				if (this.CurrentContext.Like && random > 666 && !liked)
 				{
+					Thread.Sleep(this.GetRandomTimeout());
 					this.log.Info("Liking image id: " + this.imageId);
 					this.LikeItem();
-					Thread.Sleep(this.GetRandomTimeout());
 				}
 
 				if (this.CurrentContext.Comment && random > 333 && random < 666 && !commented)
 				{
+					Thread.Sleep(this.GetRandomTimeout());
+
 					this.comment = new TextSpinner().Spin(this.CurrentContext.CommentString);
 
 					this.log.Info("Commenting image id: " + this.imageId + " with text: '" + this.comment + "'");
 					this.CommentItem();
-					Thread.Sleep(this.GetRandomTimeout());
 				}	
 			}
 			catch (FormatException fex)

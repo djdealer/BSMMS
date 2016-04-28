@@ -64,7 +64,7 @@ namespace InstaFollow.Core.Container
 			}
 			catch (Exception ex)
 			{
-				this.log.Error(ex.Message);
+				this.log.Error(ex.Message + "URL: " + page);
 				if (!ex.Message.Contains("404"))
 				{
 					throw;
@@ -123,7 +123,7 @@ namespace InstaFollow.Core.Container
 			}
 			catch (Exception ex)
 			{
-				this.log.Error(ex.Message);
+				this.log.Error(ex.Message + "URL: " + page);
 
 				if (!isCommentRequest)
 				{
@@ -195,7 +195,7 @@ namespace InstaFollow.Core.Container
 			}
 			catch (Exception ex)
 			{
-				this.log.Error(ex.Message);
+				this.log.Error(ex.Message + "User: " + userName);
 				throw;
 			}
 		}
