@@ -334,6 +334,7 @@ namespace InstaFollow.Scenario.ViewModel
 		/// <exception cref="System.NotImplementedException"></exception>
 		public void HandleException(Exception ex)
 		{
+			this.ProcessState = ProcessState.Error;
 			this.WindowService.ShowExceptionMessageBox(ex);
 		}
 	}

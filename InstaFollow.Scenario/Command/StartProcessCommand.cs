@@ -25,35 +25,8 @@ namespace InstaFollow.Scenario.Command
 		/// <exception cref="InstagramException">An error occured during login!</exception>
 		public override void Execute(object obj)
 		{
-			try
-			{
-				var strategy = new ExploreStrategy(this.CurrentContext);
-				new Thread(() => strategy.Explore()).Start();
-			}
-			catch (InstagramException iex)
-			{
-				this.HandleException(iex);
-			}
-			catch (Exception ex)
-			{
-				this.HandleException(ex);
-			}
-		}
-
-		public void HandleException(Exception ex)
-		{
-			this.CurrentContext.ProcessState = ProcessState.Error;
-
-			if (ex is InstagramException)
-			{
-				log.Error(ex.Message);
-			}
-			else
-			{
-				log.Fatal(ex.Message);
-			}
-
-			this.CurrentContext.HandleException(ex);
+			var strategy = new ExploreStrategy(this.CurrentContext);
+			new Thread(() => strategy.Explore()).Start();
 		}
 
 		/// <summary>
