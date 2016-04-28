@@ -196,7 +196,7 @@ namespace InstaFollow.Scenario.Strategy
 					Thread.Sleep(this.GetRandomTimeout());
 				}
 
-				if (this.CurrentContext.Like && !liked)
+				if (this.CurrentContext.Like && random > 666 && !liked)
 				{
 					this.log.Info("Liking image id: " + this.imageId);
 					this.LikeItem();
