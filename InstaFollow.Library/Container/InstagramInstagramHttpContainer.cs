@@ -191,7 +191,7 @@ namespace InstaFollow.Core.Container
 
 				this.log.Info(authResponse.ToString());
 
-				return authResponse.ToString().Contains("\"authenticated\":true");
+				return authResponse.ToString().Replace(" ", string.Empty).Contains("\"authenticated\":true");
 			}
 			catch (Exception ex)
 			{

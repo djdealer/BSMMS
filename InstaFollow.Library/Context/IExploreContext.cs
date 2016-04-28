@@ -1,7 +1,7 @@
 ﻿using System;
 using InstaFollow.Core.Container;
 
-namespace InstaFollow.Scenario.Context
+namespace InstaFollow.Core.Context
 {
 	public interface IExploreContext : IProcessStateContext
 	{

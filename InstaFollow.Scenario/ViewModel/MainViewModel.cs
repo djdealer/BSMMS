@@ -2,10 +2,11 @@
 using System.Windows;
 using System.Windows.Input;
 using InstaFollow.Core.Container;
+using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Extension;
+using InstaFollow.Core.Factory;
 using InstaFollow.Scenario.Command;
-using InstaFollow.Scenario.Context;
 
 namespace InstaFollow.Scenario.ViewModel
 {
@@ -15,7 +16,6 @@ namespace InstaFollow.Scenario.ViewModel
 		private ProcessState processState;
 		private bool like, follow, comment;
 		private bool paging;
-		private readonly IMessageBoxService msgBox;
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="MainViewModel"/> class from being created.
@@ -23,15 +23,13 @@ namespace InstaFollow.Scenario.ViewModel
 		private MainViewModel() { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MainViewModel" /> class.
+		/// Initializes this instance.
 		/// </summary>
-		/// <param name="msgBoxService">The message box service.</param>
-		public MainViewModel(IMessageBoxService msgBoxService)
+		public void Init()
 		{
 			ThreadDispatcher.Initialize();
-			this.msgBox = msgBoxService;
-			this.StartProcessCommand = this.CreateContextCommand<StartProcessCommand, IExploreContext>();
-			this.StopProcessCommand = this.CreateContextCommand<StopProcessCommand, IProcessStateContext>();
+			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartProcessCommand, IExploreContext>(this);
+			this.StopProcessCommand = this.CoreFactory.CreateContextCommand<StopProcessCommand, IProcessStateContext>(this);
 		}
 
 		/// <summary>
@@ -338,7 +336,7 @@ namespace InstaFollow.Scenario.ViewModel
 		/// <exception cref="System.NotImplementedException"></exception>
 		public void HandleException(Exception ex)
 		{
-			this.msgBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+			this.WindowService.ShowExceptionMessageBox(ex);
 		}
 	}
 }

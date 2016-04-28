@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Extension;
 using InstaFollow.Scenario.Command;
-using InstaFollow.Scenario.Context;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

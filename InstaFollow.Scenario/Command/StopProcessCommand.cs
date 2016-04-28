@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
+using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
-using InstaFollow.Scenario.Context;
 
 namespace InstaFollow.Scenario.Command
 {

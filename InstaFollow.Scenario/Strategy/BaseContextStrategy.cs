@@ -1,4 +1,4 @@
-﻿using InstaFollow.Scenario.Context;
+﻿using InstaFollow.Core.Context;
 
 namespace InstaFollow.Scenario.Strategy
 {

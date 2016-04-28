@@ -3,11 +3,11 @@ using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Threading;
 using InstaFollow.Core.Container;
+using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Exceptions;
 using InstaFollow.Core.Extension;
 using InstaFollow.Scenario.Strategy;
-using InstaFollow.Scenario.Context;
 using log4net;
 
 namespace InstaFollow.Scenario.Command
@@ -26,31 +26,6 @@ namespace InstaFollow.Scenario.Command
 		/// </summary>
 		/// <param name="context">The context.</param>
 		public StartProcessCommand(IExploreContext context) : base(context) { }
-
-		#region context implementations
-
-		public event PropertyChangedEventHandler PropertyChanged;
-		public string UserName { get { return this.CurrentContext.UserName; } }
-		public string Keywords { get { return this.CurrentContext.Keywords; } }
-		public string CommentString { get { return this.CurrentContext.CommentString; } }
-		public bool Like { get { return this.CurrentContext.Like; } }
-		public bool Follow { get { return this.CurrentContext.Follow; } }
-		public bool Comment { get { return this.CurrentContext.Comment; } set { this.CurrentContext.Comment = value; }}
-		public bool Paging { get { return this.CurrentContext.Paging; } }
-		public TimeoutRangeContainer TimeoutRange { get { return this.CurrentContext.TimeoutRange; } }
-
-		public void UpdateCurrentImage(string imageUrl)
-		{
-			ThreadDispatcher.Invoke(() => this.CurrentContext.UpdateCurrentImage(imageUrl));
-		}
-
-		public ProcessState ProcessState
-		{
-			get { return this.CurrentContext.ProcessState; }
-			set { this.CurrentContext.ProcessState = value; }
-		}
-
-		#endregion
 
 		/// <summary>
 		/// Executes the command scenario.
@@ -83,8 +58,7 @@ namespace InstaFollow.Scenario.Command
 
 		public void HandleException(Exception ex)
 		{
-			// TODO message box
-			this.ProcessState = ProcessState.Error;
+			this.CurrentContext.ProcessState = ProcessState.Error;
 
 			if (ex is InstagramException)
 			{
@@ -94,6 +68,8 @@ namespace InstaFollow.Scenario.Command
 			{
 				log.Fatal(ex.Message);
 			}
+
+			this.CurrentContext.HandleException(ex);
 		}
 
 		/// <summary>

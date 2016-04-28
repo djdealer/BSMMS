@@ -1,5 +1,7 @@
 ﻿using System.Windows.Controls;
 using InstaFollow.Core.Container;
+using InstaFollow.Core.Factory;
+using InstaFollow.Core.UI;
 using InstaFollow.Scenario.ViewModel;
 
 namespace InstaFollow.Form.View
@@ -13,7 +15,10 @@ namespace InstaFollow.Form.View
 		{
 			this.InitializeComponent();
 			
-			this.DataContext = new MainViewModel(new MessageBoxService());
+			var viewModel = CoreFactory.Instance.CreateViewModel<MainViewModel>(new WindowService(), CoreFactory.Instance);
+			viewModel.Init();
+
+			this.DataContext = viewModel;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿using InstaFollow.Core.Enum;
 
-namespace InstaFollow.Scenario.Context
+namespace InstaFollow.Core.Context
 {
 	public interface IProcessStateContext : ICommandContext
 	{

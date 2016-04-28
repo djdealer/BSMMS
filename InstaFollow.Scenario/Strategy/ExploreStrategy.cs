@@ -2,10 +2,10 @@ using System;
 using System.Text.RegularExpressions;
 using System.Threading;
 using InstaFollow.Core.Container;
+using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Exceptions;
 using InstaFollow.Core.Extension;
-using InstaFollow.Scenario.Context;
 using log4net;
 using Newtonsoft.Json;
 
@@ -282,7 +282,7 @@ namespace InstaFollow.Scenario.Strategy
 		/// <param name="node">The node.</param>
 		private void SetNewImage(dynamic node)
 		{
-			this.CurrentContext.UpdateCurrentImage(node.display_src.ToString().Replace("\\", string.Empty));
+			ThreadDispatcher.Invoke(() => this.CurrentContext.UpdateCurrentImage(node.display_src.ToString().Replace("\\", string.Empty)));
 		}
 	}
 }
