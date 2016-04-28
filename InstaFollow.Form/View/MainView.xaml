@@ -10,7 +10,7 @@
         <StatusBar VerticalAlignment="Bottom" Background="WhiteSmoke" DockPanel.Dock="Bottom">
             <TextBlock Name="TbStatusbarText" Text="{Binding ProcessStateText}" />
             <StatusBarItem HorizontalContentAlignment="Stretch">
-                <ProgressBar x:Name="ProgressBarMain" IsIndeterminate="{Binding DoMarquee}" Height="15" />
+                <ProgressBar x:Name="ProgressBarMain" IsIndeterminate="{Binding ProcessRunning}" Height="15" />
             </StatusBarItem>
         </StatusBar>
         <TabControl Margin="5">

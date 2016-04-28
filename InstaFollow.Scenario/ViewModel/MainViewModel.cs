@@ -305,6 +305,7 @@ namespace InstaFollow.Scenario.ViewModel
 				this.RaisePropertyChanged("ProcessState");
 				this.RaisePropertyChanged("ProcessStateText");
 				this.RaisePropertyChanged("ProcessRunning");
+				this.RaisePropertyChanged("ProgressHeaderBulb");
 				this.RaisePropertyChanged("StartCommandEnabled");
 				this.RaisePropertyChanged("StopCommandEndabled");
 				this.RaisePropertyChanged("StartButtonImage");
