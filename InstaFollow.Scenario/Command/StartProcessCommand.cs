@@ -1,11 +1,9 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Exceptions;
 using InstaFollow.Scenario.Strategy;
-using log4net;
 
 namespace InstaFollow.Scenario.Command
 {
