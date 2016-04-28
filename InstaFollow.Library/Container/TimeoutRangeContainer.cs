@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Library.Container
+﻿namespace InstaFollow.Core.Container
 {
 	public class TimeoutRangeContainer
 	{

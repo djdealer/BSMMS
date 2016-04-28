@@ -65,9 +65,9 @@
     <Folder Include="Scenario\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InstaFollow.Library\InstaFollow.Library.csproj">
+    <ProjectReference Include="..\InstaFollow.Library\InstaFollow.Core.csproj">
       <Project>{8DB5BE3E-982A-4994-84F4-32ADDE1C6D5A}</Project>
-      <Name>InstaFollow.Library</Name>
+      <Name>InstaFollow.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\InstaFollow.Scenario\InstaFollow.Scenario.csproj">
       <Project>{0D0FA56B-B9E9-4771-AD66-BAABF161511E}</Project>

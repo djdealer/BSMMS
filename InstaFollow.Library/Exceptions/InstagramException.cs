@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InstaFollow.Library.Exceptions
+namespace InstaFollow.Core.Exceptions
 {
 	public class InstagramException : Exception
 	{

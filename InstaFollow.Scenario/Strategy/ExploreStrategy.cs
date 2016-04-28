@@ -1,10 +1,10 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Threading;
-using InstaFollow.Library.Container;
-using InstaFollow.Library.Enum;
-using InstaFollow.Library.Exceptions;
-using InstaFollow.Library.Extension;
+using InstaFollow.Core.Container;
+using InstaFollow.Core.Enum;
+using InstaFollow.Core.Exceptions;
+using InstaFollow.Core.Extension;
 using InstaFollow.Scenario.Context;
 using log4net;
 using Newtonsoft.Json;
@@ -182,7 +182,7 @@ namespace InstaFollow.Scenario.Strategy
 
 				var random = this.rnd.Generate(0, 1000);
 
-				if (this.CurrentContext.Follow && random > 0 && random < 333 && !followed && !requested)
+				if (this.CurrentContext.Follow && ((random > 0 && random < 333) || (random > 666)) && !followed && !requested)
 				{
 					this.log.Info("Following user id: " + this.AuthorId);
 					this.FollowItemAuthor();
@@ -264,18 +264,13 @@ namespace InstaFollow.Scenario.Strategy
 		/// <returns>True if user already commented this image, false otherwise.</returns>
 		private bool CheckAlreadyCommented(dynamic commentNode)
 		{
+			// TODO analyse, if there is a paging. //Convert.ToBoolean(commentNode.page_info.has_next_page)
 			foreach (var node in commentNode.nodes)
 			{
 				if (node.user.username == this.CurrentContext.UserName)
 				{
 					return true;
 				}
-			}
-
-			// TODO paging
-			if (Convert.ToBoolean(commentNode.page_info.has_next_page))
-			{
-				
 			}
 
 			return false;

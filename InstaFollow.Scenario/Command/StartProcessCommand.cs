@@ -2,17 +2,17 @@
 using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Threading;
-using InstaFollow.Library.Container;
-using InstaFollow.Library.Enum;
-using InstaFollow.Library.Exceptions;
-using InstaFollow.Library.Extension;
+using InstaFollow.Core.Container;
+using InstaFollow.Core.Enum;
+using InstaFollow.Core.Exceptions;
+using InstaFollow.Core.Extension;
 using InstaFollow.Scenario.Strategy;
 using InstaFollow.Scenario.Context;
 using log4net;
 
 namespace InstaFollow.Scenario.Command
 {
-	public class StartProcessCommand : BaseContextCommand<IStartProcessContext>, IExploreContext
+	public class StartProcessCommand : BaseContextCommand<IExploreContext>
 	{
 		private readonly ILog log = LogManager.GetLogger(typeof(StartProcessCommand));
 
@@ -25,7 +25,7 @@ namespace InstaFollow.Scenario.Command
 		/// Initializes a new instance of the <see cref="StartProcessCommand"/> class.
 		/// </summary>
 		/// <param name="context">The context.</param>
-		public StartProcessCommand(IStartProcessContext context) : base(context) { }
+		public StartProcessCommand(IExploreContext context) : base(context) { }
 
 		#region context implementations
 
@@ -67,7 +67,7 @@ namespace InstaFollow.Scenario.Command
 					throw new InstagramException("An error occured during login!");
 				}
 
-				var strategy = new ExploreStrategy(this);
+				var strategy = new ExploreStrategy(this.CurrentContext);
 
 				new Thread(() => strategy.Explore()).Start();
 			}

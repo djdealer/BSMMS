@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InstaFollow.Library.Extension
+namespace InstaFollow.Core.Extension
 {
 	public class Randomizer : Random, IRandomizer
 	{

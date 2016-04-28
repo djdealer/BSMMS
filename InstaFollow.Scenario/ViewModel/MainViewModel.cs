@@ -1,26 +1,36 @@
-﻿using System.Windows.Input;
-using InstaFollow.Library.Container;
-using InstaFollow.Library.Enum;
-using InstaFollow.Library.Extension;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using InstaFollow.Core.Container;
+using InstaFollow.Core.Enum;
+using InstaFollow.Core.Extension;
 using InstaFollow.Scenario.Command;
 using InstaFollow.Scenario.Context;
 
 namespace InstaFollow.Scenario.ViewModel
 {
-	public class MainViewModel : BaseViewModel, IStartProcessContext
+	public class MainViewModel : BaseViewModel, IExploreContext
 	{
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
 		private bool like, follow, comment;
 		private bool paging;
+		private readonly IMessageBoxService msgBox;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MainViewModel"/> class.
+		/// Prevents a default instance of the <see cref="MainViewModel"/> class from being created.
 		/// </summary>
-		public MainViewModel()
+		private MainViewModel() { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MainViewModel" /> class.
+		/// </summary>
+		/// <param name="msgBoxService">The message box service.</param>
+		public MainViewModel(IMessageBoxService msgBoxService)
 		{
 			ThreadDispatcher.Initialize();
-			this.StartProcessCommand = this.CreateContextCommand<StartProcessCommand, IStartProcessContext>();
+			this.msgBox = msgBoxService;
+			this.StartProcessCommand = this.CreateContextCommand<StartProcessCommand, IExploreContext>();
 			this.StopProcessCommand = this.CreateContextCommand<StopProcessCommand, IProcessStateContext>();
 		}
 
@@ -319,6 +329,16 @@ namespace InstaFollow.Scenario.ViewModel
 		public void UpdateCurrentImage(string imageUrl)
 		{
 			this.CurrentImage = imageUrl;
+		}
+
+		/// <summary>
+		/// Handles the exception.
+		/// </summary>
+		/// <param name="ex">The exeption to handle.</param>
+		/// <exception cref="System.NotImplementedException"></exception>
+		public void HandleException(Exception ex)
+		{
+			this.msgBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 		}
 	}
 }

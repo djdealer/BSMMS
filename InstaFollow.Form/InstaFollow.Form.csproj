@@ -115,9 +115,9 @@
       <Project>{BACC9997-4768-4D76-8CD2-8EB4C5A35B52}</Project>
       <Name>InstaFollow.Control</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InstaFollow.Library\InstaFollow.Library.csproj">
+    <ProjectReference Include="..\InstaFollow.Library\InstaFollow.Core.csproj">
       <Project>{8db5be3e-982a-4994-84f4-32adde1c6d5a}</Project>
-      <Name>InstaFollow.Library</Name>
+      <Name>InstaFollow.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\InstaFollow.Scenario\InstaFollow.Scenario.csproj">
       <Project>{0D0FA56B-B9E9-4771-AD66-BAABF161511E}</Project>

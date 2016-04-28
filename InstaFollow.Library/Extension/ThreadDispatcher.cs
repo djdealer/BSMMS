@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace InstaFollow.Library.Extension
+namespace InstaFollow.Core.Extension
 {
 	public static class ThreadDispatcher
 	{

@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Library.Extension
+﻿namespace InstaFollow.Core.Extension
 {
 	public interface IRandomizer
 	{

@@ -7,8 +7,8 @@
     <ProjectGuid>{8DB5BE3E-982A-4994-84F4-32ADDE1C6D5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InstaFollow.Library</RootNamespace>
-    <AssemblyName>InstaFollow.Library</AssemblyName>
+    <RootNamespace>InstaFollow.Core</RootNamespace>
+    <AssemblyName>InstaFollow.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,16 +33,22 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Container\IMessageBoxService.cs" />
+    <Compile Include="Container\MessageBoxService.cs" />
     <Compile Include="Container\TimeoutRangeContainer.cs" />
     <Compile Include="Enum\ProcessState.cs" />
     <Compile Include="Exceptions\InstagramCommentException.cs" />
@@ -57,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

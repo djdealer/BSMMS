@@ -7,9 +7,6 @@
              xmlns:control="clr-namespace:InstaFollow.Control;assembly=InstaFollow.Control"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="450">
-    <UserControl.DataContext>
-        <viewModel:MainViewModel />
-    </UserControl.DataContext>
     <control:GridLayout Margin="5" ChildMargin="5">
         <control:GridLayout.RowDefinitions>
             <RowDefinition Height="Auto" />

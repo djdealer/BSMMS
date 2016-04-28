@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Library.Exceptions
+﻿namespace InstaFollow.Core.Exceptions
 {
 	public class InstagramCommentException : InstagramException
 	{

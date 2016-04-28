@@ -1,7 +1,7 @@
 ﻿using System;
 using log4net;
 
-namespace InstaFollow.Library.Extension
+namespace InstaFollow.Core.Extension
 {
 	/// <summary>
 	/// Supports both Nested and Flat Spinning
@@ -23,7 +23,9 @@ namespace InstaFollow.Library.Extension
 			// quick data sanity check
 			if (content == null)
 			{
-				throw new ArgumentException("Text content to spin is required.");
+				const string err = "Text content to spin is required.";
+				this.log.Error(err);
+				throw new ArgumentException(err);
 			}
 
 			// get index of the start and ending bracess
@@ -49,7 +51,9 @@ namespace InstaFollow.Library.Extension
 			// check for issues
 			if (end == -1)
 			{
-				throw new FormatException("Unbalanced brace.");
+				const string err = "Unbalanced brace.";
+				this.log.Error(err);
+				throw new FormatException(err);
 			}
 
 			// get spin options

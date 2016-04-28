@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Library.Enum
+﻿namespace InstaFollow.Core.Enum
 {
 	public enum ProcessState
 	{

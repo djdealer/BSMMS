@@ -1,4 +1,4 @@
-﻿using InstaFollow.Library.Enum;
+﻿using InstaFollow.Core.Enum;
 
 namespace InstaFollow.Scenario.Context
 {

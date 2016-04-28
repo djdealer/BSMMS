@@ -4,10 +4,10 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using InstaFollow.Library.Exceptions;
+using InstaFollow.Core.Exceptions;
 using log4net;
 
-namespace InstaFollow.Library.Container
+namespace InstaFollow.Core.Container
 {
 	public class InstagramInstagramHttpContainer : IInstagramHttpContainer
 	{
