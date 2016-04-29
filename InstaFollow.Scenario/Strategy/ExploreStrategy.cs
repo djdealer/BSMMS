@@ -112,11 +112,11 @@ namespace InstaFollow.Scenario.Strategy
 
 				if (this.CurrentContext.Paging && Convert.ToBoolean(dyn.entry_data.TagPage[0].tag.media.page_info.has_next_page))
 				{
-					var postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
+					var postData = PageQueryPostString.Replace("%0%", keyword)
 					.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
 
 					var json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf,
-						string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
+						string.Format(ExploreUri, keyword), postData);
 					dyn = JsonConvert.DeserializeObject(json);
 
 					while (Convert.ToBoolean(dyn.media.page_info.has_next_page) == true)
@@ -146,11 +146,11 @@ namespace InstaFollow.Scenario.Strategy
 
 						Thread.Sleep(this.GetRandomTimeout());
 
-						postData = PageQueryPostString.Replace("%0%", this.CurrentContext.Keywords)
+						postData = PageQueryPostString.Replace("%0%", keyword)
 							.Replace("%1%", dyn.media.page_info.end_cursor.ToString());
 
 						json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf,
-							string.Format(ExploreUri, this.CurrentContext.Keywords), postData);
+							string.Format(ExploreUri, keyword), postData);
 						dyn = JsonConvert.DeserializeObject(json);
 					}
 				}
