@@ -16,6 +16,8 @@ namespace InstaFollow.Core.Container
 		private static IInstagramHttpContainer instance;
 
 		private readonly CookieContainer cookies;
+		private string userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";
+		private string contentType = "application/x-www-form-urlencoded; charset=UTF-8";
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="InstagramHttpContainer"/> class from being created.
@@ -50,9 +52,8 @@ namespace InstaFollow.Core.Container
 				request.Method = "GET";
 				request.KeepAlive = true;
 				request.CookieContainer = this.cookies;
-				request.ContentType = "application/x-www-form-urlencoded";
-				request.UserAgent =
-					"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";
+				request.ContentType = this.contentType;
+				request.UserAgent = this.userAgent;
 				request.Referer = referrer;
 				request.AllowAutoRedirect = true;
 
@@ -88,17 +89,16 @@ namespace InstaFollow.Core.Container
 		{
 			try
 			{
-				var postDataEncoded = HttpUtility.UrlEncode(postData);
+				var postDataEncoded = postData;//HttpUtility.UrlEncode(postData); // encoded post data results in 400 error O.o
 				var bytes = Encoding.UTF8.GetBytes(postDataEncoded ?? string.Empty);
 
 				var request = (HttpWebRequest) WebRequest.Create(page);
 				request.Method = "POST";
 				request.KeepAlive = true;
 				request.CookieContainer = this.cookies;
-				request.ContentType = "application/x-www-form-urlencoded";
+				request.ContentType = this.contentType;
 				request.Accept = "*/*";
-				request.UserAgent =
-					"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";
+				request.UserAgent = this.userAgent;
 				request.Referer = referrer;
 				request.AllowAutoRedirect = true;
 
@@ -167,10 +167,9 @@ namespace InstaFollow.Core.Container
 				request.Method = "POST";
 				request.KeepAlive = true;
 				request.CookieContainer = this.cookies;
-				request.ContentType = "application/x-www-form-urlencoded";
+				request.ContentType = this.contentType;
 				request.Accept = "*/*";
-				request.UserAgent =
-					"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36";
+				request.UserAgent = this.userAgent;
 				request.ContentLength = postData.Length;
 				request.Referer = loginUrl;
 				request.AllowAutoRedirect = true;
