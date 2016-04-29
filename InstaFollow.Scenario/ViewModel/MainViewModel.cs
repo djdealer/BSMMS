@@ -118,10 +118,10 @@ namespace InstaFollow.Scenario.ViewModel
 		/// </value>
 		public string CurrentImage
 		{
-			get { return currentImage; }
+			get { return this.currentImage; }
 			set
 			{
-				currentImage = value;
+				this.currentImage = value;
 				this.RaisePropertyChanged("CurrentImage");
 			}
 		}
@@ -347,6 +347,24 @@ namespace InstaFollow.Scenario.ViewModel
 		{
 			this.ProcessState = ProcessState.Error;
 			this.WindowService.ShowExceptionMessageBox(ex);
+
+			this.RaisePropertyChanged("ProcessState");
+			this.RaisePropertyChanged("ProcessStateText");
+			this.RaisePropertyChanged("ProcessRunning");
+			this.RaisePropertyChanged("ProgressHeaderBulb");
+		}
+
+		/// <summary>
+		/// Handles the close event.
+		/// </summary>
+		public void HandleCloseEvent()
+		{
+			this.ProcessState = ProcessState.Stopped;
+
+			this.RaisePropertyChanged("ProcessState");
+			this.RaisePropertyChanged("ProcessStateText");
+			this.RaisePropertyChanged("ProcessRunning");
+			this.RaisePropertyChanged("ProgressHeaderBulb");
 		}
 	}
 }

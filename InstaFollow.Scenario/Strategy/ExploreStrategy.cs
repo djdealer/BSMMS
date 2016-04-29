@@ -292,7 +292,9 @@ namespace InstaFollow.Scenario.Strategy
 		/// <param name="node">The node.</param>
 		private void SetNewImage(dynamic node)
 		{
-			ThreadDispatcher.Invoke(() => this.CurrentContext.UpdateCurrentImage(node.display_src.ToString().Replace("\\", string.Empty)));
+			var imageUri = node.display_src.ToString().Replace("\\", string.Empty);
+
+			ThreadDispatcher.Invoke(() => this.CurrentContext.UpdateCurrentImage(imageUri));
 		}
 	}
 }
