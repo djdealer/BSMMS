@@ -156,6 +156,7 @@ namespace InstaFollow.Scenario.Strategy
 				}
 			}
 
+			this.log.Info("Finished.");
 			ThreadDispatcher.Invoke(() => this.CurrentContext.ProcessState = ProcessState.Finished);
 		}
 
@@ -185,6 +186,7 @@ namespace InstaFollow.Scenario.Strategy
 				var followed = Convert.ToBoolean(dynMedia.media.owner.followed_by_viewer);
 				var requested = Convert.ToBoolean(dynMedia.media.owner.requested_by_viewer);
 				var liked = Convert.ToBoolean(dynMedia.media.likes.viewer_has_liked);
+				var isOwnImage = Convert.ToBoolean(JsonConvert.DeserializeObject(dynMedia.media.owner.ToString()).username.ToString() == this.CurrentContext.UserName);
 				var commented = this.CheckAlreadyCommented(dynMedia.media.comments);
 
 				var random = this.rnd.Generate(0, 1000);
@@ -203,7 +205,7 @@ namespace InstaFollow.Scenario.Strategy
 					this.LikeItem();
 				}
 
-				if (this.CurrentContext.Comment && random > 333 && random < 666 && !commented)
+				if (this.CurrentContext.Comment && !isOwnImage && random > 333 && random < 666 && !commented)
 				{
 					Thread.Sleep(this.GetRandomTimeout());
 

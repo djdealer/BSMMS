@@ -48,7 +48,7 @@
                 <control:GridLayout Margin="5" ChildMargin="5">
                     <StackPanel Grid.Row="0" Grid.Column="0">
                         <Label>Current image:</Label>
-                        <Image Name="ImgCurrent" Source="{Binding CurrentImage}" Width="200" Height="Auto"></Image>
+                        <Image Name="ImgCurrent" Source="{Binding CurrentImage}" Width="300" Height="Auto"></Image>
                     </StackPanel>
                     <control:GridLayout Margin="5" ChildMargin="5" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                         <control:GridLayout.RowDefinitions>
