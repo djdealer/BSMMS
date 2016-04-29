@@ -58,6 +58,7 @@
     <Compile Include="Command\StartProcessCommand.cs" />
     <Compile Include="Strategy\ExploreStrategy.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="Command\InfoCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

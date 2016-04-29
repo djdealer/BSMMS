@@ -50,6 +50,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\IInfoContext.cs" />
     <Compile Include="UI\Command\IContextCommand.cs" />
     <Compile Include="UI\IWindowService.cs" />
     <Compile Include="UI\WindowService.cs" />

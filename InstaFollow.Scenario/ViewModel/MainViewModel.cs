@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
@@ -8,7 +9,7 @@ using InstaFollow.Scenario.Command;
 
 namespace InstaFollow.Scenario.ViewModel
 {
-	public class MainViewModel : BaseViewModel, IExploreContext
+	public class MainViewModel : BaseViewModel, IExploreContext, IInfoContext
 	{
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
@@ -27,6 +28,7 @@ namespace InstaFollow.Scenario.ViewModel
 			ThreadDispatcher.Initialize();
 			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartProcessCommand, IExploreContext>(this);
 			this.StopProcessCommand = this.CoreFactory.CreateContextCommand<StopProcessCommand, IProcessStateContext>(this);
+			this.InfoCommand = this.CoreFactory.CreateContextCommand<InfoCommand, IInfoContext>(this);
 		}
 
 		/// <summary>
@@ -226,6 +228,14 @@ namespace InstaFollow.Scenario.ViewModel
 		}
 
 		/// <summary>
+		/// Gets or sets the information command.
+		/// </summary>
+		/// <value>
+		/// The information command.
+		/// </value>
+		public ICommand InfoCommand { get; set; }
+
+		/// <summary>
 		/// Gets or sets the start process command.
 		/// </summary>
 		/// <value>
@@ -365,6 +375,14 @@ namespace InstaFollow.Scenario.ViewModel
 			this.RaisePropertyChanged("ProcessStateText");
 			this.RaisePropertyChanged("ProcessRunning");
 			this.RaisePropertyChanged("ProgressHeaderBulb");
+		}
+
+		/// <summary>
+		/// Shows the information message box.
+		/// </summary>
+		public void ShowInfoMessageBox()
+		{
+			this.WindowService.ShowMessageBox("Information", "Information");
 		}
 	}
 }
