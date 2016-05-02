@@ -68,6 +68,7 @@
     <Compile Include="UI\ViewModel\BaseViewModel.cs" />
     <Compile Include="Strategy\GetMachineKeyStrategy.cs" />
     <Compile Include="UI\Command\GetKeyFromWebPageCommand.cs" />
+    <Compile Include="UI\Command\LicenseAbortCommand.cs" />
     <Compile Include="UI\ViewModel\LicenseViewModel.cs" />
     <Compile Include="UI\ViewModel\MainViewModel.cs" />
     <Compile Include="UI\Command\VerifyLicenseCommand.cs" />
