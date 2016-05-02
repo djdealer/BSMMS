@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.UI;
 using InstaFollow.Core.UI.Command;
+using InstaFollow.Core.UI.View;
 using InstaFollow.Core.UI.ViewModel;
 
 namespace InstaFollow.Core.Factory
@@ -57,6 +59,19 @@ namespace InstaFollow.Core.Factory
 			inst.WindowService = windowService;
 			inst.CoreFactory = coreFactory;
 
+			return inst;
+		}
+
+		/// <summary>
+		/// Creates the window.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="viewModel">The view model.</param>
+		/// <returns>A new instance of T.</returns>
+		public T CreateWindow<T>(IBaseViewModel viewModel) where T : BaseWindow
+		{
+			var inst = (T) Activator.CreateInstance(typeof(T), true);
+			inst.AttachContext(viewModel);
 			return inst;
 		}
 	}

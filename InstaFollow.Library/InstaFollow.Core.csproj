@@ -36,6 +36,10 @@
     <Reference Include="MvvmFoundation.Wpf">
       <HintPath>..\packages\MvvmFoundation.Wpf.1.0.0\lib\net40\MvvmFoundation.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -51,8 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\IInfoContext.cs" />
+    <Compile Include="Strategy\BaseContextStrategy.cs" />
+    <Compile Include="Strategy\ExploreStrategy.cs" />
+    <Compile Include="UI\Command\BaseContextCommand.cs" />
     <Compile Include="UI\Command\IContextCommand.cs" />
+    <Compile Include="UI\Command\InfoCommand.cs" />
+    <Compile Include="UI\Command\StartProcessCommand.cs" />
+    <Compile Include="UI\Command\StopProcessCommand.cs" />
     <Compile Include="UI\IWindowService.cs" />
+    <Compile Include="UI\ViewModel\BaseViewModel.cs" />
+    <Compile Include="UI\ViewModel\LicenseViewModel.cs" />
+    <Compile Include="UI\ViewModel\MainViewModel.cs" />
+    <Compile Include="UI\View\BaseWindow.cs" />
     <Compile Include="UI\WindowService.cs" />
     <Compile Include="Container\TimeoutRangeContainer.cs" />
     <Compile Include="Context\ICommandContext.cs" />

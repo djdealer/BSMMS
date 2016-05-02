@@ -1,11 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Input;
 using InstaFollow.Core.Context;
-using InstaFollow.Core.UI.Command;
-using MvvmFoundation.Wpf;
 
-namespace InstaFollow.Scenario.Command
+namespace InstaFollow.Core.UI.Command
 {
 	public abstract class BaseContextCommand<TContext> : 
 		IContextCommand<TContext>

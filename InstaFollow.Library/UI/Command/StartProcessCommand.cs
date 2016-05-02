@@ -3,9 +3,9 @@ using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Exceptions;
-using InstaFollow.Scenario.Strategy;
+using InstaFollow.Core.Strategy;
 
-namespace InstaFollow.Scenario.Command
+namespace InstaFollow.Core.UI.Command
 {
 	public class StartProcessCommand : BaseContextCommand<IExploreContext>
 	{

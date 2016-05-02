@@ -1,0 +1,37 @@
+﻿<view:BaseWindow x:Class="InstaFollow.Form.View.LicenseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:InstaFollow.Core.UI.View;assembly=InstaFollow.Core"
+        xmlns:control="clr-namespace:InstaFollow.Control;assembly=InstaFollow.Control"
+        Title="License" Height="500" Width="300"
+        ResizeMode="CanMinimize">
+    <control:GridLayout Margin="5" ChildMargin="5">
+        <control:GridLayout.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </control:GridLayout.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label>Your machine key:</Label>
+            <Label Content="{Binding MachineKey}"></Label>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Label>Please click here to get your license key:</Label>
+            <Button Name="BtnGetKey" Height="60" Command="{Binding GetKeyCommand}">Open in browser</Button>
+        </StackPanel>
+        <StackPanel  Grid.Row="2">
+            <Label>Your license key:</Label>
+            <TextBox Name="TbLicenseKey" MaxLines="150" Height="200" Text="{Binding LicenseKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </StackPanel>
+        <control:GridLayout  Grid.Row="3" Margin="5" ChildMargin="5" HorizontalAlignment="Right">
+            <control:GridLayout.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </control:GridLayout.ColumnDefinitions>
+            <Button Grid.Column="0" Name="BtnVerify" Width="60" Height="60" Command="{Binding VerifyCommand}">Verify</Button>
+            <Button Grid.Column="1" Name="BtnAbort" Width="60" Height="60" Command="{Binding AbortCommand}">Abort</Button>
+        </control:GridLayout>
+    </control:GridLayout>
+</view:BaseWindow>
+

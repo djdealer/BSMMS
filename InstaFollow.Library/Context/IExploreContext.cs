@@ -19,4 +19,13 @@ namespace InstaFollow.Core.Context
 		void UpdateCurrentImage(string imageUrl);
 		void HandleException(Exception ex);
 	}
+
+	public interface IVerifyContext : ICommandContext
+	{
+		string MachineKey { get; }
+		string LicenseKey { get; }
+		bool LicenseVerified { get; set; }
+
+		Action CloseAction { get; }
+	}
 }

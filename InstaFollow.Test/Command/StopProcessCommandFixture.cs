@@ -1,7 +1,7 @@
 ﻿using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Factory;
-using InstaFollow.Scenario.Command;
+using InstaFollow.Core.UI.Command;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Input;
 using InstaFollow.Core.Container;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Enum;
 using InstaFollow.Core.Extension;
-using InstaFollow.Scenario.Command;
+using InstaFollow.Core.UI.Command;
 
-namespace InstaFollow.Scenario.ViewModel
+namespace InstaFollow.Core.UI.ViewModel
 {
 	public class MainViewModel : BaseViewModel, IExploreContext, IInfoContext
 	{
@@ -23,7 +22,7 @@ namespace InstaFollow.Scenario.ViewModel
 		/// <summary>
 		/// Initializes this instance.
 		/// </summary>
-		public void Init()
+		public override void Init()
 		{
 			ThreadDispatcher.Initialize();
 			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartProcessCommand, IExploreContext>(this);

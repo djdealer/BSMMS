@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Scenario", "InstaFollow.Scenario\InstaFollow.Scenario.csproj", "{0D0FA56B-B9E9-4771-AD66-BAABF161511E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Form", "InstaFollow.Form\InstaFollow.Form.csproj", "{AC24FF7A-E60C-49FF-9743-A6C64C8586CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Test", "InstaFollow.Test\InstaFollow.Test.csproj", "{5E050985-D156-413A-BB57-8D1A4D97A9EB}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0D0FA56B-B9E9-4771-AD66-BAABF161511E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D0FA56B-B9E9-4771-AD66-BAABF161511E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D0FA56B-B9E9-4771-AD66-BAABF161511E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D0FA56B-B9E9-4771-AD66-BAABF161511E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC24FF7A-E60C-49FF-9743-A6C64C8586CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC24FF7A-E60C-49FF-9743-A6C64C8586CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC24FF7A-E60C-49FF-9743-A6C64C8586CE}.Release|Any CPU.ActiveCfg = Release|Any CPU

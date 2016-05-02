@@ -1,30 +1,34 @@
 ﻿using System.ComponentModel;
-using System.Windows;
 using InstaFollow.Core.Factory;
 using InstaFollow.Core.UI;
-using InstaFollow.Scenario.ViewModel;
+using InstaFollow.Core.UI.View;
+using InstaFollow.Core.UI.ViewModel;
 
 namespace InstaFollow.Form.View
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow : BaseWindow
 	{
-		private readonly MainViewModel vm;
+		public MainViewModel ViewModel { get; set; }
+
 		public MainWindow()
 		{
 			this.InitializeComponent();
+		}
 
-			this.vm = CoreFactory.Instance.CreateViewModel<MainViewModel>(new WindowService(), CoreFactory.Instance);
-			this.vm.Init();
+		public override void AttachContext(IBaseViewModel viewModel)
+		{
+			this.ViewModel = viewModel as MainViewModel;
+			this.ViewModel.Init();
 
-			this.DataContext = this.vm;
+			this.DataContext = this.ViewModel;
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
 		{
-			this.vm.HandleCloseEvent();
+			this.ViewModel.HandleCloseEvent();
 
 			base.OnClosing(e);
 		}

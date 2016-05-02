@@ -9,7 +9,7 @@ using InstaFollow.Core.Extension;
 using log4net;
 using Newtonsoft.Json;
 
-namespace InstaFollow.Scenario.Strategy
+namespace InstaFollow.Core.Strategy
 {
 	public class ExploreStrategy : BaseContextStrategy<IExploreContext>
 	{

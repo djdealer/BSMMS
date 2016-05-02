@@ -1,7 +1,6 @@
 ﻿using InstaFollow.Core.Context;
-using InstaFollow.Scenario.ViewModel;
 
-namespace InstaFollow.Scenario.Command
+namespace InstaFollow.Core.UI.Command
 {
 	public class InfoCommand : BaseContextCommand<IInfoContext>
 	{

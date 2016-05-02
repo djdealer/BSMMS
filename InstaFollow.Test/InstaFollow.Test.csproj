@@ -38,7 +38,11 @@
     <Reference Include="Moq">
       <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -68,10 +72,6 @@
     <ProjectReference Include="..\InstaFollow.Library\InstaFollow.Core.csproj">
       <Project>{8DB5BE3E-982A-4994-84F4-32ADDE1C6D5A}</Project>
       <Name>InstaFollow.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InstaFollow.Scenario\InstaFollow.Scenario.csproj">
-      <Project>{0D0FA56B-B9E9-4771-AD66-BAABF161511E}</Project>
-      <Name>InstaFollow.Scenario</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -77,6 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\LicenseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,6 +88,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\LicenseWindow.xaml.cs">
+      <DependentUpon>LicenseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -126,10 +133,6 @@
     <ProjectReference Include="..\InstaFollow.Library\InstaFollow.Core.csproj">
       <Project>{8db5be3e-982a-4994-84f4-32adde1c6d5a}</Project>
       <Name>InstaFollow.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InstaFollow.Scenario\InstaFollow.Scenario.csproj">
-      <Project>{0D0FA56B-B9E9-4771-AD66-BAABF161511E}</Project>
-      <Name>InstaFollow.Scenario</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

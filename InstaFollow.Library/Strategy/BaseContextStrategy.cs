@@ -1,6 +1,6 @@
 ﻿using InstaFollow.Core.Context;
 
-namespace InstaFollow.Scenario.Strategy
+namespace InstaFollow.Core.Strategy
 {
 	public abstract class BaseContextStrategy<T> where T : class, ICommandContext
 	{

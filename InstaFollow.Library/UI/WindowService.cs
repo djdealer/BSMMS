@@ -1,11 +1,23 @@
 ﻿using System;
 using System.Windows;
 using InstaFollow.Core.Container;
+using InstaFollow.Core.Factory;
+using InstaFollow.Core.UI.View;
+using InstaFollow.Core.UI.ViewModel;
 
 namespace InstaFollow.Core.UI
 {
 	public class WindowService : IWindowService
 	{
+		private static IWindowService instance;
+
+		private WindowService() { }
+
+		public static IWindowService Instance
+		{
+			get { return instance ?? (instance = new WindowService()); }
+		}
+
 		/// <summary>
 		/// Shows the exception message box.
 		/// </summary>
@@ -29,6 +41,44 @@ namespace InstaFollow.Core.UI
 		public MessageBoxResult ShowMessageBox(string messageBoxText, string caption = "", MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.Information, MessageBoxResult defaultResult = MessageBoxResult.None, MessageBoxOptions options = MessageBoxOptions.None)
 		{
 			return MessageBox.Show(messageBoxText, caption, button, icon, defaultResult, options);
+		}
+
+		/// <summary>
+		/// Creates and shows window modal.
+		/// </summary>
+		/// <typeparam name="T">The type of the window.</typeparam>
+		/// <typeparam name="TVm">The type of the view model.</typeparam>
+		public T CreateAndShowWindowModal<T, TVm>() 
+			where T : BaseWindow 
+			where TVm : BaseViewModel
+		{
+			var vm = CoreFactory.Instance.CreateViewModel<TVm>(new WindowService(), CoreFactory.Instance);
+			var wnd = CoreFactory.Instance.CreateWindow<T>(vm);
+			
+			vm.CloseAction = new Action(wnd.Close);
+
+			wnd.ShowDialog();
+
+			return wnd;
+		}
+
+		/// <summary>
+		/// Creates and shows window.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="TVm">The type of the vm.</typeparam>
+		public T CreateAndShowWindow<T, TVm>()
+			where T : BaseWindow
+			where TVm : BaseViewModel
+		{
+			var vm = CoreFactory.Instance.CreateViewModel<TVm>(new WindowService(), CoreFactory.Instance);
+			var wnd = CoreFactory.Instance.CreateWindow<T>(vm);
+
+			vm.CloseAction = new Action(wnd.Close);
+
+			wnd.Show();
+
+			return wnd;
 		}
 	}
 }
