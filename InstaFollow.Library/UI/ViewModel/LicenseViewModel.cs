@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Windows;
+using System.Management;
 using System.Windows.Input;
 using InstaFollow.Core.Context;
 using InstaFollow.Core.Extension;
+using InstaFollow.Core.Strategy;
 using InstaFollow.Core.UI.Command;
-using MvvmFoundation.Wpf;
 
 namespace InstaFollow.Core.UI.ViewModel
 {
@@ -28,12 +28,11 @@ namespace InstaFollow.Core.UI.ViewModel
 			this.VerifyCommand = this.CoreFactory.CreateContextCommand<VerifyLicenseCommand, IVerifyContext>(this);
 			this.GetKeyCommand = this.CoreFactory.CreateContextCommand<GetKeyFromWebPageCommand, IVerifyContext>(this);
 			this.AbortCommand = this.CoreFactory.CreateContextCommand<LicenseAbortCommand, IVerifyContext>(this);
+
+			new GetMachineKeyStrategy(this).GetMachineKey();
 		}
 
-		public string MachineKey
-		{
-			get { return "pdfsuighdfsp3204hgw34poerh"; }// TODO
-		}
+		public string MachineKey { get; set; }
 
 		public string LicenseKey
 		{
@@ -104,6 +103,32 @@ namespace InstaFollow.Core.UI.ViewModel
 		protected internal override bool EvaluateCanExecute()
 		{
 			return !string.IsNullOrEmpty(this.CurrentContext.LicenseKey) && !string.IsNullOrEmpty(this.CurrentContext.MachineKey);
+		}
+	}
+
+	public class GetMachineKeyStrategy : BaseContextStrategy<IVerifyContext>
+	{
+		public GetMachineKeyStrategy(IVerifyContext context) : base(context)
+		{
+		}
+
+		public void GetMachineKey()
+		{
+			var cpuInfo = string.Empty;
+			var mc = new ManagementClass("win32_processor");
+			foreach (var o in mc.GetInstances())
+			{
+				var mo = (ManagementObject) o;
+				cpuInfo = mo.Properties["processorID"].Value.ToString();
+				break;
+			}
+
+			var drive = "C";
+			var dsk = new ManagementObject(@"win32_logicaldisk.deviceid=""" + drive + @":""");
+			dsk.Get();
+			var volumeSerial = dsk["VolumeSerialNumber"].ToString();
+
+			this.CurrentContext.MachineKey = Hashing.CalculateMd5Hash(cpuInfo + volumeSerial);
 		}
 	}
 }
