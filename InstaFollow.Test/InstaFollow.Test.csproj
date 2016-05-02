@@ -58,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Command\StopProcessCommandFixture.cs" />
+    <Compile Include="ViewModel\LicenseViewModelFixture.cs" />
     <Compile Include="ViewModel\MainViewModelFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

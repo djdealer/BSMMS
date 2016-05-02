@@ -223,7 +223,7 @@ namespace InstaFollow.Core.UI.ViewModel
 		/// </value>
 		public TimeoutRangeContainer TimeoutRange
 		{
-			get { return new TimeoutRangeContainer(15, 6); } // TODO
+			get { return new TimeoutRangeContainer(6, 15); }
 		}
 
 		/// <summary>

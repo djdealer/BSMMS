@@ -4,7 +4,7 @@
 	{
 		private TimeoutRangeContainer() { }
 
-		public TimeoutRangeContainer(int maxTimeout, int minTimeout)
+		public TimeoutRangeContainer(int minTimeout, int maxTimeout)
 		{
 			this.MaxTimeout = maxTimeout;
 			this.MinTimeout = minTimeout;
