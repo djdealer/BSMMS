@@ -31,13 +31,18 @@ namespace InstaFollow.Core.Extension
 
 		public bool IsValidRegistryLicenseCode()
 		{
-			// TODO get reg key value, check if null or invalid
-			return true;
+			var code = RegistryUtils.Instance.ReadValue("maincode", "xx").ToString();
+			if (code == "xx")
+			{
+				return false;
+			}
+
+			return this.IsLicenseCodeValid(code);
 		}
 
 		public void WriteLicenseCodeToRegistry(string code)
 		{
-			// todo
+			RegistryUtils.Instance.WriteValue("maincode", code);
 		}
 	}
 }

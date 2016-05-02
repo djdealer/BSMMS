@@ -66,6 +66,7 @@
     <Compile Include="Extension\Hashing.cs" />
     <Compile Include="Extension\ILicenseService.cs" />
     <Compile Include="Extension\LicenseService.cs" />
+    <Compile Include="Extension\RegistryUtils.cs" />
     <Compile Include="Strategy\BaseContextStrategy.cs" />
     <Compile Include="Strategy\ExploreStrategy.cs" />
     <Compile Include="UI\Command\BaseContextCommand.cs" />
