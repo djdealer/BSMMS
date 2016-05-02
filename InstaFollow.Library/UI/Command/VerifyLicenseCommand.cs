@@ -17,7 +17,7 @@ namespace InstaFollow.Core.UI.Command
 				throw new WrongLicenseKeyException("Code not valid!");
 			}
 
-			// TODO write license key to registry
+			LicenseService.Instance.WriteLicenseCodeToRegistry(this.CurrentContext.LicenseKey);
 
 			this.CurrentContext.CloseAction();
 		}

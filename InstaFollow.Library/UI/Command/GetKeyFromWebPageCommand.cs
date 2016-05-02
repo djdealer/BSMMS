@@ -9,8 +9,7 @@ namespace InstaFollow.Core.UI.Command
 
 		public override void Execute(object obj)
 		{
-			var link = string.Format(this.licenseGetFromWebLink, this.CurrentContext.MachineKey);
-			Process.Start(new ProcessStartInfo(link));
+			Process.Start(new ProcessStartInfo(string.Format(this.licenseGetFromWebLink, this.CurrentContext.MachineKey)));
 		}
 
 		protected internal override bool EvaluateCanExecute()

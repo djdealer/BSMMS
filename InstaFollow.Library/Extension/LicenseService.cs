@@ -28,5 +28,16 @@ namespace InstaFollow.Core.Extension
 
 			return result == PkvLicenceKeyResult.KeyGood;
 		}
+
+		public bool IsValidRegistryLicenseCode()
+		{
+			// TODO get reg key value, check if null or invalid
+			return true;
+		}
+
+		public void WriteLicenseCodeToRegistry(string code)
+		{
+			// todo
+		}
 	}
 }

@@ -15,12 +15,9 @@ namespace InstaFollow.Form
 		private void OnStartUp(object sender, StartupEventArgs e)
 		{
 			this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
 			var windowService = WindowService.Instance;
-
-			// todo read licence file
-
-			var licensed = false;//LicenseService.Instance.IsLicenseCodeValid(); // TODO
-			if (licensed)
+			if (LicenseService.Instance.IsValidRegistryLicenseCode())
 			{
 				windowService.CreateAndShowWindowModal<MainWindow, MainViewModel>();
 			}
