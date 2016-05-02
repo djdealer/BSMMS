@@ -48,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Polaroid-OneStep-Land-Camera-bwocw-2400px.png.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -163,6 +166,17 @@
   <ItemGroup>
     <Resource Include="Images\green_light.png" />
     <Resource Include="Images\red_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-2400px.png" />
+    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-300px.png" />
+    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-800px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-2400px.png.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Polaroid-OneStep-Land-Camera-bwocw-2400px.png.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
