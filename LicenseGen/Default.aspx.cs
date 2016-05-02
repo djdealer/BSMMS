@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
-using LicenseGen;
 
 namespace InstaFollow.LicenseGen
 {
@@ -13,19 +13,50 @@ namespace InstaFollow.LicenseGen
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			var machineKey = Request.QueryString["machinekey"];
-
-			if (machineKey == null)
-			{
-				return;
-			}
-			
-			var licenseServer = new LicenceServer();
-			
-			// TODO: this will happen after buying a license with paypal!
-			var licenseCode = licenseServer.GenerateLicenceKey(machineKey.GetHashCode());
-
-			this.tbLicense.Text = licenseCode;
 		}
+
+	    protected void OnClickBtnGetLicense(object sender, EventArgs e)
+	    {
+	        if (!this.SaveUserData())
+	        {
+	            return;
+	        }
+
+	        if (!this.PerformPaypalPayment())
+	        {
+	            return;
+	        }
+
+	        var licenseCode = this.GetLicenseKey();
+	        if (licenseCode == string.Empty)
+	        {
+	            return;
+	        }
+
+            this.tbLicense.Text = licenseCode;
+	    }
+
+	    private bool PerformPaypalPayment()
+	    {
+	        return true;
+	    }
+
+	    private string GetLicenseKey()
+	    {
+	        var machineKey = this.Request.QueryString["machinekey"];
+
+	        if (machineKey == null)
+	        {
+	            return string.Empty;
+	        }
+
+	        var licenseServer = new LicenceServer();
+	        return licenseServer.GenerateLicenceKey(machineKey.GetHashCode());
+	    }
+
+	    private bool SaveUserData()
+	    {
+            return true;
+	    }
 	}
 }

@@ -58,7 +58,7 @@ namespace InstaFollow.Core.Container
 				request.AllowAutoRedirect = true;
 
 				var response = (HttpWebResponse) request.GetResponse();
-				cookies.Add(response.Cookies);
+				this.cookies.Add(response.Cookies);
 
 				var reader = new StreamReader(response.GetResponseStream());
 				return reader.ReadToEnd();
