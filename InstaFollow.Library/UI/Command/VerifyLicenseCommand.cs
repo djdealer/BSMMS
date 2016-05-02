@@ -1,5 +1,6 @@
 using System;
 using InstaFollow.Core.Context;
+using InstaFollow.Core.Exceptions;
 using InstaFollow.Core.Extension;
 
 namespace InstaFollow.Core.UI.Command
@@ -13,8 +14,10 @@ namespace InstaFollow.Core.UI.Command
 
 			if (!this.CurrentContext.LicenseVerified)
 			{
-				throw new Exception("Code not valid!"); // TODO own exception
+				throw new WrongLicenseKeyException("Code not valid!");
 			}
+
+			// TODO write license key to registry
 
 			this.CurrentContext.CloseAction();
 		}

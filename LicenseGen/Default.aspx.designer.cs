@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LicenseGen {
+namespace InstaFollow.LicenseGen {
     
     
     public partial class Default {

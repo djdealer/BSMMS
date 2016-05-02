@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Web.UI;
+using LicenseGen;
 
-namespace LicenseGen
+namespace InstaFollow.LicenseGen
 {
 	public partial class Default : Page
 	{

@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\IInfoContext.cs" />
+    <Compile Include="Exceptions\WrongLicenseKeyException.cs" />
     <Compile Include="Extension\Hashing.cs" />
     <Compile Include="Extension\ILicenseService.cs" />
     <Compile Include="Extension\LicenseService.cs" />
