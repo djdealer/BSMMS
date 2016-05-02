@@ -28,6 +28,7 @@ namespace InstaFollow.Core.UI.ViewModel
 			this.AbortCommand = this.CoreFactory.CreateContextCommand<LicenseAbortCommand, IVerifyContext>(this);
 
 			new GetMachineKeyStrategy(this).GetMachineKey();
+			this.RaisePropertyChanged("MachineKey");
 		}
 
 		public string MachineKey { get; set; }

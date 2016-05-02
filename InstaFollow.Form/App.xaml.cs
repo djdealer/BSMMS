@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using InstaFollow.Core.Extension;
 using InstaFollow.Core.Factory;
 using InstaFollow.Core.UI;
 using InstaFollow.Core.UI.ViewModel;
@@ -18,7 +19,7 @@ namespace InstaFollow.Form
 
 			// todo read licence file
 
-			var licensed = false; // TODO
+			var licensed = false;//LicenseService.Instance.IsLicenseCodeValid(); // TODO
 			if (licensed)
 			{
 				windowService.CreateAndShowWindowModal<MainWindow, MainViewModel>();

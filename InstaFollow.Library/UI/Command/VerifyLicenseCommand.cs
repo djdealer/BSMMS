@@ -1,4 +1,6 @@
+using System;
 using InstaFollow.Core.Context;
+using InstaFollow.Core.Extension;
 
 namespace InstaFollow.Core.UI.Command
 {
@@ -7,9 +9,13 @@ namespace InstaFollow.Core.UI.Command
 		private VerifyLicenseCommand() { }
 		public override void Execute(object obj)
 		{
-			// TODO verify license
+			this.CurrentContext.LicenseVerified = LicenseService.Instance.IsLicenseCodeValid(this.CurrentContext.LicenseKey);
 
-			this.CurrentContext.LicenseVerified = true;
+			if (!this.CurrentContext.LicenseVerified)
+			{
+				throw new Exception("Code not valid!"); // TODO own exception
+			}
+
 			this.CurrentContext.CloseAction();
 		}
 

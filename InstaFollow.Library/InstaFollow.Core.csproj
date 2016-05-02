@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AppSoftware.LicenceEngine.Common">
+      <HintPath>..\libraries\AppSoftware.LicenceEngine.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="AppSoftware.LicenceEngine.KeyVerification">
+      <HintPath>..\libraries\AppSoftware.LicenceEngine.KeyVerification.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -57,6 +63,8 @@
   <ItemGroup>
     <Compile Include="Context\IInfoContext.cs" />
     <Compile Include="Extension\Hashing.cs" />
+    <Compile Include="Extension\ILicenseService.cs" />
+    <Compile Include="Extension\LicenseService.cs" />
     <Compile Include="Strategy\BaseContextStrategy.cs" />
     <Compile Include="Strategy\ExploreStrategy.cs" />
     <Compile Include="UI\Command\BaseContextCommand.cs" />
