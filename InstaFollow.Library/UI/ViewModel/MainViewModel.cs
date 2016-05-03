@@ -13,6 +13,8 @@ namespace InstaFollow.Core.UI.ViewModel
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
 		private bool like, follow, comment, paging;
+		private int maxTimeout = 100;
+		private int minTimeout = 15;
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="MainViewModel"/> class from being created.
@@ -223,7 +225,39 @@ namespace InstaFollow.Core.UI.ViewModel
 		/// </value>
 		public TimeoutRangeContainer TimeoutRange
 		{
-			get { return new TimeoutRangeContainer(6, 15); }
+			get { return new TimeoutRangeContainer(this.MinTimeout, this.MaxTimeout); }
+		}
+
+		/// <summary>
+		/// Gets or sets the maximum timeout.
+		/// </summary>
+		/// <value>
+		/// The maximum timeout.
+		/// </value>
+		public int MaxTimeout
+		{
+			get { return maxTimeout; }
+			set
+			{
+				maxTimeout = value;
+				this.RaisePropertyChanged("MaxTimeout");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the minimum timeout.
+		/// </summary>
+		/// <value>
+		/// The minimum timeout.
+		/// </value>
+		public int MinTimeout
+		{
+			get { return minTimeout; }
+			set
+			{
+				minTimeout = value;
+				this.RaisePropertyChanged("MinTimeout");
+			}
 		}
 
 		/// <summary>

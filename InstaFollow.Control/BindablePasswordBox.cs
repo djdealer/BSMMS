@@ -22,17 +22,17 @@ namespace InstaFollow.Control
 
 		public BindablePasswordBox()
 		{
-			savedCallback = HandlePasswordChanged;
+			this.savedCallback = this.HandlePasswordChanged;
 
 			var passwordBox = new PasswordBox();
-			passwordBox.PasswordChanged += savedCallback;
-			Child = passwordBox;
+			passwordBox.PasswordChanged += this.savedCallback;
+			this.Child = passwordBox;
 		}
 
 		public string Password
 		{
-			get { return GetValue(PasswordProperty) as string; }
-			set { SetValue(PasswordProperty, value); }
+			get { return this.GetValue(PasswordProperty) as string; }
+			set { this.SetValue(PasswordProperty, value); }
 		}
 
 		private static void OnPasswordPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs eventArgs)
@@ -54,9 +54,9 @@ namespace InstaFollow.Control
 		{
 			var passwordBox = (PasswordBox)sender;
 
-			isPreventCallback = true;
-			Password = passwordBox.Password;
-			isPreventCallback = false;
+			this.isPreventCallback = true;
+			this.Password = passwordBox.Password;
+			this.isPreventCallback = false;
 		}
 	}
 }

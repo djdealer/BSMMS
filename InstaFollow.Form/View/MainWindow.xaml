@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:control="clr-namespace:InstaFollow.Control;assembly=InstaFollow.Control"
         xmlns:view1="clr-namespace:InstaFollow.Core.UI.View;assembly=InstaFollow.Core"
-        Title="InstaFollow" Height="550" Width="450" 
+        Title="InstaFollow" Height="580" Width="450" 
         ResizeMode="CanMinimize"
         Background="WhiteSmoke"
         VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -52,16 +52,40 @@
                 </TabItem>
                 <TabItem Header="Process Settings">
                     <control:GridLayout Margin="5" ChildMargin="5">
-                        <StackPanel>
+                        <control:GridLayout.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </control:GridLayout.RowDefinitions>
+                        <control:GridLayout.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </control:GridLayout.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                             <Label>Keywords (separate with |):</Label>
                             <TextBox Name="TbKeywords" Text="{Binding Keywords, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                             <Label>Comment (spin syntax allowed):</Label>
                             <TextBox Name="TbComment" AcceptsReturn="True" TextWrapping="Wrap" Height="200" Text="{Binding CommentString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                            <CheckBox Name="CbLike" IsChecked="{Binding Like}">Like</CheckBox>
-                            <CheckBox Name="CbFollow" IsChecked="{Binding Follow}">Follow</CheckBox>
-                            <CheckBox Name="CbComment" IsChecked="{Binding Comment}" IsEnabled="{Binding CommentBoxEnabled}">Comment</CheckBox>
-                            <CheckBox Name="CbPaging" IsChecked="{Binding Paging}">Paging</CheckBox>
                         </StackPanel>
+                        <CheckBox Grid.Row="2" Grid.Column="0" Name="CbLike" IsChecked="{Binding Like}">Like</CheckBox>
+                        <CheckBox Grid.Row="2" Grid.Column="1" Name="CbFollow" IsChecked="{Binding Follow}">Follow</CheckBox>
+                        <CheckBox Grid.Row="3" Grid.Column="0" Name="CbComment" IsChecked="{Binding Comment}" IsEnabled="{Binding CommentBoxEnabled}">Comment</CheckBox>
+                        <CheckBox Grid.Row="3" Grid.Column="1" Name="CbPaging" IsChecked="{Binding Paging}">Paging</CheckBox>
+                        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Label>Range for random timout between requests in seconds:</Label>
+                            <control:RangeSlider x:Name="RangeSlider" 
+                                                     LowerValue="{Binding MinTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                     UpperValue="{Binding MaxTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                     Minimum="10" 
+                                                     Maximum="150" />
+                        </StackPanel>
+                        <Label Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Left" Name="LblMinValue" Content="{Binding MinTimeout}" HorizontalAlignment="Left"></Label>
+                        <Label Grid.Row="5" Grid.Column="1" HorizontalContentAlignment="Right" Name="LblMaxValue" Content="{Binding MaxTimeout}" HorizontalAlignment="Right"></Label>
                     </control:GridLayout>
                 </TabItem>
                 <TabItem>
