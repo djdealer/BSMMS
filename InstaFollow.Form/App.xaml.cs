@@ -3,6 +3,7 @@ using InstaFollow.Core.Extension;
 using InstaFollow.Core.Factory;
 using InstaFollow.Core.UI;
 using InstaFollow.Core.UI.ViewModel;
+using InstaFollow.Form.Service;
 using InstaFollow.Form.View;
 
 namespace InstaFollow.Form
@@ -19,15 +20,15 @@ namespace InstaFollow.Form
 			var windowService = WindowService.Instance;
 			if (LicenseService.Instance.IsValidRegistryLicenseCode())
 			{
-				windowService.CreateAndShowWindowModal<MainWindow, MainViewModel>();
+				windowService.CreateAndShowWindowModal<MainView, MainViewModel>();
 			}
 			else
 			{
-				var window = windowService.CreateAndShowWindowModal<LicenseWindow, LicenseViewModel>();
+				var window = windowService.CreateAndShowWindowModal<LicenseView, LicenseViewModel>();
 
 				if (window.ViewModel.LicenseVerified)
 				{
-					windowService.CreateAndShowWindowModal<MainWindow, MainViewModel>();
+					windowService.CreateAndShowWindowModal<MainView, MainViewModel>();
 				}
 			}
 

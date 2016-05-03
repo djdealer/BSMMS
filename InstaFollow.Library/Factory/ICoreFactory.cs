@@ -13,6 +13,6 @@ namespace InstaFollow.Core.Factory
 		T CreateContextCommand<T, TContext>(TContext context) where T : IContextCommand<TContext> where TContext : class, ICommandContext;
 		T CreateCommand<T>() where T : ICommand;
 		T CreateViewModel<T>(IWindowService windowService, ICoreFactory coreFactory) where T : IBaseViewModel;
-		T CreateWindow<T>(IBaseViewModel viewModel) where T : BaseWindow;
+		T CreateWindow<T>(IBaseViewModel viewModel) where T : IBaseWindow;
 	}
 }

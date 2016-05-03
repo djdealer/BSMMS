@@ -1,4 +1,6 @@
 ﻿using InstaFollow.Core.Context;
+using InstaFollow.Core.UI.View;
+using InstaFollow.Core.UI.ViewModel;
 
 namespace InstaFollow.Core.UI.Command
 {
@@ -10,7 +12,7 @@ namespace InstaFollow.Core.UI.Command
 		/// <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
 		public override void Execute(object parameter)
 		{
-			this.CurrentContext.ShowInfoMessageBox();
+			this.CurrentContext.WindowService.CreateAndShowWindowModal<IInfoView, InfoViewModel>();
 		}
 
 		/// <summary>

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows;
-using InstaFollow.Core.Container;
 using InstaFollow.Core.Factory;
+using InstaFollow.Core.UI;
 using InstaFollow.Core.UI.View;
 using InstaFollow.Core.UI.ViewModel;
 
-namespace InstaFollow.Core.UI
+namespace InstaFollow.Form.Service
 {
 	public class WindowService : IWindowService
 	{
@@ -49,10 +49,10 @@ namespace InstaFollow.Core.UI
 		/// <typeparam name="T">The type of the window.</typeparam>
 		/// <typeparam name="TVm">The type of the view model.</typeparam>
 		public T CreateAndShowWindowModal<T, TVm>() 
-			where T : BaseWindow 
+			where T : IBaseWindow 
 			where TVm : BaseViewModel
 		{
-			var vm = CoreFactory.Instance.CreateViewModel<TVm>(new WindowService(), CoreFactory.Instance);
+			var vm = CoreFactory.Instance.CreateViewModel<TVm>(this, CoreFactory.Instance);
 			var wnd = CoreFactory.Instance.CreateWindow<T>(vm);
 			
 			vm.CloseAction = new Action(wnd.Close);
@@ -68,10 +68,10 @@ namespace InstaFollow.Core.UI
 		/// <typeparam name="T"></typeparam>
 		/// <typeparam name="TVm">The type of the vm.</typeparam>
 		public T CreateAndShowWindow<T, TVm>()
-			where T : BaseWindow
+			where T : IBaseWindow
 			where TVm : BaseViewModel
 		{
-			var vm = CoreFactory.Instance.CreateViewModel<TVm>(new WindowService(), CoreFactory.Instance);
+			var vm = CoreFactory.Instance.CreateViewModel<TVm>(this, CoreFactory.Instance);
 			var wnd = CoreFactory.Instance.CreateWindow<T>(vm);
 
 			vm.CloseAction = new Action(wnd.Close);

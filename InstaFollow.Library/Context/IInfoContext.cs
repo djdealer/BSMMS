@@ -1,7 +1,9 @@
-﻿namespace InstaFollow.Core.Context
+﻿using InstaFollow.Core.Factory;
+
+namespace InstaFollow.Core.Context
 {
 	public interface IInfoContext : ICommandContext
 	{
-		void ShowInfoMessageBox();
+		IWindowService WindowService { get; }
 	}
 }

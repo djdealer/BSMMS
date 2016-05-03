@@ -30,7 +30,7 @@ namespace InstaFollow.Core.Factory
 			where T : IContextCommand<TContext>
 			where TContext : class, ICommandContext
 		{
-			var inst = (T)Activator.CreateInstance(typeof(T), true);
+			var inst = CustomActivator.CreateInstance<T>();
 
 			inst.SetContext(context);
 
@@ -44,7 +44,7 @@ namespace InstaFollow.Core.Factory
 		/// <returns>A new instance of T.</returns>
 		public T CreateCommand<T>() where T : ICommand
 		{
-			return (T)Activator.CreateInstance(typeof(T), true);
+			return CustomActivator.CreateInstance<T>();
 		}
 
 		/// <summary>
@@ -54,7 +54,7 @@ namespace InstaFollow.Core.Factory
 		/// <returns>A new instance of T.</returns>
 		public T CreateViewModel<T>(IWindowService windowService, ICoreFactory coreFactory) where T : IBaseViewModel
 		{
-			var inst = (T) Activator.CreateInstance(typeof(T), true);
+			var inst = CustomActivator.CreateInstance<T>();
 			
 			inst.WindowService = windowService;
 			inst.CoreFactory = coreFactory;
@@ -68,9 +68,9 @@ namespace InstaFollow.Core.Factory
 		/// <typeparam name="T"></typeparam>
 		/// <param name="viewModel">The view model.</param>
 		/// <returns>A new instance of T.</returns>
-		public T CreateWindow<T>(IBaseViewModel viewModel) where T : BaseWindow
+		public T CreateWindow<T>(IBaseViewModel viewModel) where T : IBaseWindow
 		{
-			var inst = (T) Activator.CreateInstance(typeof(T), true);
+			var inst = CustomActivator.CreateInstance<T>();
 			inst.AttachContext(viewModel);
 			return inst;
 		}

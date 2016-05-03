@@ -7,13 +7,13 @@ using InstaFollow.Core.UI.ViewModel;
 namespace InstaFollow.Form.View
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for MainView.xaml
 	/// </summary>
-	public partial class MainWindow : BaseWindow
+	public partial class MainView : BaseWindow
 	{
 		public MainViewModel ViewModel { get; set; }
 
-		public MainWindow()
+		public MainView()
 		{
 			this.InitializeComponent();
 		}

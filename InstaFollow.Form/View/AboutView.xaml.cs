@@ -5,20 +5,20 @@ using InstaFollow.Core.UI.ViewModel;
 namespace InstaFollow.Form.View
 {
 	/// <summary>
-	/// Interaction logic for LicenseWindow.xaml
+	/// Interaction logic for AboutView.xaml
 	/// </summary>
-	public partial class LicenseWindow : BaseWindow
+	public partial class AboutView : BaseWindow, IAboutView
 	{
-		public LicenseViewModel ViewModel { get; set; }
+		public AboutViewModel ViewModel { get; set; }
 
-		public LicenseWindow()
+		public AboutView()
 		{
-			InitializeComponent();
+			this.InitializeComponent();
 		}
 
 		public override void AttachContext(IBaseViewModel viewModel)
 		{
-			this.ViewModel = viewModel as LicenseViewModel;
+			this.ViewModel = viewModel as AboutViewModel;
 			this.ViewModel.Init();
 
 			this.DataContext = this.ViewModel;
