@@ -66,11 +66,6 @@ namespace InstaFollow.Core.Container
 			catch (Exception ex)
 			{
 				this.log.Error(ex.Message + "URL: " + page);
-				if (!ex.Message.Contains("404"))
-				{
-					throw;
-				}
-				
 				return string.Empty;
 			}
 		}
@@ -125,12 +120,12 @@ namespace InstaFollow.Core.Container
 			{
 				this.log.Error(ex.Message + "URL: " + page);
 
-				if (!isCommentRequest)
+				if (isCommentRequest)
 				{
-					throw;
+					throw new InstagramCommentException("Error commenting! Will turn off this feature.");
 				}
-				
-				throw new InstagramCommentException("Error commenting! Will turn off this feature.");
+
+				return string.Empty;
 			}
 		}
 
@@ -153,7 +148,7 @@ namespace InstaFollow.Core.Container
 
 				if (loginPage == string.Empty)
 				{
-					throw new Exception("Something went wrong with login page!");
+					throw new Exception("Something went wrong with login page! Please try again later.");
 				}
 
 				var csrfToken = Regex.Match(loginPage, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
