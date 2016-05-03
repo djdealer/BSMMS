@@ -259,6 +259,7 @@ namespace InstaFollow.Core.Strategy
 			}
 			catch (InstagramCommentException ex)
 			{
+				ThreadDispatcher.Invoke(() => this.CurrentContext.HandleException(ex));	
 				ThreadDispatcher.Invoke(() => this.CurrentContext.Comment = false);
 				this.log.Error(ex.Message);
 			}
