@@ -1,4 +1,6 @@
-﻿namespace InstaFollow.Core.Container
+﻿using System;
+
+namespace InstaFollow.Core.Container
 {
 	public class TimeoutRangeContainer
 	{
@@ -6,6 +8,11 @@
 
 		public TimeoutRangeContainer(int minTimeout, int maxTimeout)
 		{
+			if (maxTimeout < minTimeout)
+			{
+				throw new Exception("Maximum value should be higher than minimum value!");
+			}
+
 			this.MaxTimeout = maxTimeout;
 			this.MinTimeout = minTimeout;
 		}
