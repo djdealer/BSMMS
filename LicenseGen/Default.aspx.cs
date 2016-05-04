@@ -62,5 +62,10 @@ namespace InstaFollow.LicenseGen
 			this.log.Info("Name: " + this.tbFirstName.Text + " " + this.tbLastName.Text + " Email: " + this.tbEmail.Text);
             return true;
 	    }
+
+		protected void OnClickBtnDonate(object sender, ImageClickEventArgs e)
+		{
+			this.log.Info("Donation was clicked!");
+		}
 	}
 }
