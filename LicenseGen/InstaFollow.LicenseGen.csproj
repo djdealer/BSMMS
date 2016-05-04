@@ -44,6 +44,9 @@
     <Reference Include="AppSoftware.LicenceEngine.KeyGenerator">
       <HintPath>..\libraries\AppSoftware.LicenceEngine.KeyGenerator.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -63,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\folder.pubxml" />
     <None Include="Properties\PublishProfiles\folder2.pubxml" />
     <None Include="Web.Debug.config">

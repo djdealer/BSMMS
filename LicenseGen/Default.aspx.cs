@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using log4net;
 
 namespace InstaFollow.LicenseGen
 {
 	public partial class Default : Page
 	{
+		private readonly ILog log = LogManager.GetLogger(typeof(Default));
+
 		/// <summary>
 		/// Handles the Load event of the Page control.
 		/// </summary>
@@ -43,7 +46,7 @@ namespace InstaFollow.LicenseGen
 
 	    private string GetLicenseKey()
 	    {
-	        var machineKey = this.Request.QueryString["machinekey"];
+	        var machineKey = this.Request.QueryString.Get("machinekey");
 
 	        if (machineKey == null)
 	        {
@@ -56,6 +59,7 @@ namespace InstaFollow.LicenseGen
 
 	    private bool SaveUserData()
 	    {
+			this.log.Info("Name: " + this.tbFirstName.Text + " " + this.tbLastName.Text + " Email: " + this.tbEmail.Text);
             return true;
 	    }
 	}
