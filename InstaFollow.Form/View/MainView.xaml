@@ -44,9 +44,9 @@
                     <control:GridLayout Margin="5" ChildMargin="5">
                         <StackPanel Grid.Row="0" Grid.Column="0">
                             <Label>Name:</Label>
-                            <TextBox Name="TbUserName" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBox Name="TbUserName" IsEnabled="{Binding UserNameEnabled}" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                             <Label>Password:</Label>
-                            <control:BindablePasswordBox Name="TbPassword" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></control:BindablePasswordBox>
+                            <control:BindablePasswordBox Name="TbPassword" IsEnabled="{Binding PasswordEnabled}" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></control:BindablePasswordBox>
                         </StackPanel>
                     </control:GridLayout>
                 </TabItem>
@@ -66,11 +66,11 @@
                         </control:GridLayout.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                             <Label>Keywords (separate with |):</Label>
-                            <TextBox Name="TbKeywords" Text="{Binding Keywords, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBox Name="TbKeywords"  IsEnabled="{Binding KeywordsEnabled}" Text="{Binding Keywords, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
                             <Label>Comment (spin syntax allowed):</Label>
-                            <TextBox Name="TbComment" AcceptsReturn="True" TextWrapping="Wrap" Height="200" Text="{Binding CommentString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBox Name="TbComment" AcceptsReturn="True" IsEnabled="{Binding CommentsEnabled}" TextWrapping="Wrap" Height="200" Text="{Binding CommentString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                         </StackPanel>
                         <CheckBox Grid.Row="2" Grid.Column="0" Name="CbLike" IsChecked="{Binding Like}">Like</CheckBox>
                         <CheckBox Grid.Row="2" Grid.Column="1" Name="CbFollow" IsChecked="{Binding Follow}">Follow</CheckBox>

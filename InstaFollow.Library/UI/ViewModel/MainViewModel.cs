@@ -293,14 +293,6 @@ namespace InstaFollow.Core.UI.ViewModel
 		public ICommand StopProcessCommand { get; set; }
 
 		/// <summary>
-		/// Gets a value indicating whether the stop command can execute.
-		/// </summary>
-		/// <value>
-		///   <c>true</c> if this command can start; otherwise, <c>false</c>.
-		/// </value>
-		public bool StopCommandEndabled { get { return this.StopProcessCommand.CanExecute(null); } }
-
-		/// <summary>
 		/// Gets the play button image.
 		/// </summary>
 		/// <value>
@@ -353,6 +345,11 @@ namespace InstaFollow.Core.UI.ViewModel
 				this.RaisePropertyChanged("StopCommandEndabled");
 				this.RaisePropertyChanged("StartButtonImage");
 				this.RaisePropertyChanged("StopButtonImage");
+
+				this.RaisePropertyChanged("UserNameEnabled");
+				this.RaisePropertyChanged("PasswordEnabled");
+				this.RaisePropertyChanged("KeywordsEnabled");
+				this.RaisePropertyChanged("CommentsEnabled");
 			}
 		}
 
@@ -371,6 +368,18 @@ namespace InstaFollow.Core.UI.ViewModel
 		///   <c>true</c> if it should marquee; otherwise, <c>false</c>.
 		/// </value>
 		public bool ProcessRunning { get { return this.ProcessState == ProcessState.Running; } }
+
+		/// <summary>
+		/// Gets a value indicating whether the stop command can execute.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if this command can start; otherwise, <c>false</c>.
+		/// </value>
+		public bool StopCommandEndabled { get { return this.StopProcessCommand.CanExecute(null); } }
+		public bool UserNameEnabled { get { return !this.ProcessRunning; } }
+		public bool PasswordEnabled { get { return !this.ProcessRunning; } }
+		public bool KeywordsEnabled { get { return !this.ProcessRunning; } }
+		public bool CommentsEnabled { get { return !this.ProcessRunning; } }
 
 		/// <summary>
 		/// Updates the current image (thread safe).
