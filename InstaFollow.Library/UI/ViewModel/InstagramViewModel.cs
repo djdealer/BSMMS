@@ -8,7 +8,7 @@ using InstaFollow.Core.UI.Command;
 
 namespace InstaFollow.Core.UI.ViewModel
 {
-	public class MainViewModel : BaseViewModel, IExploreContext, IInfoContext
+	public class InstagramViewModel : BaseViewModel, IExploreContext, IInfoContext
 	{
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
@@ -17,9 +17,9 @@ namespace InstaFollow.Core.UI.ViewModel
 		private int minTimeout = 15;
 
 		/// <summary>
-		/// Prevents a default instance of the <see cref="MainViewModel"/> class from being created.
+		/// Prevents a default instance of the <see cref="InstagramViewModel"/> class from being created.
 		/// </summary>
-		private MainViewModel() { }
+		private InstagramViewModel() { }
 
 		/// <summary>
 		/// Initializes this instance.

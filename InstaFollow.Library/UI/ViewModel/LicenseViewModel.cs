@@ -13,7 +13,7 @@ namespace InstaFollow.Core.UI.ViewModel
 		private bool licenseVerified = false;
 
 		/// <summary>
-		/// Prevents a default instance of the <see cref="MainViewModel"/> class from being created.
+		/// Prevents a default instance of the <see cref="InstagramViewModel"/> class from being created.
 		/// </summary>
 		private LicenseViewModel() { }
 

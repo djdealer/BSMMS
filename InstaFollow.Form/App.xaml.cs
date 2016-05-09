@@ -20,7 +20,7 @@ namespace InstaFollow.Form
 			var windowService = WindowService.Instance;
 			if (LicenseService.Instance.IsValidRegistryLicenseCode())
 			{
-				windowService.CreateAndShowWindowModal<MainView, MainViewModel>();
+				windowService.CreateAndShowWindowModal<InstagramView, InstagramViewModel>();
 			}
 			else
 			{
@@ -28,7 +28,7 @@ namespace InstaFollow.Form
 
 				if (window.ViewModel.LicenseVerified)
 				{
-					windowService.CreateAndShowWindowModal<MainView, MainViewModel>();
+					windowService.CreateAndShowWindowModal<InstagramView, InstagramViewModel>();
 				}
 			}
 

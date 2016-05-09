@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace InstaFollow.Test.ViewModel
 {
 	[TestFixture]
-	public class MainViewModelFixture
+	public class InstagramViewModelFixture
 	{
 		[Test]
 		public void DisableControlsTest()
@@ -16,7 +16,7 @@ namespace InstaFollow.Test.ViewModel
 			var windowService = new Mock<IWindowService>();
 			windowService.SetupAllProperties();
 
-			var unit = CoreFactory.Instance.CreateViewModel<MainViewModel>(windowService.Object, CoreFactory.Instance);
+			var unit = CoreFactory.Instance.CreateViewModel<InstagramViewModel>(windowService.Object, CoreFactory.Instance);
 
 			unit.ProcessState = ProcessState.Running;
 
@@ -50,7 +50,7 @@ namespace InstaFollow.Test.ViewModel
 			var windowService = new Mock<IWindowService>();
 			windowService.SetupAllProperties();
 
-			var unit = CoreFactory.Instance.CreateViewModel<MainViewModel>(windowService.Object, CoreFactory.Instance);
+			var unit = CoreFactory.Instance.CreateViewModel<InstagramViewModel>(windowService.Object, CoreFactory.Instance);
 
 			unit.MinTimeout = min;
 			unit.MaxTimeout = max;

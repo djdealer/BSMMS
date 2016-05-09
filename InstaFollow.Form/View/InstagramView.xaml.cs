@@ -7,20 +7,20 @@ using InstaFollow.Core.UI.ViewModel;
 namespace InstaFollow.Form.View
 {
 	/// <summary>
-	/// Interaction logic for MainView.xaml
+	/// Interaction logic for InstagramView.xaml
 	/// </summary>
-	public partial class MainView : BaseWindow
+	public partial class InstagramView : BaseWindow
 	{
-		public MainViewModel ViewModel { get; set; }
+		public InstagramViewModel ViewModel { get; set; }
 
-		public MainView()
+		public InstagramView()
 		{
 			this.InitializeComponent();
 		}
 
 		public override void AttachContext(IBaseViewModel viewModel)
 		{
-			this.ViewModel = viewModel as MainViewModel;
+			this.ViewModel = viewModel as InstagramViewModel;
 			this.ViewModel.Init();
 
 			this.DataContext = this.ViewModel;

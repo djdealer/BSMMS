@@ -82,7 +82,7 @@
     <Compile Include="UI\Command\LicenseAbortCommand.cs" />
     <Compile Include="UI\ViewModel\InfoViewModel.cs" />
     <Compile Include="UI\ViewModel\LicenseViewModel.cs" />
-    <Compile Include="UI\ViewModel\MainViewModel.cs" />
+    <Compile Include="UI\ViewModel\InstagramViewModel.cs" />
     <Compile Include="UI\Command\VerifyLicenseCommand.cs" />
     <Compile Include="UI\View\BaseWindow.cs" />
     <Compile Include="Container\TimeoutRangeContainer.cs" />
