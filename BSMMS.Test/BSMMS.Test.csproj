@@ -78,7 +78,7 @@
     <Folder Include="Scenario\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InstaFollow.Library\BSMMS.Core.csproj">
+    <ProjectReference Include="..\BSMMS.Library\BSMMS.Core.csproj">
       <Project>{8DB5BE3E-982A-4994-84F4-32ADDE1C6D5A}</Project>
       <Name>BSMMS.Core</Name>
     </ProjectReference>

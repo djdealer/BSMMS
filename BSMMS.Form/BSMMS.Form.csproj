@@ -137,11 +137,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\InstaFollow.Control\BSMMS.Control.csproj">
+    <ProjectReference Include="..\BSMMS.Control\BSMMS.Control.csproj">
       <Project>{BACC9997-4768-4D76-8CD2-8EB4C5A35B52}</Project>
       <Name>BSMMS.Control</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InstaFollow.Library\BSMMS.Core.csproj">
+    <ProjectReference Include="..\BSMMS.Library\BSMMS.Core.csproj">
       <Project>{8db5be3e-982a-4994-84f4-32adde1c6d5a}</Project>
       <Name>BSMMS.Core</Name>
     </ProjectReference>
