@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace InstaFollow.Core.Factory
+namespace BSMMS.Core.Factory
 {
 	public class CustomActivator
 	{

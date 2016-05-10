@@ -1,11 +1,11 @@
-﻿using InstaFollow.Core.Context;
-using InstaFollow.Core.Enum;
-using InstaFollow.Core.Factory;
-using InstaFollow.Core.UI.Command;
+﻿using BSMMS.Core.Context;
+using BSMMS.Core.Enum;
+using BSMMS.Core.Factory;
+using BSMMS.Core.UI.Command;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace InstaFollow.Test.Command
+namespace BSMMS.Test.Command
 {
 	[TestClass]
 	public class StopProcessCommandFixture

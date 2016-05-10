@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Core.UI.View
+﻿namespace BSMMS.Core.UI.View
 {
 	public interface IInfoView : IBaseWindow
 	{

@@ -1,9 +1,9 @@
 using System;
-using InstaFollow.Core.Context;
-using InstaFollow.Core.Exceptions;
-using InstaFollow.Core.Extension;
+using BSMMS.Core.Context;
+using BSMMS.Core.Exceptions;
+using BSMMS.Core.Extension;
 
-namespace InstaFollow.Core.UI.Command
+namespace BSMMS.Core.UI.Command
 {
 	public class VerifyLicenseCommand : BaseContextCommand<IVerifyContext>
 	{

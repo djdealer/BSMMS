@@ -1,6 +1,6 @@
-﻿using InstaFollow.Core.Context;
+﻿using BSMMS.Core.Context;
 
-namespace InstaFollow.Core.Strategy
+namespace BSMMS.Core.Strategy
 {
 	public abstract class BaseContextStrategy<T> where T : class, ICommandContext
 	{

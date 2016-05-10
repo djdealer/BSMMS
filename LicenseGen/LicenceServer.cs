@@ -1,7 +1,7 @@
 ﻿using AppSoftware.LicenceEngine.Common;
 using AppSoftware.LicenceEngine.KeyGenerator;
 
-namespace InstaFollow.LicenseGen
+namespace BSMMS.LicenseGen
 {
     public class LicenceServer
     {

@@ -1,8 +1,8 @@
-﻿<view1:BaseWindow x:Class="InstaFollow.Form.View.InstagramView"
+﻿<view:BaseWindow x:Class="BSMMS.Form.View.InstagramView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:control="clr-namespace:InstaFollow.Control;assembly=InstaFollow.Control"
-        xmlns:view1="clr-namespace:InstaFollow.Core.UI.View;assembly=InstaFollow.Core"
+        xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
+        xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
         Title="InstaFollow" Height="580" Width="450" 
         ResizeMode="CanMinimize"
         Background="WhiteSmoke"
@@ -111,7 +111,11 @@
             </TabControl>
         </DockPanel>
     </DockPanel>
-</view1:BaseWindow>
+</view:BaseWindow>
+
+
+
+
 
 
 

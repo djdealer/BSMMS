@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
-using InstaFollow.Core.Context;
+using BSMMS.Core.Context;
 
-namespace InstaFollow.Core.UI.Command
+namespace BSMMS.Core.UI.Command
 {
 	public interface IContextCommand<in TContext> :
 		ICommand

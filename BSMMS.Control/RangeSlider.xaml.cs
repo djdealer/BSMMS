@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace InstaFollow.Control
+namespace BSMMS.Control
 {
     /// <summary>
     /// Interaction logic for RangeSlider.xaml

@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Core.Extension
+﻿namespace BSMMS.Core.Extension
 {
 	using System;
 	using System.Linq;

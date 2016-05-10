@@ -1,8 +1,8 @@
 using System;
-using InstaFollow.Core.Factory;
+using BSMMS.Core.Factory;
 using MvvmFoundation.Wpf;
 
-namespace InstaFollow.Core.UI.ViewModel
+namespace BSMMS.Core.UI.ViewModel
 {
 	public abstract class BaseViewModel : ObservableObject, IBaseViewModel
 	{

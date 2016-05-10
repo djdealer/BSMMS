@@ -1,8 +1,8 @@
 using System.Management;
-using InstaFollow.Core.Context;
-using InstaFollow.Core.Extension;
+using BSMMS.Core.Context;
+using BSMMS.Core.Extension;
 
-namespace InstaFollow.Core.Strategy
+namespace BSMMS.Core.Strategy
 {
 	public class GetMachineKeyStrategy : BaseContextStrategy<IVerifyContext>
 	{

@@ -1,12 +1,10 @@
 ﻿using System.Windows.Input;
-using InstaFollow.Core.Container;
-using InstaFollow.Core.Context;
-using InstaFollow.Core.UI;
-using InstaFollow.Core.UI.Command;
-using InstaFollow.Core.UI.View;
-using InstaFollow.Core.UI.ViewModel;
+using BSMMS.Core.Context;
+using BSMMS.Core.UI.View;
+using BSMMS.Core.UI.Command;
+using BSMMS.Core.UI.ViewModel;
 
-namespace InstaFollow.Core.Factory
+namespace BSMMS.Core.Factory
 {
 	public interface ICoreFactory
 	{

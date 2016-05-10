@@ -1,15 +1,15 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Threading;
-using InstaFollow.Core.Container;
-using InstaFollow.Core.Context;
-using InstaFollow.Core.Enum;
-using InstaFollow.Core.Exceptions;
-using InstaFollow.Core.Extension;
+using BSMMS.Core.Container;
+using BSMMS.Core.Context;
+using BSMMS.Core.Enum;
+using BSMMS.Core.Exceptions;
+using BSMMS.Core.Extension;
 using log4net;
 using Newtonsoft.Json;
 
-namespace InstaFollow.Core.Strategy
+namespace BSMMS.Core.Strategy
 {
 	public class ExploreStrategy : BaseContextStrategy<IExploreContext>
 	{

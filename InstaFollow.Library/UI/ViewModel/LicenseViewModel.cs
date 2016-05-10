@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Input;
-using InstaFollow.Core.Context;
-using InstaFollow.Core.Extension;
-using InstaFollow.Core.Strategy;
-using InstaFollow.Core.UI.Command;
+using BSMMS.Core.Context;
+using BSMMS.Core.Extension;
+using BSMMS.Core.Strategy;
+using BSMMS.Core.UI.Command;
 
-namespace InstaFollow.Core.UI.ViewModel
+namespace BSMMS.Core.UI.ViewModel
 {
 	public class LicenseViewModel : BaseViewModel, IVerifyContext
 	{

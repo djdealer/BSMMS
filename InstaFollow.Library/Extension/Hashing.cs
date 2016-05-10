@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace InstaFollow.Core.Extension
+namespace BSMMS.Core.Extension
 {
 	public class Hashing
 	{

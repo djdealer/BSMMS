@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Core.Enum
+﻿namespace BSMMS.Core.Enum
 {
 	public enum ProcessState
 	{

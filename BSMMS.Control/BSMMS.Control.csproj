@@ -7,8 +7,8 @@
     <ProjectGuid>{BACC9997-4768-4D76-8CD2-8EB4C5A35B52}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InstaFollow.Control</RootNamespace>
-    <AssemblyName>InstaFollow.Control</AssemblyName>
+    <RootNamespace>BSMMS.Control</RootNamespace>
+    <AssemblyName>BSMMS.Control</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,11 +1,11 @@
 ﻿using System.Threading;
-using InstaFollow.Core.Container;
-using InstaFollow.Core.Context;
-using InstaFollow.Core.Enum;
-using InstaFollow.Core.Exceptions;
-using InstaFollow.Core.Strategy;
+using BSMMS.Core.Container;
+using BSMMS.Core.Context;
+using BSMMS.Core.Enum;
+using BSMMS.Core.Exceptions;
+using BSMMS.Core.Strategy;
 
-namespace InstaFollow.Core.UI.Command
+namespace BSMMS.Core.UI.Command
 {
 	public class StartProcessCommand : BaseContextCommand<IExploreContext>
 	{

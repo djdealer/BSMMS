@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InstaFollow.Core.Exceptions
+namespace BSMMS.Core.Exceptions
 {
 	public class WrongLicenseKeyException : Exception
 	{

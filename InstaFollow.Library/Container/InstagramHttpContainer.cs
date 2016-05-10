@@ -3,11 +3,10 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
-using InstaFollow.Core.Exceptions;
+using BSMMS.Core.Exceptions;
 using log4net;
 
-namespace InstaFollow.Core.Container
+namespace BSMMS.Core.Container
 {
 	public class InstagramHttpContainer : IInstagramHttpContainer
 	{

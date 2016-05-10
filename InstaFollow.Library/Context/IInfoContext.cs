@@ -1,6 +1,6 @@
-﻿using InstaFollow.Core.Factory;
+﻿using BSMMS.Core.Factory;
 
-namespace InstaFollow.Core.Context
+namespace BSMMS.Core.Context
 {
 	public interface IInfoContext : ICommandContext
 	{

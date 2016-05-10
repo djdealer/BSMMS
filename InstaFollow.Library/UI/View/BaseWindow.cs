@@ -1,7 +1,7 @@
 using System.Windows;
-using InstaFollow.Core.UI.ViewModel;
+using BSMMS.Core.UI.ViewModel;
 
-namespace InstaFollow.Core.UI.View
+namespace BSMMS.Core.UI.View
 {
 	public abstract class BaseWindow : Window, IBaseWindow
 	{

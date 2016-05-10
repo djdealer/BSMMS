@@ -1,7 +1,7 @@
 ﻿using System;
 using log4net;
 
-namespace InstaFollow.Core.Extension
+namespace BSMMS.Core.Extension
 {
 	/// <summary>
 	/// Supports both Nested and Flat Spinning

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InstaFollow.Core.Container
+namespace BSMMS.Core.Container
 {
 	public class TimeoutRangeContainer
 	{

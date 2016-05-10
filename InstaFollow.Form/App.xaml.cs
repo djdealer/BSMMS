@@ -1,12 +1,10 @@
 ﻿using System.Windows;
-using InstaFollow.Core.Extension;
-using InstaFollow.Core.Factory;
-using InstaFollow.Core.UI;
-using InstaFollow.Core.UI.ViewModel;
-using InstaFollow.Form.Service;
-using InstaFollow.Form.View;
+using BSMMS.Core.Extension;
+using BSMMS.Core.UI.ViewModel;
+using BSMMS.Form.Service;
+using BSMMS.Form.View;
 
-namespace InstaFollow.Form
+namespace BSMMS.Form
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

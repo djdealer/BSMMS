@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InstaFollow.Core.UI.ViewModel
+namespace BSMMS.Core.UI.ViewModel
 {
 	public class InfoViewModel: BaseViewModel
 	{

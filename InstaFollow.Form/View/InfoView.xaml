@@ -1,7 +1,7 @@
-﻿<view:BaseWindow x:Class="InstaFollow.Form.View.InfoView"
+﻿<view:BaseWindow x:Class="BSMMS.Form.View.InfoView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:view="clr-namespace:InstaFollow.Core.UI.View;assembly=InstaFollow.Core"
+        xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
         Title="InfoView" Height="400" Width="300"
         ResizeMode="CanMinimize">
     <DockPanel LastChildFill="True">

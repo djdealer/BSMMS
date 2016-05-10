@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Form", "InstaFollow.Form\InstaFollow.Form.csproj", "{AC24FF7A-E60C-49FF-9743-A6C64C8586CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMMS.Form", "InstaFollow.Form\BSMMS.Form.csproj", "{AC24FF7A-E60C-49FF-9743-A6C64C8586CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Test", "InstaFollow.Test\InstaFollow.Test.csproj", "{5E050985-D156-413A-BB57-8D1A4D97A9EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMMS.Test", "InstaFollow.Test\BSMMS.Test.csproj", "{5E050985-D156-413A-BB57-8D1A4D97A9EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Control", "InstaFollow.Control\InstaFollow.Control.csproj", "{BACC9997-4768-4D76-8CD2-8EB4C5A35B52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMMS.Control", "InstaFollow.Control\BSMMS.Control.csproj", "{BACC9997-4768-4D76-8CD2-8EB4C5A35B52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.Core", "InstaFollow.Library\InstaFollow.Core.csproj", "{8DB5BE3E-982A-4994-84F4-32ADDE1C6D5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMMS.Core", "InstaFollow.Library\BSMMS.Core.csproj", "{8DB5BE3E-982A-4994-84F4-32ADDE1C6D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstaFollow.LicenseGen", "LicenseGen\InstaFollow.LicenseGen.csproj", "{B71236C5-5CC8-4501-B6F5-707970AF289D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMMS.LicenseGen", "LicenseGen\BSMMS.LicenseGen.csproj", "{B71236C5-5CC8-4501-B6F5-707970AF289D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

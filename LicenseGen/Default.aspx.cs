@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Web;
 using System.Web.UI;
 using log4net;
 
-namespace InstaFollow.LicenseGen
+namespace BSMMS.LicenseGen
 {
 	public partial class Default : Page
 	{

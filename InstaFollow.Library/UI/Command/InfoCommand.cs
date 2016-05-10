@@ -1,8 +1,8 @@
-﻿using InstaFollow.Core.Context;
-using InstaFollow.Core.UI.View;
-using InstaFollow.Core.UI.ViewModel;
+﻿using BSMMS.Core.Context;
+using BSMMS.Core.UI.View;
+using BSMMS.Core.UI.ViewModel;
 
-namespace InstaFollow.Core.UI.Command
+namespace BSMMS.Core.UI.Command
 {
 	public class InfoCommand : BaseContextCommand<IInfoContext>
 	{

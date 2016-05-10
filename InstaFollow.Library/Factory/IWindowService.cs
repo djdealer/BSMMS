@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
-using InstaFollow.Core.UI.View;
-using InstaFollow.Core.UI.ViewModel;
+using BSMMS.Core.UI.View;
+using BSMMS.Core.UI.ViewModel;
 
-namespace InstaFollow.Core.Factory
+namespace BSMMS.Core.Factory
 {
 	public interface IWindowService
 	{

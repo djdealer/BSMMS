@@ -1,6 +1,6 @@
-﻿using InstaFollow.Core.Enum;
+﻿using BSMMS.Core.Enum;
 
-namespace InstaFollow.Core.Context
+namespace BSMMS.Core.Context
 {
 	public interface IProcessStateContext : ICommandContext
 	{

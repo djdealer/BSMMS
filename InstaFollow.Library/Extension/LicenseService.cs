@@ -1,7 +1,7 @@
 ﻿using AppSoftware.LicenceEngine.Common;
 using AppSoftware.LicenceEngine.KeyVerification;
 
-namespace InstaFollow.Core.Extension
+namespace BSMMS.Core.Extension
 {
 	public class LicenseService: ILicenseService
 	{

@@ -1,8 +1,8 @@
-﻿<view:BaseWindow x:Class="InstaFollow.Form.View.LicenseView"
+﻿<view:BaseWindow x:Class="BSMMS.Form.View.LicenseView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:view="clr-namespace:InstaFollow.Core.UI.View;assembly=InstaFollow.Core"
-        xmlns:control="clr-namespace:InstaFollow.Control;assembly=InstaFollow.Control"
+        xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
+        xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
         Title="License" Height="500" Width="300"
         ResizeMode="CanMinimize">
     <control:GridLayout Margin="5" ChildMargin="5">

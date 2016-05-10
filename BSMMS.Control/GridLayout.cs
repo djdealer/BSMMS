@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace InstaFollow.Control
+namespace BSMMS.Control
 {
 	public class GridLayout : Grid
 	{

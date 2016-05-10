@@ -1,4 +1,4 @@
-﻿namespace InstaFollow.Core.Container
+﻿namespace BSMMS.Core.Container
 {
 	public interface IInstagramHttpContainer
 	{

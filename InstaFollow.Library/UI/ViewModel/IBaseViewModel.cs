@@ -1,7 +1,6 @@
-﻿using InstaFollow.Core.Container;
-using InstaFollow.Core.Factory;
+﻿using BSMMS.Core.Factory;
 
-namespace InstaFollow.Core.UI.ViewModel
+namespace BSMMS.Core.UI.ViewModel
 {
 	public interface IBaseViewModel
 	{

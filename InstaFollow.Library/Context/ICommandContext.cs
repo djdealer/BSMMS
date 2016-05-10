@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace InstaFollow.Core.Context
+namespace BSMMS.Core.Context
 {
 	public interface ICommandContext : INotifyPropertyChanged
 	{

@@ -1,11 +1,11 @@
 ﻿using System;
-using InstaFollow.Core.Enum;
-using InstaFollow.Core.Factory;
-using InstaFollow.Core.UI.ViewModel;
+using BSMMS.Core.Enum;
+using BSMMS.Core.Factory;
+using BSMMS.Core.UI.ViewModel;
 using Moq;
 using NUnit.Framework;
 
-namespace InstaFollow.Test.ViewModel
+namespace BSMMS.Test.ViewModel
 {
 	[TestFixture]
 	public class InstagramViewModelFixture

@@ -1,7 +1,7 @@
-﻿using InstaFollow.Core.Context;
-using InstaFollow.Core.Enum;
+﻿using BSMMS.Core.Context;
+using BSMMS.Core.Enum;
 
-namespace InstaFollow.Core.UI.Command
+namespace BSMMS.Core.UI.Command
 {
 	public class StopProcessCommand : BaseContextCommand<IProcessStateContext>
 	{

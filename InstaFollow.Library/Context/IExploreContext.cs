@@ -1,7 +1,7 @@
 ﻿using System;
-using InstaFollow.Core.Container;
+using BSMMS.Core.Container;
 
-namespace InstaFollow.Core.Context
+namespace BSMMS.Core.Context
 {
 	public interface IExploreContext : IProcessStateContext
 	{

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
-using InstaFollow.Core.Context;
+using BSMMS.Core.Context;
 
-namespace InstaFollow.Core.UI.Command
+namespace BSMMS.Core.UI.Command
 {
 	public abstract class BaseContextCommand<TContext> : 
 		IContextCommand<TContext>

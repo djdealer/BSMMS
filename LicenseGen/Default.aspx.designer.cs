@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InstaFollow.LicenseGen {
+namespace BSMMS.LicenseGen {
     
     
     public partial class Default {

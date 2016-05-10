@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel;
-using InstaFollow.Core.Factory;
-using InstaFollow.Core.UI;
-using InstaFollow.Core.UI.View;
-using InstaFollow.Core.UI.ViewModel;
+using BSMMS.Core.UI.View;
+using BSMMS.Core.Factory;
+using BSMMS.Core.UI.ViewModel;
 
-namespace InstaFollow.Form.View
+namespace BSMMS.Form.View
 {
 	/// <summary>
 	/// Interaction logic for InstagramView.xaml
