@@ -47,11 +47,11 @@ namespace BSMMS.Form.Service
 		/// </summary>
 		/// <typeparam name="T">The type of the window.</typeparam>
 		/// <typeparam name="TVm">The type of the view model.</typeparam>
-		public T CreateAndShowWindowModal<T, TVm>() 
+		public T CreateAndShowWindowModal<T, TVm>(BaseViewModel viewModel = null) 
 			where T : IBaseWindow 
 			where TVm : BaseViewModel
 		{
-			var vm = CoreFactory.Instance.CreateViewModel<TVm>(this, CoreFactory.Instance);
+			var vm = viewModel ?? CoreFactory.Instance.CreateViewModel<TVm>(this, CoreFactory.Instance);
 			var wnd = CoreFactory.Instance.CreateWindow<T>(vm);
 			
 			vm.CloseAction = new Action(wnd.Close);
@@ -66,11 +66,11 @@ namespace BSMMS.Form.Service
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <typeparam name="TVm">The type of the vm.</typeparam>
-		public T CreateAndShowWindow<T, TVm>()
+		public T CreateAndShowWindow<T, TVm>(BaseViewModel viewModel = null)
 			where T : IBaseWindow
 			where TVm : BaseViewModel
 		{
-			var vm = CoreFactory.Instance.CreateViewModel<TVm>(this, CoreFactory.Instance);
+			var vm = viewModel ?? CoreFactory.Instance.CreateViewModel<TVm>(this, CoreFactory.Instance);
 			var wnd = CoreFactory.Instance.CreateWindow<T>(vm);
 
 			vm.CloseAction = new Action(wnd.Close);

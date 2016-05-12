@@ -378,6 +378,8 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("PasswordEnabled");
 			this.RaisePropertyChanged("KeywordsEnabled");
 			this.RaisePropertyChanged("CommentsEnabled");
+			this.RaisePropertyChanged("MinTimeout");
+			this.RaisePropertyChanged("MaxTimeout");
 
 			if (this.NotifyMainVm != null)
 			{

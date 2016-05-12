@@ -7,6 +7,6 @@ namespace BSMMS.Core.Context
 	{
 		IWindowService WindowService { get; }
 		InstagramViewModel InstagramVM { get; set; }
-		void NotifyHandler();
+		void InstagramNotifyHandler();
 	}
 }

@@ -12,7 +12,7 @@ namespace BSMMS.Core.UI.Command
 		/// <param name="obj">The object.</param>
 		public override void Execute(object obj)
 		{
-			var view = this.CurrentContext.WindowService.CreateAndShowWindow<IInstagramView, InstagramViewModel>();
+			var view = this.CurrentContext.WindowService.CreateAndShowWindow<IInstagramView, InstagramViewModel>(this.CurrentContext.InstagramVM);
 			var instagramViewModel = view.ViewModel as InstagramViewModel;
 			if (instagramViewModel != null)
 			{
