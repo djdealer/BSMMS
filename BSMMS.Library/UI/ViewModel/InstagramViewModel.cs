@@ -8,7 +8,7 @@ using BSMMS.Core.UI.Command;
 
 namespace BSMMS.Core.UI.ViewModel
 {
-	public class InstagramViewModel : BaseViewModel, IExploreContext, IInfoContext
+	public class InstagramViewModel : BaseViewModel, IExploreContext
 	{
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
@@ -29,7 +29,6 @@ namespace BSMMS.Core.UI.ViewModel
 			ThreadDispatcher.Initialize();
 			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartProcessCommand, IExploreContext>(this);
 			this.StopProcessCommand = this.CoreFactory.CreateContextCommand<StopProcessCommand, IProcessStateContext>(this);
-			this.InfoCommand = this.CoreFactory.CreateContextCommand<InfoCommand, IInfoContext>(this);
 		}
 
 		/// <summary>
@@ -261,14 +260,6 @@ namespace BSMMS.Core.UI.ViewModel
 		}
 
 		/// <summary>
-		/// Gets or sets the information command.
-		/// </summary>
-		/// <value>
-		/// The information command.
-		/// </value>
-		public ICommand InfoCommand { get; set; }
-
-		/// <summary>
 		/// Gets or sets the start process command.
 		/// </summary>
 		/// <value>
@@ -417,14 +408,6 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("ProcessStateText");
 			this.RaisePropertyChanged("ProcessRunning");
 			this.RaisePropertyChanged("ProgressHeaderBulb");
-		}
-
-		/// <summary>
-		/// Shows the information message box.
-		/// </summary>
-		public void ShowInfoMessageBox()
-		{
-			this.WindowService.ShowMessageBox("Information", "Information");
 		}
 	}
 }

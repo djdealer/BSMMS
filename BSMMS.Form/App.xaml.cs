@@ -18,7 +18,8 @@ namespace BSMMS.Form
 			var windowService = WindowService.Instance;
 			if (LicenseService.Instance.IsValidRegistryLicenseCode())
 			{
-				windowService.CreateAndShowWindowModal<InstagramView, InstagramViewModel>();
+				windowService.CreateAndShowWindowModal<MainView, MainViewModel>();
+				//windowService.CreateAndShowWindowModal<InstagramView, InstagramViewModel>();
 			}
 			else
 			{

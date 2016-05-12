@@ -1,0 +1,33 @@
+﻿<view:BaseWindow x:Class="BSMMS.Form.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
+        xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
+        Title="BRANOVA SMMS" Height="400" Width="600"
+        ResizeMode="CanMinimize"
+        Background="WhiteSmoke">
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Background="WhiteSmoke">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="?" Command="{Binding InfoCommand}" HorizontalAlignment="Right"></MenuItem>
+        </Menu>
+        <StatusBar VerticalAlignment="Bottom" Background="WhiteSmoke" DockPanel.Dock="Bottom">
+            <TextBlock Name="TbStatusbarText" Text="{Binding StatusText}" />
+        </StatusBar>
+        <control:GridLayout Margin="5" ChildMargin="5">
+            <control:GridLayout.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </control:GridLayout.RowDefinitions>
+            <control:GridLayout.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </control:GridLayout.ColumnDefinitions>
+        </control:GridLayout>
+    </DockPanel>
+</view:BaseWindow>
+

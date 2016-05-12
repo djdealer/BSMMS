@@ -3,19 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
         xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
-        Title="InstaFollow" Height="580" Width="450" 
+        Title="Instagram" Height="580" Width="450" 
         ResizeMode="CanMinimize"
         Background="WhiteSmoke"
         VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
     <DockPanel LastChildFill="True">
-        <Menu DockPanel.Dock="Top" Background="WhiteSmoke">
-            <Menu.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <DockPanel HorizontalAlignment="Stretch"/>
-                </ItemsPanelTemplate>
-            </Menu.ItemsPanel>
-            <MenuItem Header="?" Command="{Binding InfoCommand}" HorizontalAlignment="Right"></MenuItem>
-        </Menu>
         <StatusBar VerticalAlignment="Bottom" Background="WhiteSmoke" DockPanel.Dock="Bottom">
             <TextBlock Name="TbStatusbarText" Text="{Binding ProcessStateText}" />
             <StatusBarItem HorizontalContentAlignment="Stretch">
