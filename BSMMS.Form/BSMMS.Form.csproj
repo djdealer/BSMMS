@@ -183,11 +183,6 @@
     <Resource Include="Images\red_light.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-2400px.png" />
-    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-300px.png" />
-    <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-800px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Polaroid-OneStep-Land-Camera-bwocw-2400px.png.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +190,116 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\branova_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\social_icons\Circle Black White\Behance.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Deviantart.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Dribbble.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Facebook.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Github.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Google+.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Instagram.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Linkedin.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Pinterest.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Reddit.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Snapchat.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Stumbleupon.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Tumblr.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Twitter.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Vine.png" />
+    <Resource Include="Images\social_icons\Circle Black White\WhatsApp.png" />
+    <Resource Include="Images\social_icons\Circle Black White\Yelp.png" />
+    <Resource Include="Images\social_icons\Circle Black White\YouTube.png" />
+    <Resource Include="Images\social_icons\Circle Color\Behance.png" />
+    <Resource Include="Images\social_icons\Circle Color\Deviantart.png" />
+    <Resource Include="Images\social_icons\Circle Color\Dribbble.png" />
+    <Resource Include="Images\social_icons\Circle Color\Facebook.png" />
+    <Resource Include="Images\social_icons\Circle Color\Github.png" />
+    <Resource Include="Images\social_icons\Circle Color\Google+.png" />
+    <Resource Include="Images\social_icons\Circle Color\Instagram.png" />
+    <Resource Include="Images\social_icons\Circle Color\Linkedin.png" />
+    <Resource Include="Images\social_icons\Circle Color\Pinterest.png" />
+    <Resource Include="Images\social_icons\Circle Color\Reddit.png" />
+    <Resource Include="Images\social_icons\Circle Color\Snapchat.png" />
+    <Resource Include="Images\social_icons\Circle Color\Stumbleupon.png" />
+    <Resource Include="Images\social_icons\Circle Color\Tumblr.png" />
+    <Resource Include="Images\social_icons\Circle Color\Twitter.png" />
+    <Resource Include="Images\social_icons\Circle Color\Vine.png" />
+    <Resource Include="Images\social_icons\Circle Color\WhatsApp.png" />
+    <Resource Include="Images\social_icons\Circle Color\Yelp.png" />
+    <Resource Include="Images\social_icons\Circle Color\YouTube.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Behance.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Deviantart.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Dribbble.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Facebook.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Github.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Google+.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Instagram.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Linkedin.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Pinterest.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Reddit.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Snapchat.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Stumbleupon.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Tumblr.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Twitter.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Vine.png" />
+    <Resource Include="Images\social_icons\Circle Grey\WhatsApp.png" />
+    <Resource Include="Images\social_icons\Circle Grey\Yelp.png" />
+    <Resource Include="Images\social_icons\Circle Grey\YouTube.png" />
+    <Resource Include="Images\social_icons\Square Black White\Behance.png" />
+    <Resource Include="Images\social_icons\Square Black White\Deviantart.png" />
+    <Resource Include="Images\social_icons\Square Black White\Dribbble.png" />
+    <Resource Include="Images\social_icons\Square Black White\Facebook.png" />
+    <Resource Include="Images\social_icons\Square Black White\Github.png" />
+    <Resource Include="Images\social_icons\Square Black White\Google+.png" />
+    <Resource Include="Images\social_icons\Square Black White\Instagram.png" />
+    <Resource Include="Images\social_icons\Square Black White\Linkedin.png" />
+    <Resource Include="Images\social_icons\Square Black White\Pinterest.png" />
+    <Resource Include="Images\social_icons\Square Black White\Reddit.png" />
+    <Resource Include="Images\social_icons\Square Black White\Snapchat.png" />
+    <Resource Include="Images\social_icons\Square Black White\Stumbleupon.png" />
+    <Resource Include="Images\social_icons\Square Black White\Tumblr.png" />
+    <Resource Include="Images\social_icons\Square Black White\Twitter.png" />
+    <Resource Include="Images\social_icons\Square Black White\Vine.png" />
+    <Resource Include="Images\social_icons\Square Black White\WhatsApp.png" />
+    <Resource Include="Images\social_icons\Square Black White\Yelp.png" />
+    <Resource Include="Images\social_icons\Square Black White\YouTube.png" />
+    <Resource Include="Images\social_icons\Square Color\Behance.png" />
+    <Resource Include="Images\social_icons\Square Color\Deviantart.png" />
+    <Resource Include="Images\social_icons\Square Color\Dribbble.png" />
+    <Resource Include="Images\social_icons\Square Color\Facebook.png" />
+    <Resource Include="Images\social_icons\Square Color\Github.png" />
+    <Resource Include="Images\social_icons\Square Color\Google+.png" />
+    <Resource Include="Images\social_icons\Square Color\Instagram.png" />
+    <Resource Include="Images\social_icons\Square Color\Linkedin.png" />
+    <Resource Include="Images\social_icons\Square Color\Pinterest.png" />
+    <Resource Include="Images\social_icons\Square Color\Reddit.png" />
+    <Resource Include="Images\social_icons\Square Color\Snapchat.png" />
+    <Resource Include="Images\social_icons\Square Color\Stumbleupon.png" />
+    <Resource Include="Images\social_icons\Square Color\Tumblr.png" />
+    <Resource Include="Images\social_icons\Square Color\Twitter.png" />
+    <Resource Include="Images\social_icons\Square Color\Vine.png" />
+    <Resource Include="Images\social_icons\Square Color\WhatsApp.png" />
+    <Resource Include="Images\social_icons\Square Color\Yelp.png" />
+    <Resource Include="Images\social_icons\Square Color\YouTube.png" />
+    <Resource Include="Images\social_icons\Square Grey\Behance.png" />
+    <Resource Include="Images\social_icons\Square Grey\Deviantart.png" />
+    <Resource Include="Images\social_icons\Square Grey\Dribbble.png" />
+    <Resource Include="Images\social_icons\Square Grey\Facebook.png" />
+    <Resource Include="Images\social_icons\Square Grey\Github.png" />
+    <Resource Include="Images\social_icons\Square Grey\Google+.png" />
+    <Resource Include="Images\social_icons\Square Grey\Instagram.png" />
+    <Resource Include="Images\social_icons\Square Grey\Linkedin.png" />
+    <Resource Include="Images\social_icons\Square Grey\Pinterest.png" />
+    <Resource Include="Images\social_icons\Square Grey\Reddit.png" />
+    <Resource Include="Images\social_icons\Square Grey\Snapchat.png" />
+    <Resource Include="Images\social_icons\Square Grey\Stumbleupon.png" />
+    <Resource Include="Images\social_icons\Square Grey\Tumblr.png" />
+    <Resource Include="Images\social_icons\Square Grey\Twitter.png" />
+    <Resource Include="Images\social_icons\Square Grey\Vine.png" />
+    <Resource Include="Images\social_icons\Square Grey\WhatsApp.png" />
+    <Resource Include="Images\social_icons\Square Grey\Yelp.png" />
+    <Resource Include="Images\social_icons\Square Grey\YouTube.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

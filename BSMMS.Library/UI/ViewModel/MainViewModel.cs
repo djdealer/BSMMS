@@ -84,6 +84,19 @@ namespace BSMMS.Core.UI.ViewModel
 
 		#endregion
 
-		
+		#region twitter
+
+		/// <summary>
+		/// Gets the twitter progress bulb.
+		/// </summary>
+		/// <value>
+		/// The twitter progress bulb.
+		/// </value>
+		public string TwitterProgressBulb
+		{
+			get { return @"..\Images\red_light.png"; }
+		}
+
+		#endregion
 	}
 }
