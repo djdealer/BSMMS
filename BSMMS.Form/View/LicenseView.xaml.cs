@@ -9,7 +9,7 @@ namespace BSMMS.Form.View
 	/// </summary>
 	public partial class LicenseView : BaseWindow
 	{
-		public LicenseViewModel ViewModel { get; set; }
+		public override IBaseViewModel ViewModel { get; set; }
 
 		public LicenseView()
 		{
@@ -18,7 +18,7 @@ namespace BSMMS.Form.View
 
 		public override void AttachContext(IBaseViewModel viewModel)
 		{
-			this.ViewModel = viewModel as LicenseViewModel;
+			this.ViewModel = viewModel;
 			this.ViewModel.Init();
 
 			this.DataContext = this.ViewModel;

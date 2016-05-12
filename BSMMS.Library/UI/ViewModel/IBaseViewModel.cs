@@ -6,5 +6,6 @@ namespace BSMMS.Core.UI.ViewModel
 	{
 		IWindowService WindowService { get; set; }
 		ICoreFactory CoreFactory { get; set; }
+		void Init();
 	}
 }

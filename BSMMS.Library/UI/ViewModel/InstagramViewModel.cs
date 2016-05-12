@@ -26,10 +26,11 @@ namespace BSMMS.Core.UI.ViewModel
 		/// </summary>
 		public override void Init()
 		{
-			ThreadDispatcher.Initialize();
 			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartProcessCommand, IExploreContext>(this);
 			this.StopProcessCommand = this.CoreFactory.CreateContextCommand<StopProcessCommand, IProcessStateContext>(this);
 		}
+
+		public Action NotifyMainVm { get; set; }
 
 		/// <summary>
 		/// Gets or sets the name of the user.
@@ -43,11 +44,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				userName = value;
-				this.RaisePropertyChanged("UserName");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -63,11 +60,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				password = value;
-				this.RaisePropertyChanged("Password");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -83,11 +76,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				keywords = value;
-				this.RaisePropertyChanged("Keywords");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -103,12 +92,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				commentString = value;
-				this.RaisePropertyChanged("CommentString");
-				this.RaisePropertyChanged("CommentBoxEnabled");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -124,7 +108,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.currentImage = value;
-				this.RaisePropertyChanged("CurrentImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -140,11 +124,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.like = value;
-				this.RaisePropertyChanged("Like");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -160,11 +140,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.follow = value;
-				this.RaisePropertyChanged("Follow");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -180,11 +156,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.comment = value;
-				this.RaisePropertyChanged("Comment");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -200,11 +172,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.paging = value;
-				this.RaisePropertyChanged("Paging");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -239,7 +207,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				maxTimeout = value;
-				this.RaisePropertyChanged("MaxTimeout");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -255,7 +223,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				minTimeout = value;
-				this.RaisePropertyChanged("MinTimeout");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -328,19 +296,7 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.processState = value;
-				this.RaisePropertyChanged("ProcessState");
-				this.RaisePropertyChanged("ProcessStateText");
-				this.RaisePropertyChanged("ProcessRunning");
-				this.RaisePropertyChanged("ProgressHeaderBulb");
-				this.RaisePropertyChanged("StartCommandEnabled");
-				this.RaisePropertyChanged("StopCommandEndabled");
-				this.RaisePropertyChanged("StartButtonImage");
-				this.RaisePropertyChanged("StopButtonImage");
-
-				this.RaisePropertyChanged("UserNameEnabled");
-				this.RaisePropertyChanged("PasswordEnabled");
-				this.RaisePropertyChanged("KeywordsEnabled");
-				this.RaisePropertyChanged("CommentsEnabled");
+				this.RaiseAllChanged();
 			}
 		}
 
@@ -391,10 +347,7 @@ namespace BSMMS.Core.UI.ViewModel
 			this.ProcessState = ProcessState.Error;
 			this.WindowService.ShowExceptionMessageBox(ex);
 
-			this.RaisePropertyChanged("ProcessState");
-			this.RaisePropertyChanged("ProcessStateText");
-			this.RaisePropertyChanged("ProcessRunning");
-			this.RaisePropertyChanged("ProgressHeaderBulb");
+			this.RaiseAllChanged();
 		}
 
 		/// <summary>
@@ -404,10 +357,32 @@ namespace BSMMS.Core.UI.ViewModel
 		{
 			this.ProcessState = ProcessState.Stopped;
 
+			this.RaiseAllChanged();
+		}
+
+		/// <summary>
+		/// Raises all changed.
+		/// </summary>
+		private void RaiseAllChanged()
+		{
 			this.RaisePropertyChanged("ProcessState");
 			this.RaisePropertyChanged("ProcessStateText");
 			this.RaisePropertyChanged("ProcessRunning");
 			this.RaisePropertyChanged("ProgressHeaderBulb");
+			this.RaisePropertyChanged("StartCommandEnabled");
+			this.RaisePropertyChanged("StopCommandEndabled");
+			this.RaisePropertyChanged("StartButtonImage");
+			this.RaisePropertyChanged("StopButtonImage");
+
+			this.RaisePropertyChanged("UserNameEnabled");
+			this.RaisePropertyChanged("PasswordEnabled");
+			this.RaisePropertyChanged("KeywordsEnabled");
+			this.RaisePropertyChanged("CommentsEnabled");
+
+			if (this.NotifyMainVm != null)
+			{
+				this.NotifyMainVm();
+			}
 		}
 	}
 }

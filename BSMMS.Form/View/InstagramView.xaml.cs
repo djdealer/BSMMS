@@ -8,9 +8,9 @@ namespace BSMMS.Form.View
 	/// <summary>
 	/// Interaction logic for InstagramView.xaml
 	/// </summary>
-	public partial class InstagramView : BaseWindow
+	public partial class InstagramView : BaseWindow, IInstagramView
 	{
-		public InstagramViewModel ViewModel { get; set; }
+		public override IBaseViewModel ViewModel { get; set; }
 
 		public InstagramView()
 		{
@@ -19,17 +19,10 @@ namespace BSMMS.Form.View
 
 		public override void AttachContext(IBaseViewModel viewModel)
 		{
-			this.ViewModel = viewModel as InstagramViewModel;
+			this.ViewModel = viewModel;
 			this.ViewModel.Init();
 
 			this.DataContext = this.ViewModel;
-		}
-
-		protected override void OnClosing(CancelEventArgs e)
-		{
-			this.ViewModel.HandleCloseEvent();
-
-			base.OnClosing(e);
 		}
 	}
 }

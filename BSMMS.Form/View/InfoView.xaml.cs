@@ -8,7 +8,7 @@ namespace BSMMS.Form.View
 	/// </summary>
 	public partial class InfoView : BaseWindow, IInfoView
 	{
-		public InfoViewModel ViewModel { get; set; }
+		public override IBaseViewModel ViewModel { get; set; }
 
 		public InfoView()
 		{
@@ -17,7 +17,7 @@ namespace BSMMS.Form.View
 
 		public override void AttachContext(IBaseViewModel viewModel)
 		{
-			this.ViewModel = viewModel as InfoViewModel;
+			this.ViewModel = viewModel;
 			this.ViewModel.Init();
 
 			this.DataContext = this.ViewModel;

@@ -13,6 +13,11 @@
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
+            <MenuItem Header="Bots">
+                <MenuItem Header="Instagram" Command="{Binding InstagramWindowCommand}"></MenuItem>
+                <MenuItem Header="Twitter" IsEnabled="False"></MenuItem>
+                <MenuItem Header="Facebook" IsEnabled="False"></MenuItem>
+            </MenuItem>
             <MenuItem Header="?" Command="{Binding InfoCommand}" HorizontalAlignment="Right"></MenuItem>
         </Menu>
         <StatusBar VerticalAlignment="Bottom" Background="WhiteSmoke" DockPanel.Dock="Bottom">
@@ -27,6 +32,23 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </control:GridLayout.ColumnDefinitions>
+            <GroupBox Header="Instagram" Grid.Column="0" Grid.Row="0">
+                <control:GridLayout Margin="5" ChildMargin="5">
+                    <control:GridLayout.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </control:GridLayout.RowDefinitions>
+                    <control:GridLayout.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </control:GridLayout.ColumnDefinitions>
+                    <Button Name="BtnOpenInstagram" Grid.Column="0" Grid.Row="0" Command="{Binding InstagramWindowCommand}" IsEnabled="True">
+                        <Image Source="../Images/Polaroid-OneStep-Land-Camera-bwocw-300px.png" Width="50" Height="Auto"></Image>
+                    </Button>
+                    <Image Grid.Column="1" Grid.Row="0" Source="{Binding InstagramProgressBulb}"></Image>
+                    <ProgressBar x:Name="ProgressBarInstagram" IsIndeterminate="{Binding InstagramProcessRunning}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="15" />
+                </control:GridLayout>
+            </GroupBox>
         </control:GridLayout>
     </DockPanel>
 </view:BaseWindow>
