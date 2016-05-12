@@ -46,7 +46,10 @@ namespace BSMMS.Form.View
 			var mainViewModel = this.ViewModel as MainViewModel;
 			if (mainViewModel != null)
 			{
-				mainViewModel.InstagramVM.HandleCloseEvent();
+				if (mainViewModel.InstagramVM != null)
+				{
+					mainViewModel.InstagramVM.HandleCloseEvent();
+				}
 			}
 
 			base.OnClosing(e);

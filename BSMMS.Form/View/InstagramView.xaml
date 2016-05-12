@@ -6,7 +6,8 @@
         Title="Instagram" Height="580" Width="450" 
         ResizeMode="CanMinimize"
         Background="WhiteSmoke"
-        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+        Icon="../Polaroid-OneStep-Land-Camera-bwocw-2400px.png.ico">
     <DockPanel LastChildFill="True">
         <StatusBar VerticalAlignment="Bottom" Background="WhiteSmoke" DockPanel.Dock="Bottom">
             <TextBlock Name="TbStatusbarText" Text="{Binding ProcessStateText}" />

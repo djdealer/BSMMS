@@ -32,21 +32,25 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </control:GridLayout.ColumnDefinitions>
-            <GroupBox Header="Instagram" Grid.Column="0" Grid.Row="0">
-                <control:GridLayout Margin="5" ChildMargin="5">
+            <GroupBox Grid.Column="0" Grid.Row="0">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding InstagramProgressBulb}" Margin="0,0,3,0"></Image>
+                        <Label Content="Instagram" />
+                    </StackPanel>
+                </GroupBox.Header>
+                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto">
                     <control:GridLayout.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </control:GridLayout.RowDefinitions>
                     <control:GridLayout.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
                     </control:GridLayout.ColumnDefinitions>
                     <Button Name="BtnOpenInstagram" Grid.Column="0" Grid.Row="0" Command="{Binding InstagramWindowCommand}" IsEnabled="True">
                         <Image Source="../Images/Polaroid-OneStep-Land-Camera-bwocw-300px.png" Width="50" Height="Auto"></Image>
                     </Button>
-                    <Image Grid.Column="1" Grid.Row="0" Source="{Binding InstagramProgressBulb}"></Image>
-                    <ProgressBar x:Name="ProgressBarInstagram" IsIndeterminate="{Binding InstagramProcessRunning}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Height="15" />
+                    <ProgressBar x:Name="ProgressBarInstagram" IsIndeterminate="{Binding InstagramProcessRunning}" Grid.Column="0" Grid.Row="1" Height="15" />
                 </control:GridLayout>
             </GroupBox>
         </control:GridLayout>
