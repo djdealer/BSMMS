@@ -71,6 +71,7 @@
     <Compile Include="Factory\CustomActivator.cs" />
     <Compile Include="Strategy\BaseContextStrategy.cs" />
     <Compile Include="Strategy\ExploreStrategy.cs" />
+    <Compile Include="Strategy\UnfollowStrategy.cs" />
     <Compile Include="UI\Command\BaseContextCommand.cs" />
     <Compile Include="UI\Command\IContextCommand.cs" />
     <Compile Include="UI\Command\InfoCommand.cs" />

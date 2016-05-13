@@ -19,7 +19,7 @@ namespace BSMMS.Core.Strategy
 
 		private const string ExploreUri = @"https://www.instagram.com/explore/tags/{0}/";
 		private const string DetailUri = @"https://www.instagram.com/p/{0}/";
-		private const string PageQueryString = @"https://www.instagram.com/query/";
+		private const string QueryUri = @"https://www.instagram.com/query/";
 		private const string LikeUri = @"https://www.instagram.com/web/likes/{0}/like/";
 		private const string FollowUri = @"https://www.instagram.com/web/friendships/{0}/follow/";
 		private const string CommentUri = @"https://www.instagram.com/web/comments/{0}/add/";
@@ -115,7 +115,7 @@ namespace BSMMS.Core.Strategy
 					var postData = PageQueryPostString.Replace("%0%", keyword)
 					.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
 
-					var json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf, string.Format(ExploreUri, keyword), postData);
+					var json = this.httpContainer.InstagramPost(QueryUri, keywordCsrf, string.Format(ExploreUri, keyword), postData);
 					if (json == string.Empty)
 					{
 						continue;
@@ -153,7 +153,7 @@ namespace BSMMS.Core.Strategy
 						postData = PageQueryPostString.Replace("%0%", keyword)
 							.Replace("%1%", dyn.media.page_info.end_cursor.ToString());
 
-						json = this.httpContainer.InstagramPost(PageQueryString, keywordCsrf, string.Format(ExploreUri, keyword), postData);
+						json = this.httpContainer.InstagramPost(QueryUri, keywordCsrf, string.Format(ExploreUri, keyword), postData);
 						if (json == string.Empty)
 						{
 							continue;
