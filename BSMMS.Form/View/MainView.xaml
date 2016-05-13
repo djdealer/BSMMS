@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
         xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
-        Title="BRANOVA SMMS" Height="400" Width="600"
+        Title="BRANOVA SMMS" Height="250" Width="450"
         ResizeMode="CanMinimize"
         Background="WhiteSmoke"
         Icon="../branova_logo.png.ico">
@@ -14,6 +14,10 @@
                     <DockPanel HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
+            <MenuItem Header="File">
+                <MenuItem Header="Send Feedback" IsEnabled="False"></MenuItem>
+                <MenuItem Header="Close" IsEnabled="False"></MenuItem>
+            </MenuItem>
             <MenuItem Header="Bots">
                 <MenuItem Header="Instagram" Command="{Binding InstagramWindowCommand}"></MenuItem>
                 <MenuItem Header="Twitter" IsEnabled="False"></MenuItem>

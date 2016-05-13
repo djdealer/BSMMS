@@ -12,7 +12,7 @@ namespace BSMMS.Core.UI.ViewModel
 	{
 		private string userName, password, keywords, commentString, currentImage;
 		private ProcessState processState;
-		private bool like, follow, comment, paging;
+		private bool like, follow, comment, paging, unfollow, unfollowAll;
 		private int maxTimeout = 100;
 		private int minTimeout = 15;
 
@@ -124,6 +124,13 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.like = value;
+
+				if (this.like)
+				{
+					this.UnfollowAll = false;
+					this.Unfollow = false;
+				}
+
 				this.RaiseAllChanged();
 			}
 		}
@@ -140,6 +147,13 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.follow = value;
+
+				if (this.follow)
+				{
+					this.UnfollowAll = false;
+					this.Unfollow = false;
+				}
+
 				this.RaiseAllChanged();
 			}
 		}
@@ -156,6 +170,13 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.comment = value;
+
+				if (this.comment)
+				{
+					this.UnfollowAll = false;
+					this.Unfollow = false;
+				}
+
 				this.RaiseAllChanged();
 			}
 		}
@@ -172,6 +193,45 @@ namespace BSMMS.Core.UI.ViewModel
 			set
 			{
 				this.paging = value;
+
+				if (this.paging)
+				{
+					this.UnfollowAll = false;
+					this.Unfollow = false;
+				}
+
+				this.RaiseAllChanged();
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="InstagramViewModel"/> is unfollow.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if unfollow; otherwise, <c>false</c>.
+		/// </value>
+		public bool Unfollow
+		{
+			get { return this.unfollow; }
+			set
+			{
+				this.unfollow = value;
+				this.RaiseAllChanged();
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether [unfollow all].
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if [unfollow all]; otherwise, <c>false</c>.
+		/// </value>
+		public bool UnfollowAll
+		{
+			get { return this.unfollowAll; }
+			set
+			{
+				this.unfollowAll = value;
 				this.RaiseAllChanged();
 			}
 		}
@@ -183,6 +243,14 @@ namespace BSMMS.Core.UI.ViewModel
 		///   <c>true</c> if comment box enabled; otherwise, <c>false</c>.
 		/// </value>
 		public bool CommentBoxEnabled { get { return !string.IsNullOrEmpty(this.CommentString); } }
+
+		/// <summary>
+		/// Gets a value indicating whether [unfollow boxes enabled].
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if [unfollow boxes enabled]; otherwise, <c>false</c>.
+		/// </value>
+		public bool UnfollowBoxesEnabled { get { return !(this.Like || this.Comment || this.Follow || this.Paging); } }
 
 		/// <summary>
 		/// Gets the timeout range.
@@ -380,6 +448,15 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("CommentsEnabled");
 			this.RaisePropertyChanged("MinTimeout");
 			this.RaisePropertyChanged("MaxTimeout");
+
+			this.RaisePropertyChanged("UnfollowAll");
+			this.RaisePropertyChanged("Unfollow");
+			this.RaisePropertyChanged("Like");
+			this.RaisePropertyChanged("Follow");
+			this.RaisePropertyChanged("Comment");
+			this.RaisePropertyChanged("Paging");
+
+			this.RaisePropertyChanged("UnfollowBoxesEnabled");
 
 			if (this.NotifyMainVm != null)
 			{

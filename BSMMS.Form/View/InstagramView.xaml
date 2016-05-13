@@ -52,6 +52,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </control:GridLayout.RowDefinitions>
                         <control:GridLayout.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -69,7 +70,9 @@
                         <CheckBox Grid.Row="2" Grid.Column="1" Name="CbFollow" IsChecked="{Binding Follow}">Follow</CheckBox>
                         <CheckBox Grid.Row="3" Grid.Column="0" Name="CbComment" IsChecked="{Binding Comment}" IsEnabled="{Binding CommentBoxEnabled}">Comment</CheckBox>
                         <CheckBox Grid.Row="3" Grid.Column="1" Name="CbPaging" IsChecked="{Binding Paging}">Paging</CheckBox>
-                        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                        <CheckBox Grid.Row="4" Grid.Column="0" Name="CbUnfollow" IsChecked="{Binding Unfollow}" IsEnabled="{Binding UnfollowBoxesEnabled}">Unfollow</CheckBox>
+                        <CheckBox Grid.Row="4" Grid.Column="1" Name="CbUnfollowAll" IsChecked="{Binding UnfollowAll}" IsEnabled="{Binding UnfollowBoxesEnabled}">Unfollow all</CheckBox>
+                        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
                             <Label>Range for random timout between requests in seconds:</Label>
                             <control:RangeSlider x:Name="RangeSlider" 
                                                      LowerValue="{Binding MinTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
@@ -77,8 +80,8 @@
                                                      Minimum="10" 
                                                      Maximum="150" />
                         </StackPanel>
-                        <Label Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Left" Name="LblMinValue" Content="{Binding MinTimeout}" HorizontalAlignment="Left"></Label>
-                        <Label Grid.Row="5" Grid.Column="1" HorizontalContentAlignment="Right" Name="LblMaxValue" Content="{Binding MaxTimeout}" HorizontalAlignment="Right"></Label>
+                        <Label Grid.Row="6" Grid.Column="0" HorizontalContentAlignment="Left" Name="LblMinValue" Content="{Binding MinTimeout}" HorizontalAlignment="Left"></Label>
+                        <Label Grid.Row="6" Grid.Column="1" HorizontalContentAlignment="Right" Name="LblMaxValue" Content="{Binding MaxTimeout}" HorizontalAlignment="Right"></Label>
                     </control:GridLayout>
                 </TabItem>
                 <TabItem>

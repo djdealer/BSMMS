@@ -10,7 +10,8 @@ namespace BSMMS.Core.Strategy
 	public class UnfollowStrategy : BaseContextStrategy<IExploreContext>
 	{
 		private const string QueryUri = @"https://www.instagram.com/query/";
-		private const string FollowingQueryPostString = @"q=ig_user(45910664){follows.first(10){count,page_info{end_cursor,has_next_page},nodes{id,is_verified,followed_by_viewer,requested_by_viewer,full_name,profile_pic_url,username}}}&ref=relationships::follow_list";
+		// todo %0% user id
+		private const string FollowingQueryPostString = @"q=ig_user(%0%){follows.first(10){count,page_info{end_cursor,has_next_page},nodes{id,is_verified,followed_by_viewer,requested_by_viewer,full_name,profile_pic_url,username}}}&ref=relationships::follow_list";
 
 		private readonly IInstagramHttpContainer httpContainer;
 

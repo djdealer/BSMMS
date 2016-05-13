@@ -66,6 +66,7 @@
     <Compile Include="Exceptions\WrongLicenseKeyException.cs" />
     <Compile Include="Extension\Hashing.cs" />
     <Compile Include="Extension\ILicenseService.cs" />
+    <Compile Include="Extension\ITextSpinner.cs" />
     <Compile Include="Extension\LicenseService.cs" />
     <Compile Include="Extension\RegistryUtils.cs" />
     <Compile Include="Factory\CustomActivator.cs" />

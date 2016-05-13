@@ -13,6 +13,8 @@ namespace BSMMS.Core.Context
 		bool Follow { get; }
 		bool Comment { get; set; }
 		bool Paging { get; }
+		bool Unfollow { get; }
+		bool UnfollowAll { get; }
 
 		TimeoutRangeContainer TimeoutRange { get; }
 

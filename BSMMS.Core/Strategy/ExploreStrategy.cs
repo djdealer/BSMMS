@@ -27,6 +27,7 @@ namespace BSMMS.Core.Strategy
 
 		private readonly IRandomizer rnd;
 		private readonly IInstagramHttpContainer httpContainer;
+		private readonly ITextSpinner spinner;
 
 		private string imageCode, comment, authorId, imageId, csrfToken, referrer;
 
@@ -37,10 +38,12 @@ namespace BSMMS.Core.Strategy
 		/// </summary>
 		/// <param name="context">The context.</param>
 		/// <param name="httpContainer">The HTTP container.</param>
-		public ExploreStrategy(IExploreContext context, IInstagramHttpContainer httpContainer) : base(context)
+		/// <param name="spinner">The spinner.</param>
+		public ExploreStrategy(IExploreContext context, IInstagramHttpContainer httpContainer, ITextSpinner spinner) : base(context)
 		{
 			this.rnd = Randomizer.Instance;
 			this.httpContainer = httpContainer;
+			this.spinner = spinner;
 		}
 
 		/// <summary>
@@ -106,7 +109,9 @@ namespace BSMMS.Core.Strategy
 					this.SetNewImage(node);
 
 					this.imageCode = node.code.ToString();
+
 					this.GetDetails();
+					
 					Thread.Sleep(this.GetRandomTimeout());
 				}
 
@@ -138,7 +143,9 @@ namespace BSMMS.Core.Strategy
 							this.SetNewImage(node);
 
 							this.imageCode = node.code.ToString();
+
 							this.GetDetails();
+							
 							Thread.Sleep(this.GetRandomTimeout());
 						}
 
@@ -217,7 +224,7 @@ namespace BSMMS.Core.Strategy
 				{
 					Thread.Sleep(this.GetRandomTimeout());
 
-					this.comment = new TextSpinner().Spin(this.CurrentContext.CommentString);
+					this.comment = this.spinner.Spin(this.CurrentContext.CommentString);
 
 					this.log.Info("Commenting image id: " + this.imageId + " with text: '" + this.comment + "'");
 					this.CommentItem();

@@ -3,6 +3,7 @@ using BSMMS.Core.Container;
 using BSMMS.Core.Context;
 using BSMMS.Core.Enum;
 using BSMMS.Core.Exceptions;
+using BSMMS.Core.Extension;
 using BSMMS.Core.Strategy;
 
 namespace BSMMS.Core.UI.Command
@@ -22,8 +23,21 @@ namespace BSMMS.Core.UI.Command
 		/// <exception cref="InstagramException">An error occured during login!</exception>
 		public override void Execute(object obj)
 		{
-			var strategy = new ExploreStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
-			new Thread(() => strategy.Explore()).Start();
+			if (this.CurrentContext.Unfollow)
+			{
+				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
+				new Thread(() => strategy.Unfollow(false)).Start();
+			}
+			if (this.CurrentContext.UnfollowAll)
+			{
+				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
+				new Thread(() => strategy.Unfollow(true)).Start();
+			}
+			else
+			{
+				var strategy = new ExploreStrategy(this.CurrentContext, InstagramHttpContainer.Instance, new TextSpinner());
+				new Thread(() => strategy.Explore()).Start();	
+			}
 		}
 
 		/// <summary>

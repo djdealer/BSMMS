@@ -9,7 +9,7 @@ namespace BSMMS.Core.Extension
 	/// <example>
 	/// TextSpinner.Spin("{The {quick|fast|speedy} brown fox {jumped|leaped|hopped} {over|right over|over the top of} the {lazy|sluggish|care-free|relaxing} dog.|{While|Although} just {taking|having} a{| little| quick} {siesta|nap} the dog was {startled|shocked|surprised} by a {quick|fast|speedy} {brown|dark brown|brownish} fox that {leaped|jumped} right {over|over the top of} him.}");
 	/// </example>
-	public class TextSpinner
+	public class TextSpinner : ITextSpinner
 	{
 		private readonly ILog log = LogManager.GetLogger(typeof(TextSpinner));
 		public IRandomizer randomizer = Randomizer.Instance;

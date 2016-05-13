@@ -148,7 +148,7 @@
       <Project>{BACC9997-4768-4D76-8CD2-8EB4C5A35B52}</Project>
       <Name>BSMMS.Control</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BSMMS.Library\BSMMS.Core.csproj">
+    <ProjectReference Include="..\BSMMS.Core\BSMMS.Core.csproj">
       <Project>{8db5be3e-982a-4994-84f4-32adde1c6d5a}</Project>
       <Name>BSMMS.Core</Name>
     </ProjectReference>
