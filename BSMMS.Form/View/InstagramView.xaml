@@ -24,11 +24,15 @@
                 <control:GridLayout.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </control:GridLayout.ColumnDefinitions>
                 <Button Name="BtnStart" Grid.Row="0" Grid.Column="0" Command="{Binding StartProcessCommand}" IsEnabled="{Binding StartCommandEnabled}">
                     <Image Source="{Binding StartButtonImage}"></Image>
                 </Button>
-                <Button Name="BtnStop" Grid.Row="0" Grid.Column="1" Command="{Binding StopProcessCommand}" IsEnabled="{Binding StopCommandEndabled}">
+                <Button Name="BtnPause" Grid.Row="0" Grid.Column="1" Command="{Binding PauseProcessCommand}" IsEnabled="{Binding PauseCommandEndabled}">
+                    <Image Source="{Binding PauseButtonImage}"></Image>
+                </Button>
+                <Button Name="BtnStop" Grid.Row="0" Grid.Column="2" Command="{Binding StopProcessCommand}" IsEnabled="{Binding StopCommandEndabled}">
                     <Image Source="{Binding StopButtonImage}"></Image>
                 </Button>
             </control:GridLayout>

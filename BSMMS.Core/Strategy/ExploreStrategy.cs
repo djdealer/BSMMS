@@ -77,9 +77,8 @@ namespace BSMMS.Core.Strategy
 			foreach (var keyword in this.CurrentContext.Keywords.Split('|'))
 			{
 				this.log.Info("Working on keyword: " + keyword);
-				if (this.CurrentContext.ProcessState == ProcessState.Stopped)
+				if (this.ProcessStopped())
 				{
-					this.log.Info("Stop request.");
 					return;
 				}
 
@@ -100,9 +99,8 @@ namespace BSMMS.Core.Strategy
 				{
 					this.log.Info("Working on image: " + node.code.ToString());
 
-					if (this.CurrentContext.ProcessState == ProcessState.Stopped)
+					if (this.ProcessStopped())
 					{
-						this.log.Info("Stop request.");
 						return;
 					}
 
@@ -134,9 +132,8 @@ namespace BSMMS.Core.Strategy
 						{
 							this.log.Info("Working on image: " + node.code.ToString());
 
-							if (this.CurrentContext.ProcessState == ProcessState.Stopped)
+							if (this.ProcessStopped())
 							{
-								this.log.Info("Stop request.");
 								return;
 							}
 
@@ -149,9 +146,8 @@ namespace BSMMS.Core.Strategy
 							Thread.Sleep(this.GetRandomTimeout());
 						}
 
-						if (this.CurrentContext.ProcessState == ProcessState.Stopped)
+						if (this.ProcessStopped())
 						{
-							this.log.Info("Stop request.");
 							return;
 						}
 
@@ -270,6 +266,33 @@ namespace BSMMS.Core.Strategy
 				ThreadDispatcher.Invoke(() => this.CurrentContext.Comment = false);
 				this.log.Error(ex.Message);
 			}
+		}
+
+		/// <summary>
+		/// Checks, if the process was stopped or paused.
+		/// Pause will hold on, stop will return true;
+		/// </summary>
+		/// <returns>True, if stop request was given.</returns>
+		private bool ProcessStopped()
+		{
+			while (this.CurrentContext.ProcessState == ProcessState.Paused)
+			{
+				if (this.CurrentContext.ProcessState == ProcessState.Stopped)
+				{
+					this.log.Info("Stop request.");
+					return true;
+				}
+
+				Thread.Sleep(100);
+			}
+
+			if (this.CurrentContext.ProcessState == ProcessState.Stopped)
+			{
+				this.log.Info("Stop request.");
+				return true;
+			}
+
+			return false;
 		}
 
 		/// <summary>

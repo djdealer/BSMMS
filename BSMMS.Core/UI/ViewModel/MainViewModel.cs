@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using BSMMS.Core.Context;
+using BSMMS.Core.Enum;
 using BSMMS.Core.Extension;
 using BSMMS.Core.UI.Command;
 
@@ -59,8 +60,16 @@ namespace BSMMS.Core.UI.ViewModel
 		/// </value>
 		public string InstagramProgressBulb
 		{
-			get { return this.InstagramProcessRunning ? @"..\Images\green_light.png" : @"..\Images\red_light.png"; }
+			get
+			{
+				return this.InstagramProcessRunning && this.InstagramVM != null && this.InstagramVM.ProcessState != ProcessState.Paused 
+				  ? @"..\Images\green_light.png"
+				  : this.InstagramVM != null && this.InstagramVM.ProcessState == ProcessState.Paused
+					  ? @"..\Images\yellow_light.png"
+					  : @"..\Images\red_light.png";
+			}
 		}
+		
 
 		/// <summary>
 		/// Gets a value indicating whether instagram process is running.

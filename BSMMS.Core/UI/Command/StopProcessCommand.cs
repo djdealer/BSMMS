@@ -27,7 +27,7 @@ namespace BSMMS.Core.UI.Command
 		/// <returns>True if execution is allowed, false otherwise.</returns>
 		protected internal override bool EvaluateCanExecute()
 		{
-			return this.CurrentContext.ProcessState == ProcessState.Running;
+			return this.CurrentContext.ProcessState == ProcessState.Running || this.CurrentContext.ProcessState == ProcessState.Paused;
 		}
 	}
 }

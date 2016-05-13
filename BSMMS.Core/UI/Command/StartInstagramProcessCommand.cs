@@ -23,6 +23,13 @@ namespace BSMMS.Core.UI.Command
 		/// <exception cref="InstagramException">An error occured during login!</exception>
 		public override void Execute(object obj)
 		{
+			// if paused only, just resume.
+			if (this.CurrentContext.ProcessState == ProcessState.Paused)
+			{
+				this.CurrentContext.ProcessState = ProcessState.Running;
+				return;
+			}
+
 			if (this.CurrentContext.Unfollow)
 			{
 				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);

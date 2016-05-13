@@ -77,6 +77,7 @@
     <Compile Include="UI\Command\IContextCommand.cs" />
     <Compile Include="UI\Command\InfoCommand.cs" />
     <Compile Include="UI\Command\InstagramWindowCommand.cs" />
+    <Compile Include="UI\Command\PauseProcessCommand.cs" />
     <Compile Include="UI\Command\StartInstagramProcessCommand.cs" />
     <Compile Include="UI\Command\StopProcessCommand.cs" />
     <Compile Include="Factory\IWindowService.cs" />

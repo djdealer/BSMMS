@@ -28,6 +28,7 @@ namespace BSMMS.Core.UI.ViewModel
 		{
 			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartInstagramProcessCommand, IExploreContext>(this);
 			this.StopProcessCommand = this.CoreFactory.CreateContextCommand<StopProcessCommand, IProcessStateContext>(this);
+			this.PauseProcessCommand = this.CoreFactory.CreateContextCommand<PauseProcessCommand, IProcessStateContext>(this);
 		}
 
 		public Action NotifyMainVm { get; set; }
@@ -320,6 +321,14 @@ namespace BSMMS.Core.UI.ViewModel
 		public ICommand StopProcessCommand { get; set; }
 
 		/// <summary>
+		/// Gets or sets the pause process command.
+		/// </summary>
+		/// <value>
+		/// The pause process command.
+		/// </value>
+		public ICommand PauseProcessCommand { get; set; }
+
+		/// <summary>
 		/// Gets the play button image.
 		/// </summary>
 		/// <value>
@@ -342,6 +351,17 @@ namespace BSMMS.Core.UI.ViewModel
 		}
 
 		/// <summary>
+		/// Gets the stop button image.
+		/// </summary>
+		/// <value>
+		/// The stop button image.
+		/// </value>
+		public string PauseButtonImage
+		{
+			get { return this.PauseCommandEndabled ? @"..\Images\pause.png" : @"..\Images\pause_disabled.png"; }
+		}
+
+		/// <summary>
 		/// Gets the progress header bulb.
 		/// </summary>
 		/// <value>
@@ -349,7 +369,14 @@ namespace BSMMS.Core.UI.ViewModel
 		/// </value>
 		public string ProgressHeaderBulb
 		{
-			get { return this.ProcessRunning ? @"..\Images\green_light.png" : @"..\Images\red_light.png"; }
+			get
+			{
+				return this.ProcessRunning && this.ProcessState != ProcessState.Paused 
+					? @"..\Images\green_light.png"
+					: this.ProcessState == ProcessState.Paused 
+						? @"..\Images\yellow_light.png" 
+						: @"..\Images\red_light.png";
+			}
 		}
 
 		/// <summary>
@@ -382,7 +409,7 @@ namespace BSMMS.Core.UI.ViewModel
 		/// <value>
 		///   <c>true</c> if it should marquee; otherwise, <c>false</c>.
 		/// </value>
-		public bool ProcessRunning { get { return this.ProcessState == ProcessState.Running; } }
+		public bool ProcessRunning { get { return this.ProcessState == ProcessState.Running || this.ProcessState == ProcessState.Paused; } }
 
 		/// <summary>
 		/// Gets a value indicating whether the stop command can execute.
@@ -391,6 +418,7 @@ namespace BSMMS.Core.UI.ViewModel
 		///   <c>true</c> if this command can start; otherwise, <c>false</c>.
 		/// </value>
 		public bool StopCommandEndabled { get { return this.StopProcessCommand.CanExecute(null); } }
+		public bool PauseCommandEndabled { get { return this.PauseProcessCommand.CanExecute(null); } }
 		public bool UserNameEnabled { get { return !this.ProcessRunning; } }
 		public bool PasswordEnabled { get { return !this.ProcessRunning; } }
 		public bool KeywordsEnabled { get { return !this.ProcessRunning; } }
@@ -441,6 +469,8 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("StopCommandEndabled");
 			this.RaisePropertyChanged("StartButtonImage");
 			this.RaisePropertyChanged("StopButtonImage");
+			this.RaisePropertyChanged("PauseButtonImage");
+			this.RaisePropertyChanged("PauseCommandEndabled");
 
 			this.RaisePropertyChanged("UserNameEnabled");
 			this.RaisePropertyChanged("PasswordEnabled");
