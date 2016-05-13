@@ -8,12 +8,12 @@ using BSMMS.Core.Strategy;
 
 namespace BSMMS.Core.UI.Command
 {
-	public class StartProcessCommand : BaseContextCommand<IExploreContext>
+	public class StartInstagramProcessCommand : BaseContextCommand<IExploreContext>
 	{
 		/// <summary>
-		/// Prevents a default instance of the <see cref="StartProcessCommand"/> class from being created.
+		/// Prevents a default instance of the <see cref="StartInstagramProcessCommand"/> class from being created.
 		/// </summary>
-		private StartProcessCommand() { }
+		private StartInstagramProcessCommand() { }
 
 		/// <summary>
 		/// Executes the command scenario.

@@ -26,7 +26,7 @@ namespace BSMMS.Core.UI.ViewModel
 		/// </summary>
 		public override void Init()
 		{
-			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartProcessCommand, IExploreContext>(this);
+			this.StartProcessCommand = this.CoreFactory.CreateContextCommand<StartInstagramProcessCommand, IExploreContext>(this);
 			this.StopProcessCommand = this.CoreFactory.CreateContextCommand<StopProcessCommand, IProcessStateContext>(this);
 		}
 
