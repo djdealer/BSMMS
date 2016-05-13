@@ -5,7 +5,8 @@
         xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
         Title="BRANOVA SMMS" Height="400" Width="600"
         ResizeMode="CanMinimize"
-        Background="WhiteSmoke">
+        Background="WhiteSmoke"
+        Icon="../branova_logo.png.ico">
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" Background="WhiteSmoke">
             <Menu.ItemsPanel>
@@ -32,15 +33,19 @@
             <control:GridLayout.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </control:GridLayout.ColumnDefinitions>
-            <GroupBox Grid.Column="0" Grid.Row="0">
+
+            <!-- Instagram -->
+            <GroupBox Grid.Column="0" Grid.Row="0" Width="100">
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{Binding InstagramProgressBulb}" Margin="0,0,3,0"></Image>
                         <Label Content="Instagram" />
                     </StackPanel>
                 </GroupBox.Header>
-                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto">
+                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <control:GridLayout.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -54,14 +59,16 @@
                     <ProgressBar x:Name="ProgressBarInstagram" IsIndeterminate="{Binding InstagramProcessRunning}" Grid.Column="0" Grid.Row="1" Height="15" />
                 </control:GridLayout>
             </GroupBox>
-            <GroupBox Grid.Column="1" Grid.Row="0">
+            
+            <!-- Twitter -->
+            <GroupBox Grid.Column="1" Grid.Row="0" Width="100">
                 <GroupBox.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="{Binding TwitterProgressBulb}" Margin="0,0,3,0"></Image>
                         <Label Content="Twitter" />
                     </StackPanel>
                 </GroupBox.Header>
-                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto">
+                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <control:GridLayout.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -70,9 +77,55 @@
                         <ColumnDefinition Width="Auto" />
                     </control:GridLayout.ColumnDefinitions>
                     <Button Name="BtnOpenTwitter" Grid.Column="0" Grid.Row="0" Command="" IsEnabled="False">
-                        <Image Source="../Images/social_icons/Circle Color/Twitter.png" Width="50" Height="Auto"></Image>
+                        <Image Source="../Images/social_icons/Circle Grey/Twitter.png" Width="50" Height="Auto"></Image>
                     </Button>
                     <ProgressBar x:Name="ProgressBarTwitter" IsIndeterminate="False" Grid.Column="0" Grid.Row="1" Height="15" />
+                </control:GridLayout>
+            </GroupBox>
+
+            <!-- Facebook -->
+            <GroupBox Grid.Column="2" Grid.Row="0" Width="100">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding FacebookProgressBulb}" Margin="0,0,3,0"></Image>
+                        <Label Content="Facebook" />
+                    </StackPanel>
+                </GroupBox.Header>
+                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <control:GridLayout.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </control:GridLayout.RowDefinitions>
+                    <control:GridLayout.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </control:GridLayout.ColumnDefinitions>
+                    <Button Name="BtnOpenFacebook" Grid.Column="0" Grid.Row="0" Command="" IsEnabled="False">
+                        <Image Source="../Images/social_icons/Circle Grey/Facebook.png" Width="50" Height="Auto"></Image>
+                    </Button>
+                    <ProgressBar x:Name="ProgressBarFacebook" IsIndeterminate="False" Grid.Column="0" Grid.Row="1" Height="15" />
+                </control:GridLayout>
+            </GroupBox>
+
+            <!-- Tumblr -->
+            <GroupBox Grid.Column="3" Grid.Row="0" Width="100">
+                <GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding TumblrProgressBulb}" Margin="0,0,3,0"></Image>
+                        <Label Content="Tumblr" />
+                    </StackPanel>
+                </GroupBox.Header>
+                <control:GridLayout Margin="5" ChildMargin="5" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <control:GridLayout.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </control:GridLayout.RowDefinitions>
+                    <control:GridLayout.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </control:GridLayout.ColumnDefinitions>
+                    <Button Name="BtnOpenTumblr" Grid.Column="0" Grid.Row="0" Command="" IsEnabled="False">
+                        <Image Source="../Images/social_icons/Circle Grey/Tumblr.png" Width="50" Height="Auto"></Image>
+                    </Button>
+                    <ProgressBar x:Name="ProgressBarTumblr" IsIndeterminate="False" Grid.Column="0" Grid.Row="1" Height="15" />
                 </control:GridLayout>
             </GroupBox>
         </control:GridLayout>

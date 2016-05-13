@@ -98,5 +98,35 @@ namespace BSMMS.Core.UI.ViewModel
 		}
 
 		#endregion
+
+		#region facebook
+
+		/// <summary>
+		/// Gets the facebook progress bulb.
+		/// </summary>
+		/// <value>
+		/// The facebook progress bulb.
+		/// </value>
+		public string FacebookProgressBulb
+		{
+			get { return @"..\Images\red_light.png"; }
+		}
+
+		#endregion
+
+		#region tumblr
+
+		/// <summary>
+		/// Gets the tumblr progress bulb.
+		/// </summary>
+		/// <value>
+		/// The tumblr progress bulb.
+		/// </value>
+		public string TumblrProgressBulb
+		{
+			get { return @"..\Images\red_light.png"; }
+		}
+
+		#endregion
 	}
 }

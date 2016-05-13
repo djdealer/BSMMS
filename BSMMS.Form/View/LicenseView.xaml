@@ -4,7 +4,8 @@
         xmlns:control="clr-namespace:BSMMS.Control;assembly=BSMMS.Control"
         xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
         Title="License" Height="500" Width="300"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        Icon="../branova_logo.png.ico">
     <control:GridLayout Margin="5" ChildMargin="5">
         <control:GridLayout.RowDefinitions>
             <RowDefinition Height="Auto" />

@@ -7,7 +7,7 @@
         ResizeMode="CanMinimize"
         Background="WhiteSmoke"
         VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-        Icon="../Polaroid-OneStep-Land-Camera-bwocw-2400px.png.ico">
+        Icon="../branova_logo.png.ico">
     <DockPanel LastChildFill="True">
         <StatusBar VerticalAlignment="Bottom" Background="WhiteSmoke" DockPanel.Dock="Bottom">
             <TextBlock Name="TbStatusbarText" Text="{Binding ProcessStateText}" />

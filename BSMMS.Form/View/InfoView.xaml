@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:BSMMS.Core.UI.View;assembly=BSMMS.Core"
         Title="About BRANOVA SMMS" Height="400" Width="300"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanMinimize"
+        Icon="../branova_logo.png.ico">
     <DockPanel LastChildFill="True">
         <Image Source="{Binding ImageSource}" DockPanel.Dock="Top" Height="200" Width="Auto"></Image>
         <Label Content="{Binding InfoText}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" DockPanel.Dock="Bottom"></Label>
