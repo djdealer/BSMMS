@@ -4,6 +4,7 @@
 	{
 		Idle,
 		Stopped,
+		Paused,
 		Running,
 		Error,
 		Finished
