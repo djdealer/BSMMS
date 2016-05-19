@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Context\IInfoContext.cs" />
     <Compile Include="Context\IInstagramContext.cs" />
+    <Compile Include="Context\IVerifyContext.cs" />
     <Compile Include="Exceptions\WrongLicenseKeyException.cs" />
     <Compile Include="Extension\Hashing.cs" />
     <Compile Include="Extension\ILicenseService.cs" />

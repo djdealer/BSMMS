@@ -15,19 +15,11 @@ namespace BSMMS.Core.Context
 		bool Paging { get; }
 		bool Unfollow { get; }
 		bool UnfollowAll { get; }
+		int MaxPages { get; }
 
 		TimeoutRangeContainer TimeoutRange { get; }
 
 		void UpdateCurrentImage(string imageUrl);
 		void HandleException(Exception ex);
-	}
-
-	public interface IVerifyContext : ICommandContext
-	{
-		string MachineKey { get; set; }
-		string LicenseKey { get; }
-		bool LicenseVerified { get; set; }
-
-		Action CloseAction { get; }
 	}
 }

@@ -31,6 +31,8 @@ namespace BSMMS.Core.Strategy
 
 		private string imageCode, comment, authorId, imageId, csrfToken, referrer;
 
+		private int currentPage = 1;
+
 		#endregion
 
 		/// <summary>
@@ -76,6 +78,8 @@ namespace BSMMS.Core.Strategy
 		{
 			foreach (var keyword in this.CurrentContext.Keywords.Split('|'))
 			{
+				this.currentPage = 1;
+
 				this.log.Info("Working on keyword: " + keyword);
 				if (this.ProcessStopped())
 				{
@@ -113,8 +117,10 @@ namespace BSMMS.Core.Strategy
 					Thread.Sleep(this.GetRandomTimeout());
 				}
 
-				if (this.CurrentContext.Paging && Convert.ToBoolean(dyn.entry_data.TagPage[0].tag.media.page_info.has_next_page))
+				if (this.CurrentContext.Paging && this.currentPage < this.CurrentContext.MaxPages && Convert.ToBoolean(dyn.entry_data.TagPage[0].tag.media.page_info.has_next_page))
 				{
+					this.currentPage++;
+
 					var postData = PageQueryPostString.Replace("%0%", keyword)
 					.Replace("%1%", dyn.entry_data.TagPage[0].tag.media.page_info.end_cursor.ToString());
 
@@ -152,6 +158,8 @@ namespace BSMMS.Core.Strategy
 						}
 
 						Thread.Sleep(this.GetRandomTimeout());
+
+						this.currentPage++;
 
 						postData = PageQueryPostString.Replace("%0%", keyword)
 							.Replace("%1%", dyn.media.page_info.end_cursor.ToString());

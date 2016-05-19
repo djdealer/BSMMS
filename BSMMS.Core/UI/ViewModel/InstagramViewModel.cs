@@ -15,6 +15,7 @@ namespace BSMMS.Core.UI.ViewModel
 		private bool like, follow, comment, paging, unfollow, unfollowAll;
 		private int maxTimeout = 100;
 		private int minTimeout = 15;
+		private int maxPages = 2;
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="InstagramViewModel"/> class from being created.
@@ -411,6 +412,18 @@ namespace BSMMS.Core.UI.ViewModel
 		/// </value>
 		public bool ProcessRunning { get { return this.ProcessState == ProcessState.Running || this.ProcessState == ProcessState.Paused; } }
 
+		public int MaxPages
+		{
+			get { return maxPages; }
+			set
+			{
+				maxPages = value; 
+				this.RaiseAllChanged();
+			}
+		}
+
+		public string MaxPagesLabelText { get { return "Maximum Pages: (" + this.MaxPages + ")"; } }
+
 		/// <summary>
 		/// Gets a value indicating whether the stop command can execute.
 		/// </summary>
@@ -423,6 +436,7 @@ namespace BSMMS.Core.UI.ViewModel
 		public bool PasswordEnabled { get { return !this.ProcessRunning; } }
 		public bool KeywordsEnabled { get { return !this.ProcessRunning; } }
 		public bool CommentsEnabled { get { return !this.ProcessRunning; } }
+		public bool MaxPagesEnabled { get { return this.Paging; } }
 
 		/// <summary>
 		/// Updates the current image (thread safe).
@@ -485,6 +499,10 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("Follow");
 			this.RaisePropertyChanged("Comment");
 			this.RaisePropertyChanged("Paging");
+
+			this.RaisePropertyChanged("MaxPages");
+			this.RaisePropertyChanged("MaxPagesEnabled");
+			this.RaisePropertyChanged("MaxPagesLabelText");
 
 			this.RaisePropertyChanged("UnfollowBoxesEnabled");
 
