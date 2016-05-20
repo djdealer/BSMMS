@@ -506,6 +506,8 @@ namespace BSMMS.Core.UI.ViewModel
 
 			this.RaisePropertyChanged("UnfollowBoxesEnabled");
 
+			this.RaisePropertyChanged("CurrentImage");
+
 			if (this.NotifyMainVm != null)
 			{
 				this.NotifyMainVm();

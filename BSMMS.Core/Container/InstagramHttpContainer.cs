@@ -150,7 +150,7 @@ namespace BSMMS.Core.Container
 					throw new Exception("Something went wrong with login page! Please try again later.");
 				}
 
-				var csrfToken = Regex.Match(loginPage, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
+				var csrfToken = Regex.Match(loginPage.Replace(" ", string.Empty), "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
 
 				userName = WebUtility.UrlEncode(userName);
 				password = WebUtility.UrlEncode(password);

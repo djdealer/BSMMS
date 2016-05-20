@@ -35,7 +35,7 @@ namespace BSMMS.Core.UI.Command
 				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
 				new Thread(() => strategy.Unfollow(false)).Start();
 			}
-			if (this.CurrentContext.UnfollowAll)
+			else if (this.CurrentContext.UnfollowAll)
 			{
 				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
 				new Thread(() => strategy.Unfollow(true)).Start();
@@ -53,11 +53,12 @@ namespace BSMMS.Core.UI.Command
 		/// <returns>True if execution is allowed, false otherwise.</returns>
 		protected internal override bool EvaluateCanExecute()
 		{
-			return !string.IsNullOrEmpty(this.CurrentContext.UserName) &&
-				 !string.IsNullOrEmpty(this.CurrentContext.Password) &&
-					  !string.IsNullOrEmpty(this.CurrentContext.Keywords) &&
-					  this.CurrentContext.ProcessState != ProcessState.Running &&
-						(this.CurrentContext.Like || this.CurrentContext.Follow || this.CurrentContext.Comment);
+			return (!string.IsNullOrEmpty(this.CurrentContext.UserName) &&
+			        !string.IsNullOrEmpty(this.CurrentContext.Password) &&
+			        !string.IsNullOrEmpty(this.CurrentContext.Keywords) &&
+			        this.CurrentContext.ProcessState != ProcessState.Running &&
+			        (this.CurrentContext.Like || this.CurrentContext.Follow || this.CurrentContext.Comment)) ||
+			       this.CurrentContext.UnfollowAll || this.CurrentContext.Unfollow;
 		}
 	}
 }

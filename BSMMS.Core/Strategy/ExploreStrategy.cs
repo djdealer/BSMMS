@@ -194,7 +194,7 @@ namespace BSMMS.Core.Strategy
 				}
 
 				var mediaJson = Regex.Matches(detailResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1].Value;
-				this.csrfToken = Regex.Match(detailResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
+				this.csrfToken = Regex.Match(detailResponse.Replace(" ", string.Empty), "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
 
 				dynamic dyn = JsonConvert.DeserializeObject(mediaJson);
 				dynamic dynMedia = JsonConvert.DeserializeObject(dyn.entry_data.PostPage[0].ToString());

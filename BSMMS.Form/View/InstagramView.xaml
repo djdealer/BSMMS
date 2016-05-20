@@ -97,7 +97,7 @@
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="{Binding ProgressHeaderBulb}" Margin="0,0,3,0" />
-                            <TextBlock Text="Crawling Details" />
+                            <TextBlock Text="Process Details" />
                         </StackPanel>
                     </TabItem.Header>
                     <control:GridLayout Margin="5" ChildMargin="5">
