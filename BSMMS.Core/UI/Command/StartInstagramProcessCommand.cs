@@ -32,17 +32,17 @@ namespace BSMMS.Core.UI.Command
 
 			if (this.CurrentContext.Unfollow)
 			{
-				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
+				var strategy = new InstagramUnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
 				new Thread(() => strategy.Unfollow(false)).Start();
 			}
 			else if (this.CurrentContext.UnfollowAll)
 			{
-				var strategy = new UnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
+				var strategy = new InstagramUnfollowStrategy(this.CurrentContext, InstagramHttpContainer.Instance);
 				new Thread(() => strategy.Unfollow(true)).Start();
 			}
 			else
 			{
-				var strategy = new ExploreStrategy(this.CurrentContext, InstagramHttpContainer.Instance, new TextSpinner());
+				var strategy = new InstagramExploreStrategy(this.CurrentContext, InstagramHttpContainer.Instance, new TextSpinner());
 				new Thread(() => strategy.Explore()).Start();	
 			}
 		}

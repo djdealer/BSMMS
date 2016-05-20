@@ -11,11 +11,11 @@ using Newtonsoft.Json;
 
 namespace BSMMS.Core.Strategy
 {
-	public class ExploreStrategy : BaseContextStrategy<IExploreContext>
+	public class InstagramExploreStrategy : BaseContextStrategy<IExploreContext>
 	{
 		#region private members
 
-		private readonly ILog log = LogManager.GetLogger(typeof(ExploreStrategy));
+		private readonly ILog log = LogManager.GetLogger(typeof(InstagramExploreStrategy));
 
 		private const string ExploreUri = @"https://www.instagram.com/explore/tags/{0}/";
 		private const string DetailUri = @"https://www.instagram.com/p/{0}/";
@@ -36,12 +36,12 @@ namespace BSMMS.Core.Strategy
 		#endregion
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ExploreStrategy" /> class.
+		/// Initializes a new instance of the <see cref="InstagramExploreStrategy" /> class.
 		/// </summary>
 		/// <param name="context">The context.</param>
 		/// <param name="httpContainer">The HTTP container.</param>
 		/// <param name="spinner">The spinner.</param>
-		public ExploreStrategy(IExploreContext context, IInstagramHttpContainer httpContainer, ITextSpinner spinner) : base(context)
+		public InstagramExploreStrategy(IExploreContext context, IInstagramHttpContainer httpContainer, ITextSpinner spinner) : base(context)
 		{
 			this.rnd = Randomizer.Instance;
 			this.httpContainer = httpContainer;

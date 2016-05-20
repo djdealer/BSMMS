@@ -11,9 +11,9 @@ using Newtonsoft.Json;
 
 namespace BSMMS.Core.Strategy
 {
-	public class UnfollowStrategy : BaseContextStrategy<IExploreContext>
+	public class InstagramUnfollowStrategy : BaseContextStrategy<IExploreContext>
 	{
-		private readonly ILog log = LogManager.GetLogger(typeof(UnfollowStrategy));
+		private readonly ILog log = LogManager.GetLogger(typeof(InstagramUnfollowStrategy));
 
 		private readonly IRandomizer rnd;
 
@@ -28,7 +28,7 @@ namespace BSMMS.Core.Strategy
 		private string csrfToken, userId;
 		private string referrer;
 
-		public UnfollowStrategy(IExploreContext context, IInstagramHttpContainer httpContainer)
+		public InstagramUnfollowStrategy(IExploreContext context, IInstagramHttpContainer httpContainer)
 			: base(context)
 		{
 			this.httpContainer = httpContainer;

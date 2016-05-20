@@ -72,8 +72,8 @@
     <Compile Include="Extension\RegistryUtils.cs" />
     <Compile Include="Factory\CustomActivator.cs" />
     <Compile Include="Strategy\BaseContextStrategy.cs" />
-    <Compile Include="Strategy\ExploreStrategy.cs" />
-    <Compile Include="Strategy\UnfollowStrategy.cs" />
+    <Compile Include="Strategy\InstagramExploreStrategy.cs" />
+    <Compile Include="Strategy\InstagramUnfollowStrategy.cs" />
     <Compile Include="UI\Command\BaseContextCommand.cs" />
     <Compile Include="UI\Command\IContextCommand.cs" />
     <Compile Include="UI\Command\InfoCommand.cs" />
