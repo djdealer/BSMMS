@@ -155,9 +155,9 @@ namespace BSMMS.Core.Strategy
 			var userprofileJson = Regex.Matches(userResp, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1].Value;
 			dynamic userDyn = JsonConvert.DeserializeObject(userprofileJson);
 			dynamic userDynPage = JsonConvert.DeserializeObject(userDyn.entry_data.ProfilePage[0].ToString());
-			var follows = Convert.ToBoolean(userDynPage.follows_viewer);
+			var follows = Convert.ToBoolean(userDynPage.user.follows_viewer.ToString());
 
-			this.log.Info("User " + userName + "follows: " + follows);
+			this.log.Info("User " + userName + " follows: " + follows);
 
 			return follows;
 		}
