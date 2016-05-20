@@ -127,7 +127,10 @@ namespace BSMMS.Core.Strategy
 					{
 						return;
 					}
-				} 
+				}
+
+				this.log.Info("Finished.");
+				ThreadDispatcher.Invoke(() => this.CurrentContext.ProcessState = ProcessState.Finished);
 			}
 			catch (Exception ex)
 			{
