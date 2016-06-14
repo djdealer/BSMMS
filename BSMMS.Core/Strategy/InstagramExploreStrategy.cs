@@ -95,7 +95,7 @@ namespace BSMMS.Core.Strategy
 				var mediaJson =
 					Regex.Matches(exploreResponse, "<script type=\"text/javascript\">window._sharedData =(.*?);</script>")[0].Groups[1]
 						.Value;
-				var keywordCsrf = Regex.Match(exploreResponse, "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
+				var keywordCsrf = Regex.Match(exploreResponse.Replace(" ", string.Empty), "\"csrf_token\":\"(\\w+)\"").Groups[1].Value;
 
 				dynamic dyn = JsonConvert.DeserializeObject(mediaJson);
 

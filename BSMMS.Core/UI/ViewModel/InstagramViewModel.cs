@@ -490,7 +490,9 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("PasswordEnabled");
 			this.RaisePropertyChanged("KeywordsEnabled");
 			this.RaisePropertyChanged("CommentsEnabled");
-			this.RaisePropertyChanged("MinTimeout");
+            this.RaisePropertyChanged("CommentBoxEnabled"); 
+
+            this.RaisePropertyChanged("MinTimeout");
 			this.RaisePropertyChanged("MaxTimeout");
 
 			this.RaisePropertyChanged("UnfollowAll");
@@ -507,8 +509,9 @@ namespace BSMMS.Core.UI.ViewModel
 			this.RaisePropertyChanged("UnfollowBoxesEnabled");
 
 			this.RaisePropertyChanged("CurrentImage");
+            this.RaisePropertyChanged("CommentString");
 
-			if (this.NotifyMainVm != null)
+            if (this.NotifyMainVm != null)
 			{
 				this.NotifyMainVm();
 			}
