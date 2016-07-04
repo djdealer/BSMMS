@@ -210,21 +210,21 @@ namespace BSMMS.Core.Strategy
 
 				var random = this.rnd.Generate(0, 1000);
 
-				if (this.CurrentContext.Follow && ((random > 0 && random < 333) || (random > 666)) && !followed && !requested)
-				{
-					Thread.Sleep(this.GetRandomTimeout());
-					this.log.Info("Following user id: " + this.authorId);
-					this.FollowItemAuthor();
-				}
-
-				if (this.CurrentContext.Like && random > 666 && !liked)
+				if (this.CurrentContext.Like && !liked)
 				{
 					Thread.Sleep(this.GetRandomTimeout());
 					this.log.Info("Liking image id: " + this.imageId);
 					this.LikeItem();
 				}
 
-				if (this.CurrentContext.Comment && !isOwnImage && random > 333 && random < 666 && !commented)
+                if (this.CurrentContext.Follow && !followed && !requested)
+                {
+                    Thread.Sleep(this.GetRandomTimeout());
+                    this.log.Info("Following user id: " + this.authorId);
+                    this.FollowItemAuthor();
+                }
+
+                if (this.CurrentContext.Comment && !isOwnImage && random > 333 && random < 666 && !commented)
 				{
 					Thread.Sleep(this.GetRandomTimeout());
 
