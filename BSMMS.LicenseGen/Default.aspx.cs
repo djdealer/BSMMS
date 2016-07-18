@@ -52,7 +52,7 @@ namespace BSMMS.LicenseGen
 	            return string.Empty;
 	        }
 
-	        var licenseServer = new LicenceServer();
+	        var licenseServer = new LicenseServer();
 	        return licenseServer.GenerateLicenceKey(machineKey.GetHashCode());
 	    }
 

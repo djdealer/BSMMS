@@ -3,7 +3,7 @@ using AppSoftware.LicenceEngine.KeyGenerator;
 
 namespace BSMMS.LicenseGen
 {
-    public class LicenceServer
+    public class LicenseServer
     {
         public string GenerateLicenceKey(int userId)
         {
