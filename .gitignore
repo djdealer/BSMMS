@@ -1,0 +1,13 @@
+*.suo
+/BSMMS.Control/bin/Debug
+/BSMMS.Control/obj/Debug
+/BSMMS.Core/bin/Debug
+/BSMMS.Core/obj/Debug
+/BSMMS.Form/bin/Debug
+/BSMMS.Form/obj/Debug
+/BSMMS.LicenseGen/bin
+/BSMMS.LicenseGen/obj/Debug
+/BSMMS.Persister/bin/Debug
+/BSMMS.Persister/obj/Debug
+/BSMMS.Test/bin/Debug
+/BSMMS.Test/obj/Debug
