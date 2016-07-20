@@ -1,4 +1,3 @@
-# BSMMS
-BRANOVA Social Media Marketing Suite
+# BRANOVA Social Media Marketing Suite
 
-A tool, which will automate your social media marketing.
+BSMMS is a tool, which will help you to reach your goals in social media faster.
